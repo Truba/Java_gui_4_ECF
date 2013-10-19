@@ -1,6 +1,5 @@
 package hr.fer.zemris.ecfxml;
 
-import java.security.InvalidParameterException;
 import java.util.List;
 
 
@@ -14,7 +13,7 @@ public class EcfXmlBuilder {
 	
 	public EcfXmlBuilder(IAlgorithm algorithm, List<IGenotype> genotypList, List<IRegistry> registryList) {
 		if (genotypList == null || genotypList.get(0) == null){
-			throw new InvalidParameterException("No genotyp found");
+			throw new IllegalArgumentException("No genotyp found");
 		}
 		this.algorithm = algorithm;
 		this.genotypList = genotypList;
