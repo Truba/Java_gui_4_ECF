@@ -25,4 +25,17 @@ public class CmdTalk implements ITalk{
 		}
 	}
 
+	@Override
+	public void write(String partition, String path, String command) {
+		Runtime rt = Runtime.getRuntime();
+		try {			
+			rt.exec("cmd.exe /c "+partition+" & cd \""+path+"\" & cmd.exe /k \""+command+"\"");			
+			
+		} catch (IOException e) {
+			System.err.println("Problem with writing to cmd.");
+			e.printStackTrace();
+		}
+		
+	}
+
 }

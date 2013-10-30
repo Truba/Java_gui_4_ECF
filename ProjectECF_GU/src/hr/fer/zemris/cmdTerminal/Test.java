@@ -17,7 +17,8 @@ public class Test {
 		if(osName == DetectOS.LINUX){
 			cmd = new TerminalTalk();
 		}
-		cmd.write("lib","java -jar mythsim-3.1.1.jar");
+		//cmd.write("lib","java -jar mythsim-3.1.1.jar");
+		cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
 
 	}
 

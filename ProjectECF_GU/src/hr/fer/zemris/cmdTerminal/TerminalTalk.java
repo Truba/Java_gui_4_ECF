@@ -19,4 +19,10 @@ public class TerminalTalk implements ITalk {
 
 	}
 
+	@Override
+	public void write(String partition, String path, String command) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
