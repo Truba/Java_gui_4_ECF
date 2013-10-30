@@ -7,9 +7,17 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		DetectOS os = new DetectOS();
-		System.out.println(os.getOS());
+		int osName = os.getOS();
+		System.out.println(osName);
 		
-		CmdTalk.write("lib","java -jar mythsim-3.1.1.jar");
+		ITalk cmd = null;
+		if(osName == DetectOS.WINDOWS){
+			cmd = new CmdTalk();
+		}
+		if(osName == DetectOS.LINUX){
+			cmd = new TerminalTalk();
+		}
+		cmd.write("lib","java -jar mythsim-3.1.1.jar");
 
 	}
 

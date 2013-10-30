@@ -2,9 +2,9 @@ package hr.fer.zemris.cmdTerminal;
 
 import java.io.IOException;
 
-public class CmdTalk {
+public class CmdTalk implements ITalk{
 	
-	public static void write(String path, String command){
+	public void write(String path, String command){
 		Runtime rt = Runtime.getRuntime();
 		try {
 			//MY TESTING
