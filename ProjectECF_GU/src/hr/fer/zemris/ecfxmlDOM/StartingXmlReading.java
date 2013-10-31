@@ -1,5 +1,11 @@
 package hr.fer.zemris.ecfxmlDOM;
 
+import hr.fer.zemris.parameters.AlgGenRegList;
+import hr.fer.zemris.parameters.Algorithm;
+import hr.fer.zemris.parameters.Entry;
+import hr.fer.zemris.parameters.Genotype;
+import hr.fer.zemris.parameters.Registry;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -14,16 +20,19 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class StartingXmlReading {
+	
+	private static AlgGenRegList agrList;
 
 
-	public static void read(String file) {
+	public static AlgGenRegList read(String file) {
+		agrList = new AlgGenRegList();
 		try {
 			reading(file);
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			System.err.println("Error ocured while trying to gather initial data given by ECF in xml form.");
 			e.printStackTrace();
 		}
-		
+		return agrList;
 		
 	}
 
@@ -33,9 +42,7 @@ public class StartingXmlReading {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);		
 		doc.getDocumentElement().normalize();
-		 
-		//System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-		
+				
 		NodeList ecf = doc.getChildNodes();
 		Node tempNode = ecf.item(0);
 		NodeList algGenReg = tempNode.getChildNodes();
@@ -64,13 +71,18 @@ public class StartingXmlReading {
 
 	private static void registry(Node item) {
 		NodeList registries = item.getChildNodes();
-		
+		agrList.registry = new Registry();
 		for(int i=0; i<registries.getLength(); i++){
 			Node param = registries.item(i);
 			
 			if (param.getNodeType() == Node.ELEMENT_NODE) {
-				System.out.print("Node Atribute =" + ((Element) param).getAttribute("key"));
-				System.out.println("   Node Value =" + param.getTextContent());
+				Entry entry = new Entry();
+				entry.key = ((Element) param).getAttribute("key");
+				entry.desc = ((Element) param).getAttribute("desc");
+				entry.value = param.getTextContent();
+				agrList.registry.getEntryList().add(entry);
+				System.out.print("Node Atribute =" +entry.key +" "+entry.desc);
+				System.out.println("   Node Value =" + entry.value);
 			}
 		}
 		
@@ -83,7 +95,9 @@ public class StartingXmlReading {
 			Node genotype = genotypes.item(j);
 			
 			if (genotype.getNodeType() == Node.ELEMENT_NODE) {
-				System.out.println(genotype.getNodeName());
+				Genotype gen = new Genotype(genotype.getNodeName());
+				
+				System.out.println(gen.getName());
 				
 				NodeList genotypeParams = genotype.getChildNodes();
 				
@@ -91,10 +105,16 @@ public class StartingXmlReading {
 					Node param = genotypeParams.item(i);
 					
 					if (param.getNodeType() == Node.ELEMENT_NODE) {
-						System.out.print("Node Atribute =" + ((Element) param).getAttribute("key"));
-						System.out.println("   Node Value =" + param.getTextContent());
+						Entry entry = new Entry();
+						entry.key = ((Element) param).getAttribute("key");
+						entry.desc = ((Element) param).getAttribute("desc");
+						entry.value = param.getTextContent();
+						gen.getEntryList().add(entry);
+						System.out.print("Node Atribute =" + entry.key+" "+entry.desc);
+						System.out.println("   Node Value =" + entry.value);
 					}
 				}
+			agrList.genotypes.add(gen);
 			}
 		}
 	}
@@ -106,7 +126,8 @@ public class StartingXmlReading {
 			Node algorithm = algorithms.item(j);
 			
 			if (algorithm.getNodeType() == Node.ELEMENT_NODE) {
-				System.out.println(algorithm.getNodeName());
+				Algorithm alg = new Algorithm(algorithm.getNodeName());
+				System.out.println(alg.getName());
 				
 				NodeList algorithmParams = algorithm.getChildNodes();	
 				
@@ -114,10 +135,16 @@ public class StartingXmlReading {
 					Node param = algorithmParams.item(i);
 					
 					if (param.getNodeType() == Node.ELEMENT_NODE) {
-						System.out.print("Node Atribute =" + ((Element) param).getAttribute("key"));
-						System.out.println("   Node Value =" + param.getTextContent());
+						Entry entry = new Entry();
+						entry.key = ((Element) param).getAttribute("key");
+						entry.desc = ((Element) param).getAttribute("desc");
+						entry.value = param.getTextContent();
+						alg.getEntryList().add(entry);
+						System.out.print("Node Atribute =" + entry.key+" "+entry.desc);
+						System.out.println("   Node Value =" + entry.value);
 					}
 				}
+				agrList.algorithms.add(alg);
 			}
 		}		
 	}
