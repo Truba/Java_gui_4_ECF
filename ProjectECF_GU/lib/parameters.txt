@@ -12,7 +12,7 @@
 
 	<Genotype>
 		<Tree>
-			<Entry key="maxdepth">4</Entry>
+			<Entry key="maxdepth">5</Entry>
 			<Entry key="mindepth">2</Entry>
 			<Entry key="functionset">sin cos + - / *</Entry>
 			<Entry key="terminalset">X</Entry>
