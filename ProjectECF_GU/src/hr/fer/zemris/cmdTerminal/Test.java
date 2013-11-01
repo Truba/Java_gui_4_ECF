@@ -10,7 +10,7 @@ public class Test {
 	 * @param args
 	 * @throws FileNotFoundException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 		DetectOS os = new DetectOS();
 		int osName = os.getOS();
 		System.out.println(osName);
@@ -22,14 +22,28 @@ public class Test {
 		if(osName == DetectOS.LINUX){
 			cmd = new TerminalTalk();
 		}
-		//cmd.write("lib","c.exe>in.txt");
+		
+		cmd.write("lib","c.exe>in.txt");
+		//cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
+		
+		
 		File f = new File("lib/in.txt");
+		while (!f.exists()) {
+			//wait
+		}
+		
 		if(f.exists()) {
-			Scanner s = new Scanner(f);
+			Scanner s = null;
+			try {
+				s = new Scanner(f);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println(s.hasNextLine() ? s.nextLine() : "Fatal error. exe did not write anything to file.");
 			
 		}
-		//cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
+		
 		
 	}
 
