@@ -22,7 +22,7 @@ public class Test {
 		if(osName == DetectOS.LINUX){
 			cmd = new TerminalTalk();
 		}
-		//cmd.write("lib","c.exe>in.txt");
+		cmd.write("lib","c.exe>in.txt");
 		File f = new File("lib/in.txt");
 		if(f.exists()) {
 			Scanner s = new Scanner(f);
