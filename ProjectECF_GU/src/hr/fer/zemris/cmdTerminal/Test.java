@@ -22,11 +22,12 @@ public class Test {
 		if(osName == DetectOS.LINUX){
 			cmd = new TerminalTalk();
 		}
-		cmd.write("lib","c.exe>in.txt");
+		//cmd.write("lib","c.exe>in.txt");
 		File f = new File("lib/in.txt");
 		if(f.exists()) {
 			Scanner s = new Scanner(f);
 			System.out.println(s.hasNextLine() ? s.nextLine() : "Fatal error. exe did not write anything to file.");
+			
 		}
 		//cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
 		
