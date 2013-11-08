@@ -11,6 +11,7 @@ public class TerminalTalk implements ITalk {
 			Runtime.getRuntime().exec("/bin/bash -c cd \""+path+"\" & \""+command+"\"");//if doesn't wort try replace & with | or &&
 			//2 Atempt
 			Process proc = new ProcessBuilder("xterm", "-c", "cd \""+path+"\" & \""+command+"\"").start(); //if doesn't wort try replace & with | or &&
+			
 		} 
 		catch (IOException e) {
 			System.err.println("Problem with writing to linux terminal.");

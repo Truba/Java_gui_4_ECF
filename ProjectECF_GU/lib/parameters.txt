@@ -1,43 +1,25 @@
 <ECF>
-	<Algorithm>	
-		<SteadyStateTournament>
-			<Entry key="tsize">3</Entry>
-		</SteadyStateTournament>
-		
+	<Algorithm>
 		<RouletteWheel>
-			<Entry key="crxprob">0.5</Entry> <!-- crossover rate -->
-			<Entry key="selpressure">10</Entry> <!-- selection pressure: how much is the best individual 'better' than the worst -->
+			<Entry key="crxprob">0.5</Entry> 
+			<Entry key="selpressure">10</Entry> 
 		</RouletteWheel>
 	</Algorithm>
 
 	<Genotype>
-		<Tree>
-			<Entry key="maxdepth">5</Entry>
-			<Entry key="mindepth">2</Entry>
-			<Entry key="functionset">sin cos + - / *</Entry>
-			<Entry key="terminalset">X</Entry>
-		</Tree>
 		<BitString>
-			<Entry key="size">20</Entry> <!-- mandatory -->
-
-			<Entry key="crx.onepoint">1</Entry>
-			<Entry key="crx.uniform">1</Entry>
-			<Entry key="mut.simple">1</Entry>
-			<Entry key="mut.simple.bitprob">0.001</Entry>
-			<Entry key="mut.mix">1</Entry>
+			<Entry key="size">30</Entry>
 		</BitString>
 	</Genotype>
 
 	<Registry>
 		<Entry key="randomizer.seed">0</Entry> 
-		<Entry key="population.size">50</Entry>
-		<Entry key="population.demes">1</Entry>
+		<Entry key="population.size">30</Entry>
 		<Entry key="mutation.indprob">0.3</Entry> 
-		<Entry key="term.stagnation">20</Entry>
+		<Entry key="term.maxgen">10</Entry> 
 		<Entry key="log.level">3</Entry>
 		<Entry key="log.filename">log.txt</Entry>
 		<Entry key="milestone.filename">out.txt</Entry> 
 		<Entry key="milestone.interval">0</Entry> 
 	</Registry>
 </ECF>
-

@@ -23,8 +23,9 @@ public class Test {
                         cmd = new TerminalTalk();
                 }
                 
-                cmd.write("lib","c.exe>in.txt");
+                //cmd.write("lib","c.exe>in.txt");
                 //cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
+                cmd.write("C:/output", "c.exe>lib/in.txt");
                 
                 
                 File f = new File("lib/in.txt");

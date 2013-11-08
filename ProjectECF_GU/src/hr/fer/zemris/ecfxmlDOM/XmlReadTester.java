@@ -17,9 +17,10 @@ public class XmlReadTester {
 		AlgGenRegList agr = sTANKOVIC_NAPRAVI_NESTO_S_OVIM;
 		
 		AlgGenReg4Writing sTANKOVIC_OVO_MI_TREBAS_STVORIT_SA_PARAMETRIMA_KOJE_KORISNIK_IZABERE
-		= new AlgGenReg4Writing(agr.algorithms.get(1), agr.genotypes, agr.registry);
+		= new AlgGenReg4Writing(agr.algorithms.get(0), agr.genotypes, agr.registry);
 		
-		ParamsXmlWriting.write("lib/out.xml",sTANKOVIC_OVO_MI_TREBAS_STVORIT_SA_PARAMETRIMA_KOJE_KORISNIK_IZABERE);
+		ParamsXmlWriting.write("D:/Documents/SVEN/FER/Programiranje"
+				+ "/ECF_1.3/debug/examples/GAonemax/VS/parameters.txt",sTANKOVIC_OVO_MI_TREBAS_STVORIT_SA_PARAMETRIMA_KOJE_KORISNIK_IZABERE);
 
 	}
 

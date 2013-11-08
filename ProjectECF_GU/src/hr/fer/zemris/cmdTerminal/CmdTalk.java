@@ -16,11 +16,26 @@ public class CmdTalk implements ITalk{
 			//rt.exec("cmd.exe /c cd \""+path+"\" & start cmd.exe /k \""+command+"\"");
 			
 			//IF CMD IS NOT TO BEE SEEN:
-			rt.exec("cmd.exe /c cd \""+path+"\" & cmd.exe /k \""+command+"\"");
+			//rt.exec("cmd.exe /c cd \""+path+"\" & cmd.exe /k \""+command+"\"");
+
+			/*
+			 * my new way for executing commands - just concatenate everything into one command 
+			 * also, it's linux style(I mean / sign) so there is no need for escaping \ character
+			 */
 			
+			//rt.exec("cmd.exe /c \""+path+"/"+command+"\"");
+			
+			/**
+			 * Process is created because it has nice waitFor method which waits for c process to end
+			 * and dosen't execute Java code till then.
+			 */
+			Process process = new ProcessBuilder("cmd.exe /c \""+path+"/"+command+"\"").start();
+			process.waitFor();
 			
 		} catch (IOException e) {
 			System.err.println("Problem with writing to cmd.");
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
