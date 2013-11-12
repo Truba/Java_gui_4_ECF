@@ -1,6 +1,7 @@
 package hr.fer.zemris.ecfxmlDOM;
 
 import hr.fer.zemris.parameters.AlgGenReg4Writing;
+import hr.fer.zemris.parameters.Algorithm;
 import hr.fer.zemris.parameters.Entry;
 import hr.fer.zemris.parameters.Genotype;
 
@@ -11,13 +12,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
- 
-import org.w3c.dom.Attr;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -43,13 +42,15 @@ public class ParamsXmlWriting {
 		Element rootElement = doc.createElement("ECF");
 		doc.appendChild(rootElement);
 		
-		Element algorithm = doc.createElement("Algorithm");
-		algorithm(algorithm,doc);
-		rootElement.appendChild(algorithm);
-				
-		Element genotypes = doc.createElement("Genotype");
-		genotype(genotypes,doc);
-		rootElement.appendChild(genotypes);
+		Element algorithms = doc.createElement("Algorithm");
+		algorithm(algorithms,doc);
+		rootElement.appendChild(algorithms);
+			
+		for (List<Genotype> gList : agrw.genotypes){
+			Element genotypes = doc.createElement("Genotype");
+			genotype(genotypes,doc,gList);
+			rootElement.appendChild(genotypes);
+		}
 				
 		Element registry = doc.createElement("Registry");
 		registry(registry,doc);
@@ -59,7 +60,7 @@ public class ParamsXmlWriting {
 		Transformer transformer = transformerFactory.newTransformer();
 		DOMSource source = new DOMSource(doc);
 		StreamResult result = new StreamResult(new File(file));
-		//StreamResult result = new StreamResult(System.out);   For testing.
+		//StreamResult result = new StreamResult(System.out); //  For testing.
 		transformer.transform(source, result);
 		
 	}
@@ -76,8 +77,8 @@ public class ParamsXmlWriting {
 		}
 	}
 
-	private static void genotype(Element genotypes, Document doc) {
-		List<Genotype> gList = agrw.genotypes;
+	private static void genotype(Element genotypes, Document doc, List<Genotype> gList) {
+		
 		for(Genotype genotype : gList) {
 			Element genType = doc.createElement(genotype.getName());
 			
@@ -96,19 +97,24 @@ public class ParamsXmlWriting {
 		
 	}
 
-	private static void algorithm(Element algorithm, Document doc) {
-		Element algType = doc.createElement(agrw.algorithm.getName());
-		List<Entry> eList = agrw.algorithm.getEntryList();
-		for(int i=0; i<eList.size(); i++){
-			Entry e = eList.get(i);
-			Element entry = doc.createElement("Entry");
-			entry.setAttribute("key", e.key);
-			entry.appendChild(doc.createTextNode(e.value));
-			algType.appendChild(entry);
-			
-		}
+	private static void algorithm(Element algorithms, Document doc) {
 		
-		algorithm.appendChild(algType);
+		List<Algorithm> aList = agrw.algorithm;
+		for(Algorithm algorithm : aList){		
+			Element algType = doc.createElement(algorithm.getName());
+			
+			List<Entry> eList = algorithm.getEntryList();
+			for(int i=0; i<eList.size(); i++){
+				Entry e = eList.get(i);
+				Element entry = doc.createElement("Entry");
+				entry.setAttribute("key", e.key);
+				entry.appendChild(doc.createTextNode(e.value));
+				algType.appendChild(entry);
+				
+			}
+			
+			algorithms.appendChild(algType);
+		}
 		
 	}	
 

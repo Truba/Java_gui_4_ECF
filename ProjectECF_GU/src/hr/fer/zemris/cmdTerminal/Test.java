@@ -16,12 +16,23 @@ public class Test {
                 System.out.println(osName);
                 
                 ITalk cmd = null;
-                if(osName == DetectOS.WINDOWS){
-                        cmd = new CmdTalk();
-                }
-                if(osName == DetectOS.LINUX){
-                        cmd = new TerminalTalk();
-                }
+                
+                switch (osName) {
+                
+				case DetectOS.WINDOWS:
+					cmd = new CmdTalk();
+					break;
+					
+				case DetectOS.LINUX:
+					cmd = new TerminalTalk();
+					break;
+
+				default:
+					cmd = new TerminalTalk();
+					break;
+				}
+                
+                
                 
                 //cmd.write("lib","c.exe>in.txt");
                 //cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
