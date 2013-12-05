@@ -1,0 +1,109 @@
+Thu Dec 05 19:18:54 CET 2013
+Configuration file reading failed!
+-----------------------
+Thu Dec 05 19:18:56 CET 2013
+Configuration file reading failed!
+-----------------------
+Thu Dec 05 19:18:59 CET 2013
+Configuration file reading failed!
+-----------------------
+Thu Dec 05 19:19:01 CET 2013
+Configuration file reading failed!
+-----------------------
+Thu Dec 05 19:25:30 CET 2013
+Configuration file reading failed!
+-----------------------
+Thu Dec 05 19:26:10 CET 2013
+Configuration file reading failed!
+[Ljava.lang.StackTraceElement;@23964a8d
+-----------------------
+Thu Dec 05 19:30:26 CET 2013
+Configuration file reading failed!
+hr.fer.zemris.gui.model.conf.impl.PropertyFile.<init>(PropertyFile.java:33)
+hr.fer.zemris.gui.ECFLab.initGUI(ECFLab.java:56)
+hr.fer.zemris.gui.ECFLab.<init>(ECFLab.java:34)
+hr.fer.zemris.gui.ECFLab.startGUIApp(ECFLab.java:89)
+hr.fer.zemris.gui.ECFLab$2.run(ECFLab.java:83)
+java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+java.awt.EventQueue.dispatchEventImpl(EventQueue.java:727)
+java.awt.EventQueue.access$200(EventQueue.java:103)
+java.awt.EventQueue$3.run(EventQueue.java:688)
+java.awt.EventQueue$3.run(EventQueue.java:686)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+java.awt.EventQueue.dispatchEvent(EventQueue.java:697)
+java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+-----------------------
+Thu Dec 05 19:34:36 CET 2013
+Configuration file reading failed!
+hr.fer.zemris.gui.model.conf.impl.PropertyFile.<init>(PropertyFile.java:33)
+hr.fer.zemris.gui.ECFLab.initGUI(ECFLab.java:56)
+hr.fer.zemris.gui.ECFLab.<init>(ECFLab.java:34)
+hr.fer.zemris.gui.ECFLab.startGUIApp(ECFLab.java:89)
+hr.fer.zemris.gui.ECFLab$2.run(ECFLab.java:83)
+java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+java.awt.EventQueue.dispatchEventImpl(EventQueue.java:727)
+java.awt.EventQueue.access$200(EventQueue.java:103)
+java.awt.EventQueue$3.run(EventQueue.java:688)
+java.awt.EventQueue$3.run(EventQueue.java:686)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+java.awt.EventQueue.dispatchEvent(EventQueue.java:697)
+java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+-----------------------
+Thu Dec 05 19:47:00 CET 2013
+res\img\icon\dna_icon.png (The system cannot find the path specified)
+java.io.FileInputStream.open(Native Method)
+java.io.FileInputStream.<init>(FileInputStream.java:138)
+java.io.FileInputStream.<init>(FileInputStream.java:97)
+hr.fer.zemris.gui.ECFLab.<init>(ECFLab.java:43)
+hr.fer.zemris.gui.ECFLab.startGUIApp(ECFLab.java:100)
+hr.fer.zemris.gui.ECFLab$2.run(ECFLab.java:94)
+java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+java.awt.EventQueue.dispatchEventImpl(EventQueue.java:727)
+java.awt.EventQueue.access$200(EventQueue.java:103)
+java.awt.EventQueue$3.run(EventQueue.java:688)
+java.awt.EventQueue$3.run(EventQueue.java:686)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+java.awt.EventQueue.dispatchEvent(EventQueue.java:697)
+java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+-----------------------
+Thu Dec 05 20:21:48 CET 2013
+res\img\icon\dna_icon2.png (The system cannot find the file specified)
+java.io.FileInputStream.open(Native Method)
+java.io.FileInputStream.<init>(FileInputStream.java:138)
+java.io.FileInputStream.<init>(FileInputStream.java:97)
+hr.fer.zemris.gui.ECFLab.<init>(ECFLab.java:43)
+hr.fer.zemris.gui.ECFLab.startGUIApp(ECFLab.java:100)
+hr.fer.zemris.gui.ECFLab$2.run(ECFLab.java:94)
+java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+java.awt.EventQueue.dispatchEventImpl(EventQueue.java:727)
+java.awt.EventQueue.access$200(EventQueue.java:103)
+java.awt.EventQueue$3.run(EventQueue.java:688)
+java.awt.EventQueue$3.run(EventQueue.java:686)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+java.awt.EventQueue.dispatchEvent(EventQueue.java:697)
+java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+-----------------------
