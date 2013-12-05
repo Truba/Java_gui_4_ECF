@@ -89,7 +89,7 @@ public class ECFLab extends JFrame {
 	}
 
 	private void initActions() {
-		
+		// TODO
 	}
 
 	private void initMenuBar() {
