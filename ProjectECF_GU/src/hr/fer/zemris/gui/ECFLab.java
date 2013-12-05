@@ -12,8 +12,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.swing.Action;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -34,6 +37,7 @@ public class ECFLab extends JFrame {
 
 	private IConfiguration configuration;
 	private ILog log;
+	private Map<String, Action> actions = new HashMap<>();
 	private JMenuBar menuBar = new JMenuBar();
 	
 	/**
@@ -78,9 +82,14 @@ public class ECFLab extends JFrame {
 			System.exit(0);
 		}
 		
+		initActions();
 		initMenuBar();
 		
 		// TODO
+	}
+
+	private void initActions() {
+		
 	}
 
 	private void initMenuBar() {
