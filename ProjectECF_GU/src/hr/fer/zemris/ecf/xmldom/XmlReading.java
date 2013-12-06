@@ -1,7 +1,7 @@
 package hr.fer.zemris.ecf.xmldom;
 
-import hr.fer.zemris.ecf.param.AlgGenReg4Writing;
-import hr.fer.zemris.ecf.param.AlgGenRegList;
+import hr.fer.zemris.ecf.param.AlgGenRegUser;
+import hr.fer.zemris.ecf.param.AlgGenRegInit;
 import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.param.Entry;
 import hr.fer.zemris.ecf.param.Genotype;
@@ -24,8 +24,8 @@ import org.xml.sax.SAXException;
 
 public class XmlReading {
 	
-	private static AlgGenRegList agrList;
-	private static AlgGenReg4Writing agr2list;
+	private static AlgGenRegInit agrList;
+	private static AlgGenRegUser agr2list;
 
 
 	/**
@@ -33,8 +33,8 @@ public class XmlReading {
 	 * @param file path to the parameters (.xml) given by ECF
 	 * @return AlgGenRegList class filed with necessary data
 	 */
-	public static AlgGenRegList readInitial(String file) {
-		agrList = new AlgGenRegList();
+	public static AlgGenRegInit readInitial(String file) {
+		agrList = new AlgGenRegInit();
 		try {
 			readingInitial(file);
 		} catch (SAXException | IOException | ParserConfigurationException e) {
@@ -49,8 +49,8 @@ public class XmlReading {
 	 * @param file path to the parameters (.xml)
 	 * @return AlgGenReg4Writing class filed with necessary data
 	 */
-	public static AlgGenReg4Writing readArchive(String file) {
-			agr2list = new AlgGenReg4Writing();
+	public static AlgGenRegUser readArchive(String file) {
+			agr2list = new AlgGenRegUser();
 			try {
 				readingArchive(file);
 			} catch (SAXException | IOException | ParserConfigurationException e) {

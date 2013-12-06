@@ -1,6 +1,6 @@
 package hr.fer.zemris.ecf.xmldom;
 
-import hr.fer.zemris.ecf.param.AlgGenReg4Writing;
+import hr.fer.zemris.ecf.param.AlgGenRegUser;
 import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.param.Entry;
 import hr.fer.zemris.ecf.param.Genotype;
@@ -23,14 +23,14 @@ import org.w3c.dom.Element;
 
 public class XmlWriting {
 	
-	private static AlgGenReg4Writing agrw;
+	private static AlgGenRegUser agrw;
 
 	/**
 	 * This method is used for writing given parameters and user comments to the file.
 	 * @param file path to write parameters to.
 	 * @param agrwGet class filled with needed parameters to give to ECF
 	 */
-	public static void write(String file, AlgGenReg4Writing agrwGet) {
+	public static void write(String file, AlgGenRegUser agrwGet) {
 		agrw = agrwGet;
 		try {
 			writing(file);
