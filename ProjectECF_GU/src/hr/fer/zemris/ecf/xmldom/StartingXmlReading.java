@@ -1,5 +1,6 @@
 package hr.fer.zemris.ecf.xmldom;
 
+import hr.fer.zemris.ecf.param.AlgGenReg4Writing;
 import hr.fer.zemris.ecf.param.AlgGenRegList;
 import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.param.Entry;
@@ -8,6 +9,8 @@ import hr.fer.zemris.ecf.param.Registry;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,21 +25,33 @@ import org.xml.sax.SAXException;
 public class StartingXmlReading {
 	
 	private static AlgGenRegList agrList;
+	private static AlgGenReg4Writing agr2list;
 
 
-	public static AlgGenRegList read(String file) {
+	public static AlgGenRegList readInitial(String file) {
 		agrList = new AlgGenRegList();
 		try {
-			reading(file);
+			readingInitial(file);
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			System.err.println("Error ocured while trying to gather initial data given by ECF in xml form.");
 			e.printStackTrace();
 		}
 		return agrList;
+	}
+		
+		public static AlgGenReg4Writing readArchive(String file) {
+			agr2list = new AlgGenReg4Writing();
+			try {
+				readingArchive(file);
+			} catch (SAXException | IOException | ParserConfigurationException e) {
+				System.err.println("Error ocured while trying to gather initial data given by ECF in xml form.");
+				e.printStackTrace();
+			}
+			return agr2list;
 		
 	}
 
-	private static void reading(String file) throws SAXException, IOException, ParserConfigurationException {
+	private static void readingInitial(String file) throws SAXException, IOException, ParserConfigurationException {
 		File fXmlFile = new File(file);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -50,37 +65,74 @@ public class StartingXmlReading {
 			switch (algGenReg.item(count).getNodeName()) {
 			case "Algorithm":
 				System.out.println("a");
-				algorithm(algGenReg.item(count));
+				algorithm(algGenReg.item(count),agrList.algorithms);
 				break;
 			case "Genotype":
 				System.out.println("g");
-				genotype(algGenReg.item(count));
+				genotype(algGenReg.item(count),agrList.genotypes);
 				break;
 			case "Registry":
 				System.out.println("r");
-				registry(algGenReg.item(count));
+				agrList.registry = new Registry();
+				registry(algGenReg.item(count),agrList.registry);
 				break;
 			default:
 				// No default, for your own good don't write here.
 				break;
 			}
-		} 
+		}
+	} 
+		
+	private static void readingArchive(String file) throws SAXException, IOException, ParserConfigurationException {
+		File fXmlFile = new File(file);
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(fXmlFile);		
+		doc.getDocumentElement().normalize();
+				
+		NodeList ecf = doc.getChildNodes();
+		Node tempNode = ecf.item(0);
+		NodeList algGenReg = tempNode.getChildNodes();
+		for(int count = 0; count < algGenReg.getLength(); count++){
+			switch (algGenReg.item(count).getNodeName()) {
+			case "Algorithm":
+				System.out.println("a");
+				agr2list.algorithm = new ArrayList<>();
+				algorithm(algGenReg.item(count),agr2list.algorithm);
+				break;
+			case "Genotype":
+				System.out.println("g");
+				ArrayList<Genotype> genList = new ArrayList<>(); 
+				genotype(algGenReg.item(count),genList);
+				agr2list.genotypes.add(genList);
+				break;
+			case "Registry":
+				System.out.println("r");
+				agr2list.registry = new Registry();
+				registry(algGenReg.item(count),agr2list.registry);
+				break;
+			default:
+				// No default, for your own good don't write here.
+				break;
+			}
+		}
 		
 		
 	}
 
-	private static void registry(Node item) {
+	
+	
+	private static void registry(Node item, Registry registry) {
 		NodeList registries = item.getChildNodes();
-		agrList.registry = new Registry();
+		
 		for(int i=0; i<registries.getLength(); i++){
-			Node param = registries.item(i);
-			
+			Node param = registries.item(i);			
 			if (param.getNodeType() == Node.ELEMENT_NODE) {
 				Entry entry = new Entry();
 				entry.key = ((Element) param).getAttribute("key");
 				entry.desc = ((Element) param).getAttribute("desc");
 				entry.value = param.getTextContent();
-				agrList.registry.getEntryList().add(entry);
+				registry.getEntryList().add(entry);
 				System.out.print("Node Atribute =" +entry.key +" "+entry.desc);
 				System.out.println("   Node Value =" + entry.value);
 			}
@@ -88,7 +140,7 @@ public class StartingXmlReading {
 		
 	}
 
-	private static void genotype(Node item) {
+	private static void genotype(Node item, List<Genotype> genList) {
 		NodeList genotypes = item.getChildNodes();
 		
 		for(int j=0; j< genotypes.getLength(); j++){
@@ -114,12 +166,12 @@ public class StartingXmlReading {
 						System.out.println("   Node Value =" + entry.value);
 					}
 				}
-			agrList.genotypes.add(gen);
+			genList.add(gen);
 			}
 		}
 	}
 
-	private static void algorithm(Node item) {
+	private static void algorithm(Node item, List<Algorithm> algorithmsList) {
 		NodeList algorithms = item.getChildNodes();
 		
 		for(int j=0; j< algorithms.getLength(); j++){		
@@ -144,7 +196,7 @@ public class StartingXmlReading {
 						System.out.println("   Node Value =" + entry.value);
 					}
 				}
-				agrList.algorithms.add(alg);
+				algorithmsList.add(alg);
 			}
 		}		
 	}
