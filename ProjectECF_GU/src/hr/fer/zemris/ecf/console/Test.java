@@ -1,8 +1,6 @@
 package hr.fer.zemris.ecf.console;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Test {
 
@@ -15,29 +13,29 @@ public class Test {
                 int osName = os.getOS();
                 System.out.println(osName);
                 
-                ITalk cmd = null;
+                ITalk console = null;
                 
                 switch (osName) {
                 
 				case DetectOS.WINDOWS:
-					cmd = new CmdTalk();
+					console = new CmdTalk();
 					break;
 					
 				case DetectOS.LINUX:
-					cmd = new TerminalTalk();
+					console = new TerminalTalk();
 					break;
 
 				default:
-					cmd = new TerminalTalk();
+					console = new TerminalTalk();
 					break;
 				}
                 
                 
                 
-                //cmd.write("lib","c.exe>in.txt");
-                //cmd.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
-                //cmd.write("C:/output", "c.exe>lib/in.txt");
-                cmd.write("lib", "c>lib/in.txt");
+                //console.write("lib","c.exe>in.txt");
+                //console.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
+                //console.write("C:/output", "c.exe>lib/in.txt");
+                console.write("lib", "c>lib/in.txt");
                 
 //                File f = new File("lib/in.txt");
 //                while (!f.exists()) {
