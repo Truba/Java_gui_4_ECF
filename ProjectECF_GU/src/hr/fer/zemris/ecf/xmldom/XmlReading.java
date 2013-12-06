@@ -22,12 +22,17 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class StartingXmlReading {
+public class XmlReading {
 	
 	private static AlgGenRegList agrList;
 	private static AlgGenReg4Writing agr2list;
 
 
+	/**
+	 * This class is used for parsing initial parameters set given by ECF.	
+	 * @param file path to the parameters (.xml) given by ECF
+	 * @return AlgGenRegList class filed with necessary data
+	 */
 	public static AlgGenRegList readInitial(String file) {
 		agrList = new AlgGenRegList();
 		try {
@@ -39,7 +44,12 @@ public class StartingXmlReading {
 		return agrList;
 	}
 		
-		public static AlgGenReg4Writing readArchive(String file) {
+	/**
+	 * This class is used for parsing parameters that was user defined earlier and saved within an archive.
+	 * @param file path to the parameters (.xml)
+	 * @return AlgGenReg4Writing class filed with necessary data
+	 */
+	public static AlgGenReg4Writing readArchive(String file) {
 			agr2list = new AlgGenReg4Writing();
 			try {
 				readingArchive(file);
@@ -50,7 +60,14 @@ public class StartingXmlReading {
 			return agr2list;
 		
 	}
-
+	
+	/**
+	 * This class is used for parsing initial parameters set given by ECF.	
+	 * @param file path to the parameters given by ECF
+	 * @throws SAXException in case of problem
+	 * @throws IOException in case of problem
+	 * @throws ParserConfigurationException in case of problem
+	 */
 	private static void readingInitial(String file) throws SAXException, IOException, ParserConfigurationException {
 		File fXmlFile = new File(file);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -89,9 +106,13 @@ public class StartingXmlReading {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);		
 		doc.getDocumentElement().normalize();
-				
+		
+		Node comment = doc.getChildNodes().item(0);
+		agr2list.userComment = comment.getNodeValue();
+		
 		NodeList ecf = doc.getChildNodes();
-		Node tempNode = ecf.item(0);
+		
+		Node tempNode = ecf.item(1);
 		NodeList algGenReg = tempNode.getChildNodes();
 		for(int count = 0; count < algGenReg.getLength(); count++){
 			switch (algGenReg.item(count).getNodeName()) {

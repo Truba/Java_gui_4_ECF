@@ -17,13 +17,19 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class ParamsXmlWriting {
+public class XmlWriting {
 	
 	private static AlgGenReg4Writing agrw;
 
+	/**
+	 * This method is used for writing given parameters and user comments to the file.
+	 * @param file path to write parameters to.
+	 * @param agrwGet class filled with needed parameters to give to ECF
+	 */
 	public static void write(String file, AlgGenReg4Writing agrwGet) {
 		agrw = agrwGet;
 		try {
@@ -39,6 +45,8 @@ public class ParamsXmlWriting {
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 		
 		Document doc = docBuilder.newDocument();
+		Comment coment = doc.createComment(agrw.getUserComment());
+		doc.appendChild(coment);
 		Element rootElement = doc.createElement("ECF");
 		doc.appendChild(rootElement);
 		

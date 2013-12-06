@@ -10,25 +10,12 @@ public class Test {
          */
         public static void main(String[] args) {
                 DetectOS os = new DetectOS();
-                int osName = os.getOS();
+                int osName = os.getOS_asInt();
                 System.out.println(osName);
                 
-                ITalk console = null;
+                ITalk console = os.getOS_console();
                 
-                switch (osName) {
                 
-				case DetectOS.WINDOWS:
-					console = new CmdTalk();
-					break;
-					
-				case DetectOS.LINUX:
-					console = new TerminalTalk();
-					break;
-
-				default:
-					console = new TerminalTalk();
-					break;
-				}
                 
                 
                 
