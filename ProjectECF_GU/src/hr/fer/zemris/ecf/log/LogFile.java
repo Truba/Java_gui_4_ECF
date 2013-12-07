@@ -10,10 +10,16 @@ public class LogFile {
 	
 	
 	public ArrayList<Generation> generations;
-	public String best;
+	public ArrayList<Individual> hallOfFame;
 	
 	public LogFile(){
-		generations = new ArrayList<>();
+		this.generations=new ArrayList<>();
+		this.hallOfFame=new ArrayList<>();
+	}
+	
+	public LogFile(ArrayList<Generation> generations, ArrayList<Individual> hallOfFame){
+		this.generations=generations;
+		this.hallOfFame=hallOfFame;
 	}
 
 }

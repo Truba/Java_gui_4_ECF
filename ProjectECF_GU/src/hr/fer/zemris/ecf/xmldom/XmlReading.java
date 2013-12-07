@@ -80,15 +80,15 @@ public class XmlReading {
 		for(int count = 0; count < algGenReg.getLength(); count++){
 			switch (algGenReg.item(count).getNodeName()) {
 			case "Algorithm":
-				System.out.println("a");
+//				System.out.println("a");
 				algorithm(algGenReg.item(count),agrList.algorithms);
 				break;
 			case "Genotype":
-				System.out.println("g");
+//				System.out.println("g");
 				genotype(algGenReg.item(count),agrList.genotypes);
 				break;
 			case "Registry":
-				System.out.println("r");
+//				System.out.println("r");
 				agrList.registry = new Registry();
 				registry(algGenReg.item(count),agrList.registry);
 				break;
@@ -116,18 +116,18 @@ public class XmlReading {
 		for(int count = 0; count < algGenReg.getLength(); count++){
 			switch (algGenReg.item(count).getNodeName()) {
 			case "Algorithm":
-				System.out.println("a");
+//				System.out.println("a");
 				agr2list.algorithm = new ArrayList<>();
 				algorithm(algGenReg.item(count),agr2list.algorithm);
 				break;
 			case "Genotype":
-				System.out.println("g");
+//				System.out.println("g");
 				ArrayList<Genotype> genList = new ArrayList<>(); 
 				genotype(algGenReg.item(count),genList);
 				agr2list.genotypes.add(genList);
 				break;
 			case "Registry":
-				System.out.println("r");
+//				System.out.println("r");
 				agr2list.registry = new Registry();
 				registry(algGenReg.item(count),agr2list.registry);
 				break;
@@ -153,8 +153,8 @@ public class XmlReading {
 				entry.desc = ((Element) param).getAttribute("desc");
 				entry.value = param.getTextContent();
 				registry.getEntryList().add(entry);
-				System.out.print("Node Atribute =" +entry.key +" "+entry.desc);
-				System.out.println("   Node Value =" + entry.value);
+//				System.out.print("Node Atribute =" +entry.key +" "+entry.desc);
+//				System.out.println("   Node Value =" + entry.value);
 			}
 		}
 		
@@ -169,7 +169,7 @@ public class XmlReading {
 			if (genotype.getNodeType() == Node.ELEMENT_NODE) {
 				Genotype gen = new Genotype(genotype.getNodeName());
 				
-				System.out.println(gen.getName());
+//				System.out.println(gen.getName());
 				
 				NodeList genotypeParams = genotype.getChildNodes();
 				
@@ -182,8 +182,8 @@ public class XmlReading {
 						entry.desc = ((Element) param).getAttribute("desc");
 						entry.value = param.getTextContent();
 						gen.getEntryList().add(entry);
-						System.out.print("Node Atribute =" + entry.key+" "+entry.desc);
-						System.out.println("   Node Value =" + entry.value);
+//						System.out.print("Node Atribute =" + entry.key+" "+entry.desc);
+//						System.out.println("   Node Value =" + entry.value);
 					}
 				}
 			genList.add(gen);
@@ -199,7 +199,7 @@ public class XmlReading {
 			
 			if (algorithm.getNodeType() == Node.ELEMENT_NODE) {
 				Algorithm alg = new Algorithm(algorithm.getNodeName());
-				System.out.println(alg.getName());
+//				System.out.println(alg.getName());
 				
 				NodeList algorithmParams = algorithm.getChildNodes();	
 				
@@ -212,8 +212,8 @@ public class XmlReading {
 						entry.desc = ((Element) param).getAttribute("desc");
 						entry.value = param.getTextContent();
 						alg.getEntryList().add(entry);
-						System.out.print("Node Atribute =" + entry.key+" "+entry.desc);
-						System.out.println("   Node Value =" + entry.value);
+//						System.out.print("Node Atribute =" + entry.key+" "+entry.desc);
+//						System.out.println("   Node Value =" + entry.value);
 					}
 				}
 				algorithmsList.add(alg);

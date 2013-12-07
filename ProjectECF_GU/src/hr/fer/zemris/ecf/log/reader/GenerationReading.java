@@ -42,6 +42,9 @@ public class GenerationReading {
 				deme = new Deme();
 			}
 			else if(line.contains("Population")){
+				if(data.size()<=i+6){
+					break;
+				}
 				gen.population = new Population();
 				gen.population.evaluations = Integer.parseInt(data.get(i+1).split("\\:")[1].trim());
 				gen.population.maxFitness = Double.parseDouble(data.get(i+3).split("\\:")[1].trim());

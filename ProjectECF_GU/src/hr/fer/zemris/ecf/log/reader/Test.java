@@ -1,16 +1,25 @@
 package hr.fer.zemris.ecf.log.reader;
 
 import hr.fer.zemris.ecf.log.Generation;
+import hr.fer.zemris.ecf.log.genotypes.AbstractGenotype;
+import hr.fer.zemris.ecf.log.genotypes.GenotypeReader;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
 	
 	public static void main(String[] args) {
-		OnlineReading or = new OnlineReading();
-		or.read("lib/log.txt");
-		ArrayList<Generation> gen = or.getGenerations();
-		System.out.println(gen.get(gen.size()-1).demes.size());
+		//OnlineReading or = new OnlineReading();
+		OfflineReading off = new OfflineReading();
+		off.read("lib/log.txt");
+		ArrayList<Generation> gen = off.getLogFile().generations;
+		System.out.println(gen.get(gen.size()-1).population.avgFitness);
+		AbstractGenotype ag = GenotypeReader.getGenotype(off.getLogFile().hallOfFame.get(0).genotypes.get(0));
+		List<Integer> li = ag.getValues();
+		for(int i : li){
+			System.out.print(i+" ");
+		}
 	}
 
 }
