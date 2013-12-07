@@ -74,7 +74,6 @@ public class XmlReading {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);		
 		doc.getDocumentElement().normalize();
-				
 		NodeList ecf = doc.getChildNodes();
 		Node tempNode = ecf.item(0);
 		NodeList algGenReg = tempNode.getChildNodes();
