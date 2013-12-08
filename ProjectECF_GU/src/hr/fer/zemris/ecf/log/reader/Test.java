@@ -15,8 +15,10 @@ public class Test {
 		off.read("lib/log.txt");
 		ArrayList<Generation> gen = off.getLogFile().generations;
 		System.out.println(gen.get(gen.size()-1).population.avgFitness);
-		AbstractGenotype ag = GenotypeReader.getGenotype(off.getLogFile().hallOfFame.get(0).genotypes.get(0));
-		List<Integer> li = ag.getValues();
+		
+		//STUDY CAREFOULY THE NEXT LINE :)
+		List<Integer> li = off.getLogFile().hallOfFame.get(0).genotypes.get(0).getValues();
+		
 		for(int i : li){
 			System.out.print(i+" ");
 		}

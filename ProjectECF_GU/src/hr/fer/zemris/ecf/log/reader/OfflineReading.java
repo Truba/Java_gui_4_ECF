@@ -3,6 +3,7 @@ package hr.fer.zemris.ecf.log.reader;
 import hr.fer.zemris.ecf.log.Generation;
 import hr.fer.zemris.ecf.log.Individual;
 import hr.fer.zemris.ecf.log.LogFile;
+import hr.fer.zemris.ecf.log.genotypes.GenotypeReader;
 import hr.fer.zemris.ecf.log.genotypes.InitialGenotype;
 
 import java.io.File;
@@ -136,7 +137,7 @@ public class OfflineReading {
 				gen.size = Integer.parseInt(((Element) param).getAttribute("size").trim());
 				gen.name = param.getNodeName();
 				gen.value = param.getTextContent();
-				ind.genotypes.add(gen);
+				ind.genotypes.add(GenotypeReader.getGenotype(gen));
 //				System.out.println("Name + size =" +gen.name +" "+gen.size);
 //				System.out.println("   Gen Value =" + gen.value);
 			}
