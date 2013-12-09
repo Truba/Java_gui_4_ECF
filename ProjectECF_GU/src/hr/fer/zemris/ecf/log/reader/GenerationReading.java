@@ -23,28 +23,16 @@ public class GenerationReading {
 			}
 			else if(line.contains("Deme")){
 				deme.id = Integer.parseInt(line.split("\\:")[1].trim());
-			}
-			else if(line.contains("Evaluations")){
-				deme.evaluations = Integer.parseInt(line.split("\\:")[1].trim());
-			}
-			else if(line.contains("max")){
-				deme.maxFitness = Double.parseDouble(line.split("\\:")[1].trim());
-			}
-			else if(line.contains("min")){
-				deme.minFitness = Double.parseDouble(line.split("\\:")[1].trim());
-			}
-			else if(line.contains("avg")){
-				deme.avgFitness = Double.parseDouble(line.split("\\:")[1].trim());
-			}
-			else if(line.contains("stdev")){
-				deme.stdevFitness = Double.parseDouble(line.split("\\:")[1].trim());
+				deme.evaluations = Integer.parseInt(data.get(i+1).split("\\:")[1].trim());
+				deme.maxFitness = Double.parseDouble(data.get(i+3).split("\\:")[1].trim());
+				deme.minFitness = Double.parseDouble(data.get(i+4).split("\\:")[1].trim());
+				deme.avgFitness = Double.parseDouble(data.get(i+5).split("\\:")[1].trim());
+				deme.stdevFitness = Double.parseDouble(data.get(i+6).split("\\:")[1].trim());
 				gen.demes.add(deme);
 				deme = new Deme();
+				i +=6;
 			}
 			else if(line.contains("Population")){
-				if(data.size()<=i+6){
-					break;
-				}
 				gen.population = new Population();
 				gen.population.evaluations = Integer.parseInt(data.get(i+1).split("\\:")[1].trim());
 				gen.population.maxFitness = Double.parseDouble(data.get(i+3).split("\\:")[1].trim());
