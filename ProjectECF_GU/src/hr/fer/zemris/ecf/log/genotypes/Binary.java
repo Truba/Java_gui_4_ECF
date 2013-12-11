@@ -2,7 +2,7 @@ package hr.fer.zemris.ecf.log.genotypes;
 
 import java.util.ArrayList;
 
-public class Binary extends AbstractGenotype {
+public class Binary extends AbstractGenotype<Double> {
 
 	public Binary(InitialGenotype ig) {
 		super(ig);
