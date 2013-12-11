@@ -31,7 +31,7 @@ public class DetectOS {
 		}		
 	}
 	/**
-	 * This method returns required {@link ITalk} for OS that computer is currently running.
+	 * This method returns required {@link ITalk} for operating system that computer is currently running.
 	 * For now only Windows and Linux are implemented, everything else is classified as Linux.
 	 * @return required console talk.
 	 */

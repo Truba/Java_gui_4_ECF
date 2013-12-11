@@ -10,12 +10,12 @@ public class Permutation extends AbstractGenotype<Integer> {
 
 	@Override
 	public ArrayList<Integer> getValues() {
-		ArrayList<Integer> resoult = new ArrayList<>();
+		ArrayList<Integer> result = new ArrayList<>();
 		String[] list = this.value.trim().split(" +");
 		for(String e : list){
-			resoult.add( Integer.parseInt(e) );
+			result.add( Integer.parseInt(e) );
 		}
-		return resoult;
+		return result;
 	}
 	
 	

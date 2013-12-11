@@ -47,7 +47,7 @@ public class XmlReading {
 	/**
 	 * This class is used for parsing parameters that was user defined earlier and saved within an archive.
 	 * @param file path to the parameters (.xml)
-	 * @return AlgGenReg4Writing class filed with necessary data
+	 * @return AlgGenReg4Writing class filled with necessary data
 	 */
 	public static AlgGenRegUser readArchive(String file) {
 			agr2list = new AlgGenRegUser();

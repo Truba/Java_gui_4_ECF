@@ -10,12 +10,12 @@ public class FloatingPoint extends AbstractGenotype<Double> {
 
 	@Override
 	public ArrayList<Double> getValues() {
-		ArrayList<Double> resoult = new ArrayList<>();
+		ArrayList<Double> result = new ArrayList<>();
 		String[] list = this.value.trim().split(" +");
 		for(String e : list){
-			resoult.add( Double.parseDouble(e) );
+			result.add( Double.parseDouble(e) );
 		}
-		return resoult;
+		return result;
 	}
 
 }
