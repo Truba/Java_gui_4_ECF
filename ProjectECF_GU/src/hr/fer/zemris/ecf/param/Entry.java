@@ -10,8 +10,7 @@ public class Entry {
 	}
 	
 	public boolean isMandetory() {
-		//not yet implemented
-		return false;
+	return desc.contains("(mandatory)");
 	}
 
 }
