@@ -3,6 +3,8 @@ package hr.fer.zemris.ecf.tasks;
 import hr.fer.zemris.ecf.console.DetectOS;
 import hr.fer.zemris.ecf.console.ITalk;
 import hr.fer.zemris.ecf.console.Job;
+import hr.fer.zemris.ecf.param.AlgGenRegInit;
+import hr.fer.zemris.ecf.xmldom.XmlReading;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,14 @@ public class TaskMannager {
 		return results;
 	}
 
-
-	public void startTasks(List<Job> taskDescriptions) {		
+	public AlgGenRegInit getInitialECFparams(Job job){
+		console.write(job);
+		return XmlReading.readInitial(job.logFilePath);
+		
+		
+	}
+	
+	public boolean startTasks(List<Job> taskDescriptions) {		
 		
 		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		List<Task> tasks = new ArrayList<>();
@@ -34,10 +42,7 @@ public class TaskMannager {
 		for(int i=0; i<taskDescriptions.size(); i++){
 			tasks.add(new Task(taskDescriptions.get(i),console));
 		}
-//		while(true) {
-//			break;
-//			//slozi poslove
-//		}
+
 		results = null;
 		try {
 			results = service.invokeAll(tasks);
@@ -55,6 +60,7 @@ public class TaskMannager {
 			}
 		}
 		service.shutdown();
+		return true;
 	}
 
 
