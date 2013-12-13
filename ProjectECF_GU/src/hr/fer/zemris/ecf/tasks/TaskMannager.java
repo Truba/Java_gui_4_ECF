@@ -5,7 +5,6 @@ import hr.fer.zemris.ecf.console.ITalk;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.param.AlgGenRegInit;
 import hr.fer.zemris.ecf.xmldom.XmlReading;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -17,24 +16,31 @@ public class TaskMannager {
 	
 	private List<Future<Void>> results;
 	private ITalk console;
+	private int cpuCors;
 	
 	public TaskMannager(){
 		DetectOS os = new DetectOS(); 
         console = os.getOS_console();
+        cpuCors = Runtime.getRuntime().availableProcessors();
 	}
 	
 	public List<Future<Void>> getResults() {
 		return results;
 	}
+	
 		
+	public int getCpuCors() {
+		return cpuCors;
+	}
+
 	public AlgGenRegInit getInitialECFparams(String ecfPath, String paramsPath){
 		console.write(ecfPath,paramsPath);
 		return XmlReading.readInitial(paramsPath);		
 	}
 	
-	public boolean startTasks(List<Job> taskDescriptions) {		
+	public boolean startTasks(List<Job> taskDescriptions, int numOfThreads) {		
 		
-		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ExecutorService service = Executors.newFixedThreadPool(numOfThreads);
 		List<Task> tasks = new ArrayList<>();
 		
 		for(int i=0; i<taskDescriptions.size(); i++){
