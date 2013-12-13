@@ -31,7 +31,8 @@ public class CmdTalk implements ITalk{
 			 * Process is created because it has nice waitFor method which waits for c process to end
 			 * and dosen't execute Java code till then.
 			 */
-			Process process = new ProcessBuilder("cmd.exe /c \""+path+"/"+command+"\"").start();
+			String controlString = "-gui -pardump";
+			Process process = new ProcessBuilder("cmd.exe /c \""+(path + " " + controlString + " " + command)+"\"").start();
 			process.waitFor();
 			
 		} catch (IOException e) {
