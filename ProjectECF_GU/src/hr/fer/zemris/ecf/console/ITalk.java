@@ -1,5 +1,7 @@
 package hr.fer.zemris.ecf.console;
 
+import hr.fer.zemris.ecf.tasks.Job;
+
 public interface ITalk {
 	/**
 	 * Example:
@@ -8,6 +10,6 @@ public interface ITalk {
 	 */
 	public void write(String path, String command);
 	
-	
+	public void write(Job job);
 
 }

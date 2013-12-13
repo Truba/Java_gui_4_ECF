@@ -6,19 +6,19 @@ import java.util.concurrent.Callable;
 
 public class Task implements Callable<Void>{
 	
-	private Job params;
+	private Job job;
 	private  ITalk console;
 
 
-	public Task(Job params, ITalk console){
-		this.params = params;
+	public Task(Job job, ITalk console){
+		this.job = job;
 		this.console = console;
 	}
 
 
 	@Override
 	public Void call() throws Exception {
-		// TODO Auto-generated method stub
+		job.isDone = true;
 		return null;
 	}
 

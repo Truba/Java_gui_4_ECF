@@ -1,5 +1,7 @@
 package hr.fer.zemris.ecf.console;
 
+import hr.fer.zemris.ecf.tasks.Job;
+
 import java.io.IOException;
 
 public class CmdTalk implements ITalk{
@@ -40,6 +42,12 @@ public class CmdTalk implements ITalk{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void write(Job job) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

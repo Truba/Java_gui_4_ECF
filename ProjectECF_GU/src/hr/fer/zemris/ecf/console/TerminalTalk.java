@@ -1,5 +1,7 @@
 package hr.fer.zemris.ecf.console;
 
+import hr.fer.zemris.ecf.tasks.Job;
+
 import java.io.IOException;
 
 public class TerminalTalk implements ITalk {
@@ -26,6 +28,12 @@ public class TerminalTalk implements ITalk {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void write(Job job) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
