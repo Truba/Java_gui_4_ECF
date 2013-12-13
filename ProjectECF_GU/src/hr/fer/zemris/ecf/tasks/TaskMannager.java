@@ -1,5 +1,8 @@
 package hr.fer.zemris.ecf.tasks;
 
+import hr.fer.zemris.ecf.console.DetectOS;
+import hr.fer.zemris.ecf.console.ITalk;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -10,19 +13,25 @@ import java.util.concurrent.Future;
 public class TaskMannager {
 	
 	private List<Future<Void>> results;
+	private ITalk console;
 	
+	public TaskMannager(){
+		DetectOS os = new DetectOS(); 
+        console = os.getOS_console();
+	}
 	
 	public List<Future<Void>> getResults() {
 		return results;
 	}
 
 
-	public void startTasks(List<Job> taskDescriptions) {
+	public void startTasks(List<Job> taskDescriptions) {		
+		
 		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		List<Task> tasks = new ArrayList<>();
 		
 		for(int i=0; i<taskDescriptions.size(); i++){
-			tasks.add(new Task(taskDescriptions.get(i)));
+			tasks.add(new Task(taskDescriptions.get(i),console));
 		}
 //		while(true) {
 //			break;
