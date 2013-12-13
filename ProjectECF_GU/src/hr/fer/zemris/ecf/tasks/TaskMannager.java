@@ -38,6 +38,7 @@ public class TaskMannager {
 		for(Future<Void> res : rezults){
 			try {
 				res.get();
+				//ovdje bi trebali javiti kako koji zadatak zavrsava
 			} catch (InterruptedException | ExecutionException e) {
 				// TODO Neka greska
 				e.printStackTrace();
