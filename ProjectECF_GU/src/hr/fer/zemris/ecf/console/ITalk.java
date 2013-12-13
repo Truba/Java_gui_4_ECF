@@ -7,7 +7,7 @@ public interface ITalk {
 	 * @param path "lib"
 	 * @param command "java -jar mythsim-3.1.1.jar"
 	 */
-	public void write(String path, String command);
+	public void write(String ecfPath, String paramsPath);
 	
 	public void write(Job job);
 

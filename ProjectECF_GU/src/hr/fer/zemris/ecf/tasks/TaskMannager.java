@@ -26,15 +26,9 @@ public class TaskMannager {
 	public List<Future<Void>> getResults() {
 		return results;
 	}
-	
-	/**
-	 * In this method {@link Job} is used in horable horable way becuse it varibles are not used as they are suposed to be used.
-	 * @param job
-	 * @return
-	 */
-	
+		
 	public AlgGenRegInit getInitialECFparams(String ecfPath, String paramsPath){
-		console.write(new Job(ecfPath, "-gui -pardump", paramsPath));
+		console.write(ecfPath,paramsPath);
 		return XmlReading.readInitial(paramsPath);		
 	}
 	

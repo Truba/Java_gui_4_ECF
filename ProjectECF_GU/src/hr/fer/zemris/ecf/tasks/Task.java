@@ -19,6 +19,7 @@ public class Task implements Callable<Void>{
 
 	@Override
 	public Void call() throws Exception {
+		console.write(job);
 		job.isDone = true;
 		return null;
 	}
