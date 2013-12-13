@@ -1,9 +1,5 @@
 <ECF>
 	<Algorithm>
-		<SteadyStateTournament>
-			<Entry key="tsize">3</Entry>
-		</SteadyStateTournament>
-
 		<RouletteWheel>
 			<Entry key="crxprob">0.5</Entry> <!-- crossover rate -->
 			<Entry key="selpressure">10</Entry> <!-- selection pressure: how much is the best individual 'better' than the 
