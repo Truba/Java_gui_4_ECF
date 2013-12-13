@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 public class Task implements Callable<Void>{
 	
 	private Job job;
-	private  ITalk console;
+	private ITalk console;
 
 
 	public Task(Job job, ITalk console){
