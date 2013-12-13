@@ -9,15 +9,15 @@ import java.util.concurrent.Future;
 
 public class TaskMannager {
 	
-	private List<Future<Void>> rezults;
+	private List<Future<Void>> results;
 	
 	
-	public List<Future<Void>> getRezults() {
-		return rezults;
+	public List<Future<Void>> getResults() {
+		return results;
 	}
 
 
-	public void startTasks(ArrayList<ArrayList<String>> taskDescriptions) {
+	public void startTasks(List<List<String>> taskDescriptions) {
 		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		List<Task> tasks = new ArrayList<>();
 		
@@ -28,14 +28,14 @@ public class TaskMannager {
 //			break;
 //			//slozi poslove
 //		}
-		rezults = null;
+		results = null;
 		try {
-			rezults = service.invokeAll(tasks);
+			results = service.invokeAll(tasks);
 		} catch (InterruptedException e) {
 			// TODO Neka greska
 			e.printStackTrace();
 		}
-		for(Future<Void> res : rezults){
+		for(Future<Void> res : results){
 			try {
 				res.get();
 				//ovdje bi trebali javiti kako koji zadatak zavrsava
