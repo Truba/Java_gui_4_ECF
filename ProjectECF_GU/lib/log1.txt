@@ -1,0 +1,238 @@
+-- ECF, version 1.3 --
+Parsing configuration file: lib\parameters.xml
+Warning: BitString mutation operators: cumulative probability not equal to 1 (sum = 2)
+Warning: BitString crossover operators: cumulative probability not equal to 1 (sum = 2)
+Start time: Fri Dec 13 23:05:14 2013
+
+Evaluating initial population...
+Generation: 0
+Elapsed time: 0
+Deme: 0
+Evaluations: 50
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 1
+Elapsed time: 0
+Deme: 0
+Evaluations: 76
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 2
+Elapsed time: 0
+Deme: 0
+Evaluations: 101
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 3
+Elapsed time: 0
+Deme: 0
+Evaluations: 128
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 4
+Elapsed time: 0
+Deme: 0
+Evaluations: 153
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 5
+Elapsed time: 0
+Deme: 0
+Evaluations: 180
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 6
+Elapsed time: 0
+Deme: 0
+Evaluations: 207
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 7
+Elapsed time: 0
+Deme: 0
+Evaluations: 234
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 8
+Elapsed time: 0
+Deme: 0
+Evaluations: 260
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 9
+Elapsed time: 0
+Deme: 0
+Evaluations: 290
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 10
+Elapsed time: 0
+Deme: 0
+Evaluations: 316
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 11
+Elapsed time: 0
+Deme: 0
+Evaluations: 348
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 12
+Elapsed time: 0
+Deme: 0
+Evaluations: 373
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 13
+Elapsed time: 0
+Deme: 0
+Evaluations: 406
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 14
+Elapsed time: 0
+Deme: 0
+Evaluations: 437
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 15
+Elapsed time: 1
+Deme: 0
+Evaluations: 463
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 16
+Elapsed time: 1
+Deme: 0
+Evaluations: 495
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 17
+Elapsed time: 1
+Deme: 0
+Evaluations: 525
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 18
+Elapsed time: 1
+Deme: 0
+Evaluations: 555
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 19
+Elapsed time: 1
+Deme: 0
+Evaluations: 585
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 20
+Elapsed time: 1
+Deme: 0
+Evaluations: 614
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Generation: 21
+Elapsed time: 1
+Deme: 0
+Evaluations: 640
+Stats: fitness
+	max: 0
+	min: 0
+	avg: 0
+	stdev: 0
+
+Termination: maximum number of generations without improvement (20) reached
+
+Best of run: 
+<HallOfFame size="1">
+	<Individual size="2" gen="0">
+		<FitnessMax value="0"/>
+		<Tree size="30">cos / / * / X X + X X / / X X - X X - / cos X - X X - sin X + X X </Tree>
+		<BitString size="20">01111100011001010110</BitString>
+	</Individual>
+</HallOfFame>
+
