@@ -44,17 +44,16 @@ public class TaskMannager {
 		results = null;
 		try {
 			results = service.invokeAll(tasks);
-		} catch (InterruptedException e) {
-			// TODO Neka greska
-			e.printStackTrace();
+		} catch (InterruptedException e) { 
+			System.err.println("Fatal error! Can't do parallelization");
+			return false;
 		}
 		for(Future<Void> res : results){
 			try {
 				res.get();
-				//ovdje bi trebali javiti kako koji zadatak zavrsava
 			} catch (InterruptedException | ExecutionException e) {
-				// TODO Neka greska
-				e.printStackTrace();
+				System.err.println("Fatal error! Can't fetch jobs.");
+				return false;
 			}
 		}
 		service.shutdown();

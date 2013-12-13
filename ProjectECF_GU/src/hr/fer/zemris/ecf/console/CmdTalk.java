@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class CmdTalk implements ITalk{
 	
-	public void write(String path, String command){
+	public void write(String ecfPath, String paramsPath){
 		
 		try {			
 			//MY TESTING
@@ -32,7 +32,7 @@ public class CmdTalk implements ITalk{
 			 * and dosen't execute Java code till then.
 			 */
 			String controlString = "-gui -pardump";
-			Process process = new ProcessBuilder("cmd.exe /c \""+(path + " " + controlString + " " + command)+"\"").start();
+			Process process = new ProcessBuilder("cmd.exe /c \""+(ecfPath + " " + controlString + " " + paramsPath)+"\"").start();
 			process.waitFor();
 			
 		} catch (IOException e) {
