@@ -45,7 +45,7 @@ public class CmdTalk implements ITalk{
 
 	@Override
 	public void write(Job job) {
-		String path = job.ecfPath + " ";
+		String path = job.ecfPath + ">";
 		String command = job.logFilePath + " " + job.paramsPath;
 		Process process;
 		try {
