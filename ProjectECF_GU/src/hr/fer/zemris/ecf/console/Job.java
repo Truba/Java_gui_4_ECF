@@ -9,6 +9,16 @@ public class Job {
 	
 	public boolean isDone;
 	
+	
+	
+	public Job(String ecfPath, String paramsPath, String logFilePath) {
+		this.ecfPath = ecfPath;
+		this.paramsPath = paramsPath;
+		this.logFilePath = logFilePath;
+	}
+
+
+
 	public Job(){
 		isDone = false;
 	}
