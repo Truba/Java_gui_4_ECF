@@ -5,10 +5,10 @@ import java.util.concurrent.Callable;
 
 public class Task implements Callable<Void>{
 	
-	private List<String> params;
+	private Job params;
 
 
-	public Task(List<String> params){
+	public Task(Job params){
 		this.params = params;
 	}
 

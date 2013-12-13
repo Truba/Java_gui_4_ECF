@@ -17,7 +17,7 @@ public class TaskMannager {
 	}
 
 
-	public void startTasks(List<List<String>> taskDescriptions) {
+	public void startTasks(List<Job> taskDescriptions) {
 		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		List<Task> tasks = new ArrayList<>();
 		
