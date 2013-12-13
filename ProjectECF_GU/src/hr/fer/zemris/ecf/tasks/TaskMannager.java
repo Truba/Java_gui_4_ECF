@@ -2,6 +2,7 @@ package hr.fer.zemris.ecf.tasks;
 
 import hr.fer.zemris.ecf.console.DetectOS;
 import hr.fer.zemris.ecf.console.ITalk;
+import hr.fer.zemris.ecf.console.Job;
 
 import java.util.ArrayList;
 import java.util.List;

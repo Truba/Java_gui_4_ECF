@@ -1,7 +1,5 @@
 package hr.fer.zemris.ecf.console;
 
-import hr.fer.zemris.ecf.tasks.Job;
-
 import java.io.IOException;
 
 public class TerminalTalk implements ITalk {

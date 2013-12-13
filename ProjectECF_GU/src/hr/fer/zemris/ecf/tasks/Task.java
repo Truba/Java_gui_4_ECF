@@ -1,6 +1,7 @@
 package hr.fer.zemris.ecf.tasks;
 
 import hr.fer.zemris.ecf.console.ITalk;
+import hr.fer.zemris.ecf.console.Job;
 
 import java.util.concurrent.Callable;
 
