@@ -22,7 +22,7 @@ public class Test {
                 //console.write("lib","c.exe>in.txt");
                 //console.write("C:", "C:/Users/Vlaho/Desktop/mythsim-3.1.1", "java -jar mythsim-3.1.1.jar");
                 //console.write("C:/output", "c.exe>lib/in.txt");
-                console.write("lib", "c>lib/in.txt");
+                console.write(new Job("D:\\Documents\\SVEN\\FER\\Programiranje\\ECF_1.3\\debug\\examples\\GAonemax\\VS\\Debug\\gaonemax.exe", "-gui -pardump", "lib\\params.txt"));
                 
 //                File f = new File("lib/in.txt");
 //                while (!f.exists()) {

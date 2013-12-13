@@ -44,7 +44,15 @@ public class CmdTalk implements ITalk{
 
 	@Override
 	public void write(Job job) {
-		// TODO Auto-generated method stub
+		String path = job.ecfPath + " ";
+		String command = job.logFilePath + " " + job.paramsPath;
+		Process process;
+		try {
+			process = new ProcessBuilder("cmd.exe /c \""+path+""+command+"\"").start();
+			process.waitFor();
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 	}
 

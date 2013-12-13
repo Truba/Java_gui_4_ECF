@@ -10,7 +10,7 @@ public class Job {
 	
 	
 	
-	public Job(String ecfPath, String paramsPath, String logFilePath) {
+	public Job(String ecfPath, String logFilePath, String paramsPath) {
 		this.ecfPath = ecfPath;
 		this.paramsPath = paramsPath;
 		this.logFilePath = logFilePath;
