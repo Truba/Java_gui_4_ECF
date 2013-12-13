@@ -9,17 +9,25 @@ import java.util.concurrent.Future;
 
 public class TaskMannager {
 	
-	public List<Future<Void>> rezults;
+	private List<Future<Void>> rezults;
 	
+	
+	public List<Future<Void>> getRezults() {
+		return rezults;
+	}
+
+
 	public void startTasks(ArrayList<ArrayList<String>> taskDescriptions) {
 		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		List<Task> tasks = new ArrayList<>();
 		
-		
-		while(true) {
-			break;
-			//slozi poslove
+		for(int i=0; i<taskDescriptions.size(); i++){
+			tasks.add(new Task(taskDescriptions.get(i)));
 		}
+//		while(true) {
+//			break;
+//			//slozi poslove
+//		}
 		rezults = null;
 		try {
 			rezults = service.invokeAll(tasks);
@@ -27,14 +35,14 @@ public class TaskMannager {
 			// TODO Neka greska
 			e.printStackTrace();
 		}
-//		for(Future<Void> res : rezults){
-//			try {
-//				res.get();
-//			} catch (InterruptedException | ExecutionException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
+		for(Future<Void> res : rezults){
+			try {
+				res.get();
+			} catch (InterruptedException | ExecutionException e) {
+				// TODO Neka greska
+				e.printStackTrace();
+			}
+		}
 		service.shutdown();
 	}
 
