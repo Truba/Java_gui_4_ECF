@@ -48,6 +48,7 @@ public class CmdTalk implements ITalk{
 		String path = job.ecfPath + ">";
 		String command = job.logFilePath + " " + job.paramsPath;
 		Process process;
+		System.out.println("cmd.exe /c \""+path+""+command+"\"");
 		try {
 			process = new ProcessBuilder("cmd.exe /c \""+path+""+command+"\"").start();
 			process.waitFor();
