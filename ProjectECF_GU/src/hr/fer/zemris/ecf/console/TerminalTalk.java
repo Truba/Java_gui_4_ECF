@@ -2,6 +2,11 @@ package hr.fer.zemris.ecf.console;
 
 import java.io.IOException;
 
+/**
+ * This class is the Unix'x terminal implementation of {@link ITalk}.
+ * @version 1.0
+ *
+ */
 public class TerminalTalk implements ITalk {
 
 	@Override

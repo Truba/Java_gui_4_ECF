@@ -2,8 +2,14 @@ package hr.fer.zemris.ecf.console;
 
 import java.io.IOException;
 
+/**
+ * This class is the Window's cmd implementation of {@link ITalk}.
+ * @version 1.0
+ *
+ */
 public class CmdTalk implements ITalk{
 	
+	@Override
 	public void write(String ecfPath, String paramsPath){
 		
 		try {			
