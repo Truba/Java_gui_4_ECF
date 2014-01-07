@@ -37,7 +37,7 @@ public abstract class AbstractGenotype<T> {
 		this.name = ig.name;
 	}
 	/**
-	 * This method is used to get the values represented how they need to be as the array list of <T> that is best for representing that genotype.
+	 * This method is used to get the values represented how they need to be as the array list of T that is best for representing that genotype.
 	 * @return array list of values represented as they need to be for drawing.
 	 */
 	public abstract ArrayList<T> getValues();

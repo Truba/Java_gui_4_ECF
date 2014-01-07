@@ -24,20 +24,38 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+/**
+ * This class is used for off-line reading a.k.a. it is used for reading when the ECF is done with computing specific task and it has finished creating log file.
+ * It can gather computed generations and hall of fame. They are all put in a array list of {@link Generation} called generations and array list {@link Individual} called hallOfFame.
+ * @version 1.0
+ *
+ */
 public class OfflineReading {
 	
 	private ArrayList<Generation> genarations;
 	private ArrayList<Individual> hallOfFame;
 	
+	/**
+	 * Constructor, it initializes the {@link Generation} list and {@link Individual} list to new array lists.
+	 */
 	public OfflineReading(){
 		genarations = new ArrayList<>();
 		hallOfFame = new ArrayList<>();
 	}
 	
+	/**
+	 * This is gather for the {@link LogFile} produced from {@link Generation} and {@link Individual} list stored in this class. 
+	 * @return new logFile class produced form {@link Generation} and {@link Individual} list stored in this class.
+	 */
 	public LogFile getLogFile(){
 		return new LogFile(genarations,hallOfFame);
 	}
 	
+	/**
+	 * User of this class only needs to know to give it the path to the log file and the log file will be "magically" parsed into
+	 * {@link Generation} and {@link Individual} lists stored in this class.
+	 * @param file
+	 */
 	public void read(String file) {
 		Scanner sc = null;
 		try {
@@ -51,7 +69,11 @@ public class OfflineReading {
 		sc.close();
 		
 	}
-
+	
+	/**
+	 * This meted creates hall of fame by calling parseHallOfFame meted from this class.
+	 * @param sc scanner to where the hall of fame is
+	 */
 	private void createHallOfFame(Scanner sc) {
 		StringBuilder sb = new StringBuilder();
 		while(sc.hasNextLine()){
@@ -65,7 +87,11 @@ public class OfflineReading {
 		}
 	}
 	
-
+	/**
+	 * This meted is used for reading log file and it calls {@link GenerationReading} when it creates predefined lines for {@link GenerationReading} to parse.
+	 * This meted also gathers parsed form {@link GenerationReading} and puts them into generations array list.
+	 * @param sc scanner for the log file
+	 */
 	private void reading(Scanner sc) {
 		String line = "";
 		//Getting to first generation
@@ -93,6 +119,13 @@ public class OfflineReading {
 		
 	}
 
+	/**
+	 * This class is used for parsing only the specific part of the log file, the xml part of the log file where the hall of fame is.
+	 * @param xml one big string where all of the xml is.
+	 * @throws ParserConfigurationException if problems.
+	 * @throws SAXException if problems.
+	 * @throws IOException if problems.
+	 */
 	private void parseHallOfFame(String xml) throws ParserConfigurationException, SAXException, IOException {
 	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	    DocumentBuilder builder = factory.newDocumentBuilder();
@@ -120,6 +153,11 @@ public class OfflineReading {
 		
 	}
 
+	/**
+	 * This meted is used to fill one given {@link Individual} from the given {@link Node}
+	 * @param indiv node from witch the individual will be filled
+	 * @param indgiven individual to be filled
+	 */
 	private void fillIndividulal(Node indiv, Individual ind) {
 		NodeList paramsList = indiv.getChildNodes();
 		

@@ -4,10 +4,25 @@ import java.util.ArrayList;
 
 import hr.fer.zemris.ecf.log.Deme;
 import hr.fer.zemris.ecf.log.Generation;
+import hr.fer.zemris.ecf.log.LogFile;
 import hr.fer.zemris.ecf.log.Population;
 
+/**
+ * This class has only one static meted that is used to parse {@link Generation} from one {@link LogFile}.
+ * @version 1.0
+ *
+ */
 public class GenerationReading {
 	
+	/**
+	 * This meted parses trough predefined lines in log file and parses it into a {@link Generation}.
+	 * Lines are predefined in this manner:
+	 * One string in given array list represents one line from log file.
+	 * In first line (array list index 0) there must be generation line example "Generation: 1".
+	 * End of the array list is after that generation, so the generation must be complete.
+	 * @param data array list of strings containing generation to parse.
+	 * @return brand new {@link Generation} class form log file.
+	 */
 	public static Generation parse(ArrayList<String> data){
 		Generation gen = new Generation();
 		gen.id = Integer.parseInt(data.get(0).split("\\:")[1].trim());
