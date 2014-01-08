@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="lib/jcommon-1.0.17.jar"/>
-	<classpathentry kind="lib" path="lib/jfreechart-1.0.14.jar"/>
+	<classpathentry kind="lib" path="lib/JFreeChart/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="lib/JFreeChart/jfreechart-1.0.14.jar" sourcepath="lib/JFreeChart/source">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/ProjectECF_GU/lib/JFreeChart/javadoc.zip!/javadoc"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
