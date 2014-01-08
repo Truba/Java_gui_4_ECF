@@ -4,6 +4,7 @@ import hr.fer.zemris.ecf.param.AlgGenRegUser;
 import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.param.Entry;
 import hr.fer.zemris.ecf.param.Genotype;
+import hr.fer.zemris.ecf.param.Registry;
 
 import java.io.File;
 import java.util.List;
@@ -21,6 +22,13 @@ import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+/**
+ * This class is only used for writing (creating) xml parameters files.
+ * It uses static method for it.
+ * It has one public static method that writes given parameters in form of a {@link AlgGenRegUser} to given file path.
+ * @version 1.0
+ *
+ */
 public class XmlWriting {
 	
 	private static AlgGenRegUser agrw;
@@ -28,7 +36,7 @@ public class XmlWriting {
 	/**
 	 * This method is used for writing given parameters and user comments to the file.
 	 * @param file path to write parameters to.
-	 * @param agrwGet class filled with needed parameters to give to ECF
+	 * @param agrwGet class filled with needed parameters to give to ECF.
 	 */
 	public static void write(String file, AlgGenRegUser agrwGet) {
 		agrw = agrwGet;
@@ -40,6 +48,12 @@ public class XmlWriting {
 		}
 	}
 
+	/**
+	 * This method is used for writing parameters and user comments to the file.
+	 * @param file path to write parameters to.
+	 * @throws ParserConfigurationException in case of problem.
+	 * @throws TransformerException in case of problem.
+	 */
 	private static void writing(String file) throws ParserConfigurationException, TransformerException {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -73,6 +87,11 @@ public class XmlWriting {
 		
 	}
 
+	/**
+	 * This method is used to write the {@link Registry} with given {@link Document}.
+	 * @param registry {@link Element} class to be written on the document.
+	 * @param doc document to be written on.
+	 */
 	private static void registry(Element registry, Document doc) {
 		List<Entry> eList = agrw.registry.getEntryList();
 		for(int i=0; i<eList.size(); i++){
@@ -85,6 +104,12 @@ public class XmlWriting {
 		}
 	}
 
+	/**
+	 * This method is used to write the {@link Genotype} list with given {@link Document}.
+	 * @param genotypes genotype {@link Element} class to be written on the document.
+	 * @param doc document to be written on.
+	 * @param gList given {@link Genotype} list.
+	 */
 	private static void genotype(Element genotypes, Document doc, List<Genotype> gList) {
 		
 		for(Genotype genotype : gList) {
@@ -105,6 +130,11 @@ public class XmlWriting {
 		
 	}
 
+	/**
+	 * This method is used to write the {@link Algorithm} list with given {@link Document}.
+	 * @param algorithms algorithm {@link Element} class to be written on the document.
+	 * @param doc document to be written on.
+	 */
 	private static void algorithm(Element algorithms, Document doc) {
 		
 		List<Algorithm> aList = agrw.algorithm;

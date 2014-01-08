@@ -22,6 +22,14 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * This class is only used for reading xml parameters files.
+ * It uses static methods for it.
+ * It has 2 specific static methods: readInitial(String file) for reading initial parameters dumped by ECF and readArchive(String file)
+ * for reading parameter files that have been created by the used and stored into some kind of archive.
+ * @version 1.0
+ *
+ */
 public class XmlReading {
 	
 	private static AlgGenRegInit agrList;
@@ -30,8 +38,8 @@ public class XmlReading {
 
 	/**
 	 * This class is used for parsing initial parameters set given by ECF.	
-	 * @param file path to the parameters (.xml) given by ECF
-	 * @return AlgGenRegList class filed with necessary data
+	 * @param file path to the parameters (.xml) given by ECF.
+	 * @return AlgGenRegList class filed with necessary data.
 	 */
 	public static AlgGenRegInit readInitial(String file) {
 		agrList = new AlgGenRegInit();
@@ -47,7 +55,7 @@ public class XmlReading {
 	/**
 	 * This class is used for parsing parameters that was user defined earlier and saved within an archive.
 	 * @param file path to the parameters (.xml)
-	 * @return AlgGenReg4Writing class filled with necessary data
+	 * @return AlgGenReg4Writing class filled with necessary data.
 	 */
 	public static AlgGenRegUser readArchive(String file) {
 			agr2list = new AlgGenRegUser();
@@ -63,10 +71,10 @@ public class XmlReading {
 	
 	/**
 	 * This class is used for parsing initial parameters set given by ECF.	
-	 * @param file path to the parameters given by ECF
-	 * @throws SAXException in case of problem
-	 * @throws IOException in case of problem
-	 * @throws ParserConfigurationException in case of problem
+	 * @param file path to the parameters given by ECF.
+	 * @throws SAXException in case of problem.
+	 * @throws IOException in case of problem.
+	 * @throws ParserConfigurationException in case of problem.
 	 */
 	private static void readingInitial(String file) throws SAXException, IOException, ParserConfigurationException {
 		File fXmlFile = new File(file);
@@ -98,7 +106,14 @@ public class XmlReading {
 			}
 		}
 	} 
-		
+	
+	/**
+	 * This class is used for parsing parameters that was user defined earlier and saved within an archive.
+	 * @param file path to the parameters.
+	 * @throws SAXException in case of problem.
+	 * @throws IOException in case of problem.
+	 * @throws ParserConfigurationException in case of problem.
+	 */
 	private static void readingArchive(String file) throws SAXException, IOException, ParserConfigurationException {
 		File fXmlFile = new File(file);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -141,7 +156,11 @@ public class XmlReading {
 	}
 
 	
-	
+	/**
+	 * This method is used to fill the given {@link Registry} with given {@link Node}.
+	 * @param item node containing the registry.
+	 * @param registry {@link Registry} class to be filled from node.
+	 */
 	private static void registry(Node item, Registry registry) {
 		NodeList registries = item.getChildNodes();
 		
@@ -160,6 +179,11 @@ public class XmlReading {
 		
 	}
 
+	/**
+	 * This method is used to fill the given {@link Genotype} list with given {@link Node}.
+	 * @param item node containing the genotype block.
+	 * @param genList {@link Genotype} list to be filled from node.
+	 */
 	private static void genotype(Node item, List<Genotype> genList) {
 		NodeList genotypes = item.getChildNodes();
 		
@@ -191,6 +215,11 @@ public class XmlReading {
 		}
 	}
 
+	/**
+	 * This method is used to fill the given {@link Algorithm} list with given {@link Node}.
+	 * @param item node containing the algorithm block.
+	 * @param algorithmsList {@link Algorithm} list to be filled from node.
+	 */
 	private static void algorithm(Node item, List<Algorithm> algorithmsList) {
 		NodeList algorithms = item.getChildNodes();
 		
