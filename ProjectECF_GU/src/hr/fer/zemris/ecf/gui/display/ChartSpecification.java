@@ -1,4 +1,4 @@
-package hr.fer.zemris.gui.display;
+package hr.fer.zemris.ecf.gui.display;
 
 import java.awt.Color;
 import java.util.ArrayList;
