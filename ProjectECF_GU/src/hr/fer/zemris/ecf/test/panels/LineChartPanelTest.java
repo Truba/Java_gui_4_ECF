@@ -5,9 +5,12 @@ import hr.fer.zemris.ecf.gui.display.LineChartPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -19,7 +22,8 @@ public class LineChartPanelTest extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public LineChartPanelTest() {
-		XYSeriesCollection dataset = createDataset();
+		setLayout(new BorderLayout());
+		final XYSeriesCollection dataset = createDataset();
 		List<Color> seriesColor = new ArrayList<>();
 		seriesColor.add(Color.BLUE);
 		seriesColor.add(Color.RED);
@@ -28,6 +32,21 @@ public class LineChartPanelTest extends JFrame {
 		String yAxisLabel = "Fitness";
 		Component chart = new LineChartPanel(dataset, seriesColor, chartTitle, xAxisLabel, yAxisLabel, true, false);
 		add(chart, BorderLayout.CENTER);
+		JButton button = new JButton(new AbstractAction() {
+
+			private static final long serialVersionUID = 1L;
+
+			private int i = 6;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dataset.getSeries(0).add(new Integer(i), new Double(13));
+				dataset.getSeries(1).add(new Integer(i), new Double(17));
+				i++;
+			}
+		});
+		button.setText("Add");
+		add(button, BorderLayout.SOUTH);
 		pack();
 	}
 	

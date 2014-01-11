@@ -115,6 +115,10 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 		return chart;
 	}
 
+	public XYSeriesCollection getDataset() {
+		return dataset;
+	}
+	
 	@Override
 	public void chartProgress(ChartProgressEvent event) {
 		XYPlot plot = chart.getXYPlot();
