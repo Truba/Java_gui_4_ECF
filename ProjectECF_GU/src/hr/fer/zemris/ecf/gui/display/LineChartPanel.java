@@ -29,7 +29,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class LineChartPanel extends JPanel implements ChartProgressListener {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private XYSeriesCollection dataset;
 	private List<Color> seriesColor = new ArrayList<>();
 	private String chartTitle;
@@ -37,7 +37,7 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 	private String yAxisLabel;
 	private boolean legend;
 	private boolean tooltips;
-	
+
 	private JFreeChart chart;
 	private ChartPanel chartPanel;
 	private ChartTableModel tableModel;
@@ -52,39 +52,41 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 		this.yAxisLabel = yAxisLabel;
 		this.legend = legend;
 		this.tooltips = tooltips;
-		
+
 		// Creating and adding chart
 		chart = createXYLineChart(dataset);
 		chart.addProgressListener(this);
 		chartPanel = new ChartPanel(chart);
-//		chartPanel.setPreferredSize(new Dimension(600, 270));
+		// chartPanel.setPreferredSize(new Dimension(600, 270));
 		chartPanel.setDomainZoomable(true);
 		chartPanel.setRangeZoomable(true);
-		Border border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4), BorderFactory.createEtchedBorder());
+		Border border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4),
+				BorderFactory.createEtchedBorder());
 		chartPanel.setBorder(border);
 		add(chartPanel, BorderLayout.CENTER);
-		
+
 		// Adding table
 		JPanel dashboard = new JPanel(new BorderLayout());
 		dashboard.setPreferredSize(new Dimension(400, 60));
 		dashboard.setBorder(BorderFactory.createEmptyBorder(0, 4, 4, 4));
-		
+
 		int size = dataset.getSeriesCount();
 		List<String> colNames = new ArrayList<>(size + 1);
 		colNames.add(xAxisLabel);
 		for (int i = 0; i < size; i++) {
 			colNames.add(dataset.getSeriesKey(i).toString());
 		}
-		
+
 		tableModel = new ChartTableModel(1, size + 1, colNames);
 		JTable table = new JTable(tableModel);
 		dashboard.add(new JScrollPane(table));
-		
+
 		add(dashboard, BorderLayout.SOUTH);
 	}
-	
+
 	public LineChartPanel(ChartSpecification spec) {
-		this(spec.dataset, spec.seriesColor, spec.chartTitle, spec.xAxisLabel, spec.yAxisLabel, spec.legend, spec.tooltips);
+		this(spec.dataset, spec.seriesColor, spec.chartTitle, spec.xAxisLabel, spec.yAxisLabel, spec.legend,
+				spec.tooltips);
 	}
 
 	private JFreeChart createXYLineChart(XYDataset dataset) {
@@ -118,7 +120,21 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 	public XYSeriesCollection getDataset() {
 		return dataset;
 	}
-	
+
+	/**
+	 * @param x
+	 *            Value on domain axis to be added.
+	 * @param y
+	 *            Values to be added on range axis to be added for given x
+	 *            value. Size of list must be equals to number of series.
+	 */
+	public void addData(Number x, List<Number> y) {
+		int n = y.size();
+		for (int i = 0; i < n; i++) {
+			dataset.getSeries(i).add(x, y.get(i));
+		}
+	}
+
 	@Override
 	public void chartProgress(ChartProgressEvent event) {
 		XYPlot plot = chart.getXYPlot();
@@ -132,7 +148,7 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 		}
 		repaint();
 	}
-	
+
 	private int findClosestItem(double d) {
 		XYSeries s = dataset.getSeries(0);
 		int size = s.getItemCount();

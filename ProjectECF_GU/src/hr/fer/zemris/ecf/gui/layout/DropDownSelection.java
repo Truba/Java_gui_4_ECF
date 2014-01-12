@@ -2,7 +2,7 @@ package hr.fer.zemris.ecf.gui.layout;
 
 import hr.fer.zemris.ecf.param.Algorithm;
 
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.util.List;
 
@@ -16,12 +16,15 @@ public class DropDownSelection extends JPanel {
 	private JComboBox<Algorithm> box = null;
 	
 	public DropDownSelection(List<Algorithm> list) {
-		setLayout(new FlowLayout());
+		setLayout(new BorderLayout());
 		int n = list.size();
 		model = new Algorithm[n];
 		list.toArray(model);
 		box = new JComboBox<>(model);
-		add(box);
+		add(box, BorderLayout.NORTH);
+		
+//		JPanel panel = new JPanel();
+		
 	}
 	
 	@Override
