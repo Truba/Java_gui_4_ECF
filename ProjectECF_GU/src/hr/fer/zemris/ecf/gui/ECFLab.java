@@ -54,8 +54,8 @@ public class ECFLab extends JFrame {
 	private Map<String, Action> actions = new HashMap<>();
 	private JMenuBar menuBar = new JMenuBar();
 	private JTabbedPane tabbedPane;
-	private String ecfPath = "";
-	private String paramsPath = "res/dump/paramsDump.txt";
+	private String ecfPath = "C:\\Temp\\GAOneMax.exe";
+	private String paramsPath = "res\\dump\\out.txt";
 
 	/**
 	 * Creates a new main frame for ECF Lab.

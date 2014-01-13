@@ -30,7 +30,7 @@ public class Entry {
 	 * Checks if this entry is mandatory.
 	 * @return true if it is mandatory, false otherwise
 	 */
-	public boolean isMandetory() {
+	public boolean isMandatory() {
 	return desc.contains("(mandatory)");
 	}
 

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ECF version="1.3.2">
+	<!-- ECF parameter dump - list of all parameters -->
+	<Algorithm>
+		<ArtificialBeeColony>
+			<Entry key="elitism" desc="Elitism: the current best food source is preserved">1</Entry>
+			<Entry key="limit" desc="Maximum number of cycles for each individual">300</Entry>
+		</ArtificialBeeColony>
+		<DifferentialEvolution>
+			<Entry key="CR" desc="crossover rate">0.9</Entry>
+			<Entry key="F" desc="scaling constant">1</Entry>
+		</DifferentialEvolution>
+		<Elimination>
+			<Entry key="gengap" desc="generation gap (percentage of population to be eliminated)">0.6</Entry>
+			<Entry key="selpressure" desc="selection pressure: how much is the worst individual &apos;worse&apos; than the best">10</Entry>
+		</Elimination>
+		<GeneticAnnealing>
+			<Entry key="coolingfactor" desc="simulated annealing cooling factor">0.7</Entry>
+			<Entry key="elitism" desc="is the best individual preserved">0</Entry>
+			<Entry key="energybank" desc="total starting energy bank (fitness dependant)">200</Entry>
+		</GeneticAnnealing>
+		<ParticleSwarmOptimization>
+			<Entry key="maxVelocity" desc="max particle velocity">10</Entry>
+			<Entry key="weight" desc="initial inertia weight (either constant or time dependant)">0.8</Entry>
+			<Entry key="weightType" desc="weight type update: 0 - constant, 1 - time dependant (based on max generations)">0</Entry>
+		</ParticleSwarmOptimization>
+		<RandomSearch/>
+		<RouletteWheel>
+			<Entry key="crxprob" desc="crossover rate">0.5</Entry>
+			<Entry key="selpressure" desc="selection pressure: how much is the best individual &apos;better&apos; than the worst">10</Entry>
+		</RouletteWheel>
+		<SteadyStateTournament>
+			<Entry key="tsize" desc="tournament size (individuals selected randomly, worst one eliminated)">3</Entry>
+		</SteadyStateTournament>
+		<XCS>
+			<Entry key="accExp" desc="">5</Entry>
+			<Entry key="alpha" desc="">0.1</Entry>
+			<Entry key="beta" desc="">0.15</Entry>
+			<Entry key="delta" desc="">0.1</Entry>
+			<Entry key="eps0" desc="">10</Entry>
+			<Entry key="gama" desc="">0.71</Entry>
+			<Entry key="maxPopSize" desc="">1000</Entry>
+			<Entry key="mna" desc="">1</Entry>
+			<Entry key="pCrossover" desc="">0.7</Entry>
+			<Entry key="pDontCare" desc="">0.33</Entry>
+			<Entry key="pExplore" desc="">0.5</Entry>
+			<Entry key="pMutation" desc="">0.03</Entry>
+			<Entry key="thresholdDel" desc="">20</Entry>
+			<Entry key="thresholdGA" desc="">30</Entry>
+			<Entry key="thresholdSub" desc="">20</Entry>
+		</XCS>
+	</Algorithm>
+	<Genotype>
+		<Binary>
+			<Entry key="crx.halfuniform" desc="">0</Entry>
+			<Entry key="crx.masked" desc="">0</Entry>
+			<Entry key="crx.nongeometric" desc="">0</Entry>
+			<Entry key="crx.onepoint" desc="">0</Entry>
+			<Entry key="crx.randomrespectful" desc="">0</Entry>
+			<Entry key="crx.reducedsurrogate" desc="">0</Entry>
+			<Entry key="crx.segmented" desc="">0</Entry>
+			<Entry key="crx.shuffle" desc="">0</Entry>
+			<Entry key="crx.twopoint" desc="">0</Entry>
+			<Entry key="crx.uniform" desc="">0</Entry>
+			<Entry key="dimension" desc="number of real valued variables (mandatory)">1</Entry>
+			<Entry key="lbound" desc="lower bound for each variable (mandatory)">0</Entry>
+			<Entry key="mut.mix" desc="">0</Entry>
+			<Entry key="mut.simple" desc="">0</Entry>
+			<Entry key="mut.simple.bitprob" desc="">0.001</Entry>
+			<Entry key="precision" desc="number of digits after the decimal point (mandatory)">1</Entry>
+			<Entry key="rounding" desc="should the real value be rounded to the &apos;precision&apos;-th decimal (default: no)">0</Entry>
+			<Entry key="ubound" desc="upper bound for each variable (mandatory)">10</Entry>
+		</Binary>
+		<BitString>
+			<Entry key="crx.onepoint" desc="">0</Entry>
+			<Entry key="crx.uniform" desc="">0</Entry>
+			<Entry key="mut.mix" desc="">0</Entry>
+			<Entry key="mut.simple" desc="">0</Entry>
+			<Entry key="mut.simple.bitprob" desc="">0.001</Entry>
+			<Entry key="size" desc="number of bits (mandatory)">10</Entry>
+		</BitString>
+		<ClassifierParams>
+			<Entry key="error" desc="">0</Entry>
+			<Entry key="fitness" desc="">0</Entry>
+			<Entry key="prediction" desc="">0</Entry>
+		</ClassifierParams>
+		<FloatingPoint>
+			<Entry key="crx.arithmetic" desc="">0</Entry>
+			<Entry key="crx.arithmeticsimple" desc="">0</Entry>
+			<Entry key="crx.arithmeticsingle" desc="">0</Entry>
+			<Entry key="crx.average" desc="">0</Entry>
+			<Entry key="crx.bga" desc="">0</Entry>
+			<Entry key="crx.blxalpha" desc="">0</Entry>
+			<Entry key="crx.blxalphabeta" desc="">0</Entry>
+			<Entry key="crx.discrete" desc="">0</Entry>
+			<Entry key="crx.flat" desc="">0</Entry>
+			<Entry key="crx.heuristic" desc="">0</Entry>
+			<Entry key="crx.local" desc="">0</Entry>
+			<Entry key="crx.onepoint" desc="">0</Entry>
+			<Entry key="crx.sbx" desc="">0</Entry>
+			<Entry key="dimension" desc="number of real valued variables (mandatory)">1</Entry>
+			<Entry key="lbound" desc="lower bound for each variable (mandatory)">-10</Entry>
+			<Entry key="mut.simple" desc="">0</Entry>
+			<Entry key="ubound" desc="upper bound for each variable (mandatory)">10</Entry>
+		</FloatingPoint>
+		<Permutation>
+			<Entry key="crx.COSA" desc="">0</Entry>
+			<Entry key="crx.DPX" desc="">0</Entry>
+			<Entry key="crx.OBX" desc="">0</Entry>
+			<Entry key="crx.OPX" desc="">0</Entry>
+			<Entry key="crx.OX" desc="">0</Entry>
+			<Entry key="crx.OX2" desc="">0</Entry>
+			<Entry key="crx.PBX" desc="">0</Entry>
+			<Entry key="crx.PMX" desc="">0</Entry>
+			<Entry key="crx.SPX" desc="">0</Entry>
+			<Entry key="crx.ULX" desc="">0</Entry>
+			<Entry key="crx.UPMX" desc="">0</Entry>
+			<Entry key="crx.cyclic" desc="">0</Entry>
+			<Entry key="crx.cyclic2" desc="">0</Entry>
+			<Entry key="mut.ins" desc="">0</Entry>
+			<Entry key="mut.inv" desc="">0</Entry>
+			<Entry key="mut.toggle" desc="">0</Entry>
+			<Entry key="size" desc="genotype size: number of indices (mandatory)">1</Entry>
+		</Permutation>
+		<Tree>
+			<Entry key="crx.context" desc="">0</Entry>
+			<Entry key="crx.onepoint" desc="">0</Entry>
+			<Entry key="crx.simple" desc="">0</Entry>
+			<Entry key="crx.simple.functionprob" desc="">0.9</Entry>
+			<Entry key="crx.sizefair" desc="">0</Entry>
+			<Entry key="crx.uniform" desc="">0</Entry>
+			<Entry key="functionset" desc="set of functional tree elements (mandatory)"></Entry>
+			<Entry key="initmaxdepth" desc="maximum initial tree depth (default: 5)">5</Entry>
+			<Entry key="initmindepth" desc="minimum initial tree depth (default: 1)">1</Entry>
+			<Entry key="maxdepth" desc="maximum tree depth (default: 5)">5</Entry>
+			<Entry key="mindepth" desc="minimum tree depth (default: 1)">1</Entry>
+			<Entry key="mut.gauss" desc="">0</Entry>
+			<Entry key="mut.hoist" desc="">0</Entry>
+			<Entry key="mut.nodecomplement" desc="">0</Entry>
+			<Entry key="mut.nodereplace" desc="">0</Entry>
+			<Entry key="mut.permutation" desc="">0</Entry>
+			<Entry key="mut.shrink" desc="">0</Entry>
+			<Entry key="mut.subtree" desc="">0</Entry>
+			<Entry key="terminalset" desc="set of terminal tree elements (mandatory)"></Entry>
+		</Tree>
+	</Genotype>
+	<Registry>
+		<Entry key="alpha" desc="">0.5</Entry>
+		<Entry key="batch.logfile_" desc=""></Entry>
+		<Entry key="batch.remaining_" desc="">0</Entry>
+		<Entry key="batch.repeats" desc="number of independent runs to perform (default: 1)">0</Entry>
+		<Entry key="batch.singlemilestone" desc="use only one milestone file for all the batch runs (1) or one for each run (0) (default: 0)">0</Entry>
+		<Entry key="batch.statsfile" desc="output batch end of run stats in a single file (default: none)"></Entry>
+		<Entry key="beta" desc="">0.25</Entry>
+		<Entry key="crossover.genotypes" desc="if there are multiple genotypes, which to cross? &apos;random&apos;: a random pair, &apos;all&apos;: all pairs (default: random)">random</Entry>
+		<Entry key="crossover.protected" desc="indexes of genotypes (separated by spaces) that are excluded (protected) from crossover (default: none)"></Entry>
+		<Entry key="crx.sbx.ni" desc="">1</Entry>
+		<Entry key="log.filename" desc="log filename (default: none)"></Entry>
+		<Entry key="log.frequency" desc="log only every &apos;frequency&apos; generations (default: 1)">1</Entry>
+		<Entry key="log.level" desc="log level; valid values are 1 (minimal) to 5 (verbose) (default: 3)">3</Entry>
+		<Entry key="migration.freq" desc="individuals are exchanged each &apos;freq&apos; generations (default: none)">0</Entry>
+		<Entry key="migration.number" desc="number of individuals to be sent to another deme (default: 1)">1</Entry>
+		<Entry key="milestone.elapsedtime_" desc="">0</Entry>
+		<Entry key="milestone.filename" desc="milestone file (if stated) stores all the population (default: none)">milestone.txt</Entry>
+		<Entry key="milestone.generation_" desc="">0</Entry>
+		<Entry key="milestone.interval" desc="milestone saving interval in generations; 0: save only at the end (default: 0)">0</Entry>
+		<Entry key="mutation.genotypes" desc="if there are multiple genotypes, which to mutate? &apos;random&apos;: a random one, all: mutate all (default: random)">random</Entry>
+		<Entry key="mutation.indprob" desc="individual mutation probability (unless the algorithm overrides it) (default: 0.3)">0.3</Entry>
+		<Entry key="mutation.protected" desc="indexes of genotypes (separated by spaces) that are excluded (protected) from mutation (default: none)"></Entry>
+		<Entry key="population.demes" desc="number of demes (default: 1)">1</Entry>
+		<Entry key="population.size" desc="number of individuals (default: 100)">100</Entry>
+		<Entry key="randomizer.seed" desc="randomizer seed, 0 uses time(NULL) (default: 0)">0</Entry>
+		<Entry key="stats.file" desc=""></Entry>
+		<Entry key="term.eval" desc="max number of fitness evaluations (default: none)">0</Entry>
+		<Entry key="term.fitnessval" desc="fitness value for termination (default: none)">0</Entry>
+		<Entry key="term.maxgen" desc="max number of generations (default: none)">0</Entry>
+		<Entry key="term.maxtime" desc="max number of seconds to run (default: none)">0</Entry>
+		<Entry key="term.stagnation" desc="max number of consecutive generations without improvement (default: 5000 / pop_size)">50</Entry>
+	</Registry>
+</ECF>

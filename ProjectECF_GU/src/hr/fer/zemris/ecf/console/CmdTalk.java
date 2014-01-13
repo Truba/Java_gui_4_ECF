@@ -38,7 +38,9 @@ public class CmdTalk implements ITalk{
 			 * and dosen't execute Java code till then.
 			 */
 			String controlString = "-gui -pardump";
-			Process process = new ProcessBuilder("cmd.exe /c \""+(ecfPath + " " + controlString + " " + paramsPath)+"\"").start();
+//			System.out.println("cmd.exe /c \""+(ecfPath + " " + controlString + " " + paramsPath)+"\"");
+			ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", "\""+(ecfPath + " " + controlString + " " + paramsPath)+"\""); // ispravljeno, parametri se moraju odvojiti, ne mogu se samo slijepiti stringovi
+			Process process = pb.start();
 			process.waitFor();
 			
 		} catch (IOException e) {

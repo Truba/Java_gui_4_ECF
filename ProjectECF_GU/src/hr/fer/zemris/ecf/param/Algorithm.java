@@ -64,7 +64,10 @@ public class Algorithm {
 		this.entryList = entryList;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 	
 }
