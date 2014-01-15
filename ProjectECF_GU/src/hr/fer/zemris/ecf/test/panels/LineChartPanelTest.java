@@ -24,6 +24,7 @@ public class LineChartPanelTest extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public LineChartPanelTest() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 		final XYSeriesCollection dataset = createDataset();
 		List<Color> seriesColor = new ArrayList<>();

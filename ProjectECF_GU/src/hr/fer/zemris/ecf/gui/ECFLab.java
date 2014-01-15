@@ -7,6 +7,7 @@ import hr.fer.zemris.ecf.gui.model.conf.IConfiguration;
 import hr.fer.zemris.ecf.gui.model.conf.impl.PropertyFile;
 import hr.fer.zemris.ecf.gui.model.log.ILog;
 import hr.fer.zemris.ecf.gui.model.log.impl.FileLog;
+import hr.fer.zemris.ecf.param.AlgGenRegInit;
 import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.tasks.TaskMannager;
 
@@ -54,8 +55,9 @@ public class ECFLab extends JFrame {
 	private Map<String, Action> actions = new HashMap<>();
 	private JMenuBar menuBar = new JMenuBar();
 	private JTabbedPane tabbedPane;
-	private String ecfPath = "C:\\Temp\\GAOneMax.exe";
-	private String paramsPath = "res\\dump\\out.txt";
+	private String ecfPath;
+	private String paramsPath;
+	private AlgGenRegInit parDump;
 
 	/**
 	 * Creates a new main frame for ECF Lab.
@@ -77,6 +79,10 @@ public class ECFLab extends JFrame {
 		setLocation(100, 100);
 		setSize(800, 600);
 		setLayout(new BorderLayout());
+		
+		ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
+		paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
+		parDump = getParDump();
 		
 		tabbedPane = new JTabbedPane();
 		add(tabbedPane, BorderLayout.CENTER);
@@ -117,7 +123,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				List<Algorithm> list = getAlgortihmList();
+				List<Algorithm> list = parDump.algorithms;
 				tabbedPane.add("New algorithm", new DropDownSelection(list));
 			}
 		};
@@ -156,9 +162,9 @@ public class ECFLab extends JFrame {
 		// TODO nastavak akcija
 	}
 
-	protected List<Algorithm> getAlgortihmList() {
+	protected AlgGenRegInit getParDump() {
 		TaskMannager tm = new TaskMannager();
-		return tm.getInitialECFparams(ecfPath, paramsPath).algorithms;
+		return tm.getInitialECFparams(ecfPath, paramsPath);
 	}
 
 	private void initMenuBar() {

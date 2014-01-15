@@ -33,5 +33,10 @@ public class Entry {
 	public boolean isMandatory() {
 	return desc.contains("(mandatory)");
 	}
+	
+	@Override
+	public String toString() {
+		return key;
+	}
 
 }

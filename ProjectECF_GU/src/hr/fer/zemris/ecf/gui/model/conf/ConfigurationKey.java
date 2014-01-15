@@ -11,6 +11,7 @@ public class ConfigurationKey {
 	public static final String APP_ICON_PATH = "app_icon_path";
 	public static final String DEFAULT_ECF_EXE_DEFINED = "default_ecf_exe_defined";
 	public static final String DEFAULT_ECF_EXE_PATH = "default_ecf_exe_path";
+	public static final String DEFAULT_PARAMS_DUMP = "default_params_dump";
 	
 	private ConfigurationKey() {
 	}
