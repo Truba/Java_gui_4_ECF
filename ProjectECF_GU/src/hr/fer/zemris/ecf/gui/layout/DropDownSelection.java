@@ -51,7 +51,7 @@ public class DropDownSelection extends JPanel implements ItemListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				System.out.println("Run");
 			}
 		});
 		button.setText("Run");
