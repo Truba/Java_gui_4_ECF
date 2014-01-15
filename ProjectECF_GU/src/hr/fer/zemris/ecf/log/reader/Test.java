@@ -1,8 +1,6 @@
 package hr.fer.zemris.ecf.log.reader;
 
 import hr.fer.zemris.ecf.log.Generation;
-import hr.fer.zemris.ecf.log.genotypes.AbstractGenotype;
-import hr.fer.zemris.ecf.log.genotypes.GenotypeReader;
 
 import java.util.ArrayList;
 import java.util.List;

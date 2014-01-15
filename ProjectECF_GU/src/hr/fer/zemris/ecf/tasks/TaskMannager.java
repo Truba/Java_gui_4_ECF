@@ -44,7 +44,7 @@ public class TaskMannager {
 	
 	/**
 	 * Getter for the number of CPU cores on current PC.
-	 * @return
+	 * @return number of CPU cores on current PC
 	 */
 	public int getCpuCors() {
 		return cpuCors;
