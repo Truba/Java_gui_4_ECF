@@ -15,10 +15,14 @@ public class EntryFieldPanel extends JPanel {
 	private JTextField text;
 	
 	public EntryFieldPanel(JLabel label, JTextField text) {
+		this(label, text, BoxLayout.X_AXIS);
+	}
+	
+	public EntryFieldPanel(JLabel label, JTextField text, int axis) {
 		super();
 		this.label = label;
 		this.text = text;
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		setLayout(new BoxLayout(this, axis));
 		add(label);
 		add(text);
 	}

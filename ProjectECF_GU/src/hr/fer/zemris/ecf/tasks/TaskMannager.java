@@ -35,7 +35,7 @@ public class TaskMannager {
 	}
 	
 	/**
-	 * This is probably useless meted.
+	 * This is probably useless method.
 	 * @return list of future voids as the results of {@link Task}s well done.
 	 */
 	public List<Future<Void>> getResults() {
@@ -62,7 +62,7 @@ public class TaskMannager {
 	}
 	
 	/**
-	 * This meted is used for running {@link Task}s.
+	 * This method is used for running {@link Task}s.
 	 * It gets list of {@link Job} and number of threads to run them on.
 	 * @param taskDescriptions array list of jobs needed to do.
 	 * @param numOfThreads number of threads to run them on.

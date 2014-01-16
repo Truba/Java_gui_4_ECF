@@ -58,7 +58,7 @@ public class CmdTalk implements ITalk{
 		Process process;
 		System.out.println("cmd.exe /c \""+path+""+command+"\"");
 		try {
-			process = new ProcessBuilder("cmd.exe /c \""+path+""+command+"\"").start();
+			process = new ProcessBuilder("cmd.exe", "/c", "\""+path+""+command+"\"").start();
 			process.waitFor();
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();

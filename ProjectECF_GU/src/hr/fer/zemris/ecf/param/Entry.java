@@ -27,6 +27,17 @@ public class Entry {
 	}
 	
 	/**
+	 * Constructor
+	 * @param key Key
+	 * @param value Value
+	 */
+	public Entry(String key, String value) {
+		super();
+		this.key = key;
+		this.value = value;
+	}
+
+	/**
 	 * Checks if this entry is mandatory.
 	 * @return true if it is mandatory, false otherwise
 	 */
