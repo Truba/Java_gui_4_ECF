@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--There are no user comments for this paramethers.--><ECF><Algorithm><DifferentialEvolution><Entry key="CR">0.9</Entry><Entry key="F">1</Entry></DifferentialEvolution></Algorithm><Genotype><Binary/></Genotype><Registry/></ECF>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--There are no user comments for this paramethers.--><ECF><Algorithm><SteadyStateTournament><Entry key="tsize">3</Entry></SteadyStateTournament></Algorithm><Genotype><Binary/></Genotype><Registry/></ECF>

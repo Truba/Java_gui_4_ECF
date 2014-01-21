@@ -1,6 +1,6 @@
 package hr.fer.zemris.ecf.gui;
 
-import hr.fer.zemris.ecf.gui.layout.DropDownSelection;
+import hr.fer.zemris.ecf.gui.layout.AlgorithmSelection;
 import hr.fer.zemris.ecf.gui.model.conf.ConfigurationException;
 import hr.fer.zemris.ecf.gui.model.conf.ConfigurationKey;
 import hr.fer.zemris.ecf.gui.model.conf.IConfiguration;
@@ -124,7 +124,7 @@ public class ECFLab extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				List<Algorithm> list = parDump.algorithms;
-				tabbedPane.add("New algorithm", new DropDownSelection(list));
+				tabbedPane.add("New algorithm", new AlgorithmSelection(list));
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
