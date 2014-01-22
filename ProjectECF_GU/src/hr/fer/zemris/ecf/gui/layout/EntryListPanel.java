@@ -24,7 +24,7 @@ public class EntryListPanel extends JPanel {
 		for (int i = 0; i < size; i++) {
 			JLabel label = new JLabel(list.get(i).key);
 			JTextField text = new JTextField(list.get(i).value);
-			EntryFieldPanel fieldPanel = new EntryFieldPanel(label, text);
+			EntryFieldPanel fieldPanel = new EntryFieldPanel(label, text, list.get(i).desc);
 			fieldPanels.add(fieldPanel);
 			add(fieldPanel);
 		}

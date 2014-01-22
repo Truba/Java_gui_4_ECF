@@ -2,6 +2,7 @@ package hr.fer.zemris.ecf.gui.layout;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -16,7 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-public abstract class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemListener {
+public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemListener {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -37,6 +38,9 @@ public abstract class DropDownPanel<T extends EntryBlock> extends JPanel impleme
 		box = new JComboBox<>(model);
 		box.setEditable(false);
 		box.addItemListener(this);
+		box.setPreferredSize(new Dimension(150, 20));
+		box.setMinimumSize(new Dimension(150, 20));
+		box.setMaximumSize(new Dimension(150, 20));
 		
 		cards = new JPanel(new CardLayout());
 		
@@ -66,7 +70,18 @@ public abstract class DropDownPanel<T extends EntryBlock> extends JPanel impleme
 		add(cards, BorderLayout.CENTER);
 	}
 	
-	protected abstract void clicked();
+	protected void clicked() {
+	}
+	
+	public T getSelectedItem() {
+		int index = box.getSelectedIndex();
+		return blocks.get(index);
+	}
+	
+	public EntryListPanel getSelectedEntryList() {
+		int index = box.getSelectedIndex();
+		return algPanels.get(index);
+	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {

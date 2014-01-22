@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<ECF milestone="Tue Jan 21 22:18:16 2014
+<ECF milestone="Wed Jan 22 01:28:57 2014
 ">
 	<Algorithm>
 		<RouletteWheel>
@@ -20,7 +20,7 @@
 		<Entry key="batch.remaining_">0</Entry>
 		<Entry key="log.filename">log.txt</Entry>
 		<Entry key="log.level">3</Entry>
-		<Entry key="milestone.elapsedtime_">0</Entry>
+		<Entry key="milestone.elapsedtime_">1</Entry>
 		<Entry key="milestone.filename">out.txt</Entry>
 		<Entry key="milestone.generation_">30</Entry>
 		<Entry key="milestone.interval">0</Entry>
@@ -32,7 +32,7 @@
 	</Registry>
 	<Population size="5">
 		<HallOfFame size="1">
-			<Individual size="1" gen="1">
+			<Individual size="1" gen="2">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
 			</Individual>
@@ -46,7 +46,95 @@
 			</HallOfFame>
 			<Individual size="1">
 				<FitnessMax value="9"/>
-				<BitString size="10">1111111110</BitString>
+				<BitString size="10">1101111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
@@ -76,6 +164,14 @@
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
 			</Individual>
+		</Deme>
+		<Deme size="30">
+			<HallOfFame size="1">
+				<Individual size="1" gen="9">
+					<FitnessMax value="10"/>
+					<BitString size="10">1111111111</BitString>
+				</Individual>
+			</HallOfFame>
 			<Individual size="1">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
@@ -90,7 +186,7 @@
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="9"/>
-				<BitString size="10">1110111111</BitString>
+				<BitString size="10">1011111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
@@ -125,8 +221,12 @@
 				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1110111111</BitString>
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
@@ -157,8 +257,36 @@
 				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
 				<FitnessMax value="9"/>
-				<BitString size="10">1111111110</BitString>
+				<BitString size="10">1111011111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
@@ -167,7 +295,7 @@
 		</Deme>
 		<Deme size="30">
 			<HallOfFame size="1">
-				<Individual size="1" gen="5">
+				<Individual size="1" gen="4">
 					<FitnessMax value="10"/>
 					<BitString size="10">1111111111</BitString>
 				</Individual>
@@ -213,12 +341,176 @@
 				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1101111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="9"/>
-				<BitString size="10">1111011111</BitString>
+				<BitString size="10">1111111110</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">0111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1110111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1101111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+		</Deme>
+		<Deme size="30">
+			<HallOfFame size="1">
+				<Individual size="1" gen="7">
+					<FitnessMax value="10"/>
+					<BitString size="10">1111111111</BitString>
+				</Individual>
+			</HallOfFame>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1111101111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1110111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1111110111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1101111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="9"/>
@@ -241,36 +533,8 @@
 				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
+				<FitnessMax value="9"/>
+				<BitString size="10">1110111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
@@ -278,24 +542,16 @@
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="9"/>
-				<BitString size="10">1111110111</BitString>
+				<BitString size="10">1011111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1101111111</BitString>
 			</Individual>
 		</Deme>
 		<Deme size="30">
 			<HallOfFame size="1">
-				<Individual size="1" gen="3">
+				<Individual size="1" gen="2">
 					<FitnessMax value="10"/>
 					<BitString size="10">1111111111</BitString>
 				</Individual>
@@ -305,82 +561,6 @@
 				<BitString size="10">1111111111</BitString>
 			</Individual>
 			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">0111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111111011</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111110111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111011111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">0111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
 			</Individual>
@@ -397,280 +577,100 @@
 				<BitString size="10">1101111111</BitString>
 			</Individual>
 			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
 				<FitnessMax value="9"/>
 				<BitString size="10">1111111110</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1111110111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="8"/>
+				<BitString size="10">0111101111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">0111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1111111101</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1101111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="10"/>
+				<BitString size="10">1111111111</BitString>
+			</Individual>
+			<Individual size="1">
+				<FitnessMax value="9"/>
+				<BitString size="10">1111111110</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="9"/>
 				<BitString size="10">1111101111</BitString>
 			</Individual>
 			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-		</Deme>
-		<Deme size="30">
-			<HallOfFame size="1">
-				<Individual size="1" gen="1">
-					<FitnessMax value="10"/>
-					<BitString size="10">1111111111</BitString>
-				</Individual>
-			</HallOfFame>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
 				<FitnessMax value="9"/>
-				<BitString size="10">0111111111</BitString>
+				<BitString size="10">1101111111</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>
 				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111111110</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111111011</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111111110</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111111110</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-		</Deme>
-		<Deme size="30">
-			<HallOfFame size="1">
-				<Individual size="1" gen="5">
-					<FitnessMax value="10"/>
-					<BitString size="10">1111111111</BitString>
-				</Individual>
-			</HallOfFame>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111011111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="10"/>
-				<BitString size="10">1111111111</BitString>
-			</Individual>
-			<Individual size="1">
-				<FitnessMax value="9"/>
-				<BitString size="10">1111111011</BitString>
 			</Individual>
 			<Individual size="1">
 				<FitnessMax value="10"/>

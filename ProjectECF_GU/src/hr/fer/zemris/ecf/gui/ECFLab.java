@@ -1,7 +1,6 @@
 package hr.fer.zemris.ecf.gui;
 
-import hr.fer.zemris.ecf.gui.layout.AlgorithmSelection;
-import hr.fer.zemris.ecf.gui.model.conf.ConfigurationException;
+import hr.fer.zemris.ecf.gui.layout.ParametersSelection;
 import hr.fer.zemris.ecf.gui.model.conf.ConfigurationKey;
 import hr.fer.zemris.ecf.gui.model.conf.IConfiguration;
 import hr.fer.zemris.ecf.gui.model.conf.impl.PropertyFile;
@@ -9,6 +8,8 @@ import hr.fer.zemris.ecf.gui.model.log.ILog;
 import hr.fer.zemris.ecf.gui.model.log.impl.FileLog;
 import hr.fer.zemris.ecf.param.AlgGenRegInit;
 import hr.fer.zemris.ecf.param.Algorithm;
+import hr.fer.zemris.ecf.param.Genotype;
+import hr.fer.zemris.ecf.param.Registry;
 import hr.fer.zemris.ecf.tasks.TaskMannager;
 
 import java.awt.BorderLayout;
@@ -18,8 +19,12 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +53,6 @@ public class ECFLab extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String CONFIGURATION_FILE = "res/conf/conf.properties";
-	private static final String LOG_FILE = "res/log/log.txt";
 
 	private IConfiguration configuration;
 	private ILog log;
@@ -62,7 +66,9 @@ public class ECFLab extends JFrame {
 	/**
 	 * Creates a new main frame for ECF Lab.
 	 */
-	public ECFLab() {
+	public ECFLab(IConfiguration configuration, ILog log) {
+		this.configuration = configuration;
+		this.log = log;
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setLookAndFeel(true);
 		initGUI();
@@ -76,8 +82,8 @@ public class ECFLab extends JFrame {
 		}
 
 		setIconImage(image);
-		setLocation(100, 100);
-		setSize(800, 600);
+		setLocation(300, 100);
+		setSize(900, 600);
 		setLayout(new BorderLayout());
 		
 		ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
@@ -99,16 +105,6 @@ public class ECFLab extends JFrame {
 			}
 		});
 
-		log = new FileLog(LOG_FILE);
-
-		try {
-			configuration = new PropertyFile(CONFIGURATION_FILE);
-		} catch (ConfigurationException e1) {
-			log.log(e1);
-			reportError("Configuration file error!");
-			System.exit(0);
-		}
-
 		initActions();
 		initMenuBar();
 
@@ -123,8 +119,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				List<Algorithm> list = parDump.algorithms;
-				tabbedPane.add("New algorithm", new AlgorithmSelection(list));
+				newTab();
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
@@ -137,8 +132,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-
+				open();
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
@@ -151,8 +145,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-
+				save();
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
@@ -160,6 +153,24 @@ public class ECFLab extends JFrame {
 		actions.put("Save", action);
 		
 		// TODO nastavak akcija
+	}
+
+	protected void save() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void open() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void newTab() {
+		List<Algorithm> list = parDump.algorithms;
+		List<Genotype> gens = parDump.genotypes;
+		Registry reg = parDump.registry;
+		ParametersSelection parSel = new ParametersSelection(ecfPath, list, gens, reg);
+		tabbedPane.add("New algorithm", parSel);
 	}
 
 	protected AlgGenRegInit getParDump() {
@@ -204,11 +215,16 @@ public class ECFLab extends JFrame {
 	 *            Not used
 	 */
 	public static void main(String[] args) {
+		final IConfiguration configuration = new PropertyFile(CONFIGURATION_FILE);
+		final ILog log = new FileLog(configuration.getValue(ConfigurationKey.LOG_FILE_PATH));
+		
+		Thread.setDefaultUncaughtExceptionHandler(new EDTExceptionHandler(log));
+		System.setProperty("sun.awt.exception.handler", EDTExceptionHandler.class.getName());
+		
 		SwingUtilities.invokeLater(new Runnable() {
-
 			@Override
 			public void run() {
-				startGUIApp();
+				startGUIApp(configuration, log);
 			}
 		});
 	}
@@ -216,8 +232,8 @@ public class ECFLab extends JFrame {
 	/**
 	 * Starts GUI.
 	 */
-	protected static void startGUIApp() {
-		new ECFLab();
+	protected static void startGUIApp(IConfiguration configuration, ILog log) {
+		new ECFLab(configuration, log);
 	}
 
 	protected void setLookAndFeel(boolean system) {
@@ -229,6 +245,42 @@ public class ECFLab extends JFrame {
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static class EDTExceptionHandler implements Thread.UncaughtExceptionHandler {
+
+		private ILog log;
+		
+		public EDTExceptionHandler(ILog log) {
+			super();
+			this.log = log;
+		}
+
+		public void handle(Throwable thrown) {
+			log.log(getStackTraceString(thrown.getStackTrace()));
+		}
+		
+		@Override
+		public void uncaughtException(Thread t, Throwable e) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			PrintStream ps = new PrintStream(baos);
+			e.printStackTrace(ps);
+			try {
+				String message = baos.toString(StandardCharsets.UTF_8.name());
+				log.log(message);
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+
+		private String getStackTraceString(StackTraceElement[] stackTrace) {
+			StringBuilder sb = new StringBuilder();
+			for (StackTraceElement ste : stackTrace) {
+				sb.append(ste.toString() + "\n");
+			}
+			return sb.toString();
+		}
+		
 	}
 
 	// URI uri;

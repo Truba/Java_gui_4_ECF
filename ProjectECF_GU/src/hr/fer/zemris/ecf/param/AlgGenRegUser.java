@@ -26,7 +26,7 @@ public class AlgGenRegUser {
 	/**
 	 * User comments to be written at the beginning of the parameters file as the xml comment.
 	 */
-	public String userComment;
+	public String userComment = "";
 	
 	/**
 	 * Constructor it initializes genotypes outer list to new array list.

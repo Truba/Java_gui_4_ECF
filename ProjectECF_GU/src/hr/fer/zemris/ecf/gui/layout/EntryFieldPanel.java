@@ -18,6 +18,10 @@ public class EntryFieldPanel extends JPanel {
 		this(label, text, BoxLayout.X_AXIS);
 	}
 	
+	public EntryFieldPanel(JLabel label, JTextField text, String tooltipText) {
+		this(label, text, BoxLayout.X_AXIS, tooltipText);
+	}
+	
 	public EntryFieldPanel(JLabel label, JTextField text, int axis) {
 		super();
 		this.label = label;
@@ -25,6 +29,11 @@ public class EntryFieldPanel extends JPanel {
 		setLayout(new BoxLayout(this, axis));
 		add(label);
 		add(text);
+	}
+	
+	public EntryFieldPanel(JLabel label, JTextField text, int axis, String tooltipText) {
+		this(label, text, axis);
+		label.setToolTipText(tooltipText);
 	}
 	
 	public String getText() {
@@ -40,13 +49,18 @@ public class EntryFieldPanel extends JPanel {
 	}
 	
 	@Override
+	public Dimension getPreferredSize() {
+		return new Dimension(250, 20);
+	}
+	
+	@Override
 	public Dimension getMinimumSize() {
-		return new Dimension(200, 20);
+		return new Dimension(250, 20);
 	}
 	
 	@Override
 	public Dimension getMaximumSize() {
-		return new Dimension(300, 20);
+		return new Dimension(250, 20);
 	}
 	
 }
