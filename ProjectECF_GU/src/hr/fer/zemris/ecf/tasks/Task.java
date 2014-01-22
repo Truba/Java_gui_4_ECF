@@ -12,10 +12,11 @@ import java.util.concurrent.Callable;
  * @version 1.0
  *
  */
-public class Task implements Callable<Void>{
+public class Task implements Callable<Void>, ISubject {
 	
 	private Job job;
 	private ITalk console;
+	private IObserver observer = null;
 
 	/**
 	 * Constructor it gets the specific {@link Job} and a specific {@link ITalk} for current pc.
@@ -32,7 +33,32 @@ public class Task implements Callable<Void>{
 	public Void call() throws Exception {
 		console.write(job);
 		job.isDone = true;
+		finished();
 		return null;
+	}
+
+
+	@Override
+	public void setObserver(IObserver observer) {
+		this.observer = observer;
+	}
+
+
+	@Override
+	public void removeObserver() {
+		observer = null;
+	}
+
+
+	@Override
+	public void finished() {
+		observer.update(this);
+	}
+
+
+	@Override
+	public String getMessage() {
+		return job.logFilePath;
 	}
 
 }

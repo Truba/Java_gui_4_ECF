@@ -1,2 +1,0 @@
--- ECF, version 1.3.2 --
-Parsing configuration file: res/dump/writing.txt

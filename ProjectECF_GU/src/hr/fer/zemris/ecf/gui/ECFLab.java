@@ -7,9 +7,6 @@ import hr.fer.zemris.ecf.gui.model.conf.impl.PropertyFile;
 import hr.fer.zemris.ecf.gui.model.log.ILog;
 import hr.fer.zemris.ecf.gui.model.log.impl.FileLog;
 import hr.fer.zemris.ecf.param.AlgGenRegInit;
-import hr.fer.zemris.ecf.param.Algorithm;
-import hr.fer.zemris.ecf.param.Genotype;
-import hr.fer.zemris.ecf.param.Registry;
 import hr.fer.zemris.ecf.tasks.TaskMannager;
 
 import java.awt.BorderLayout;
@@ -26,7 +23,6 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
@@ -88,7 +84,7 @@ public class ECFLab extends JFrame {
 		
 		ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
 		paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
-		parDump = getParDump();
+		parDump = callParDump();
 		
 		tabbedPane = new JTabbedPane();
 		add(tabbedPane, BorderLayout.CENTER);
@@ -166,14 +162,11 @@ public class ECFLab extends JFrame {
 	}
 
 	protected void newTab() {
-		List<Algorithm> list = parDump.algorithms;
-		List<Genotype> gens = parDump.genotypes;
-		Registry reg = parDump.registry;
-		ParametersSelection parSel = new ParametersSelection(ecfPath, list, gens, reg);
+		ParametersSelection parSel = new ParametersSelection(this);
 		tabbedPane.add("New algorithm", parSel);
 	}
 
-	protected AlgGenRegInit getParDump() {
+	protected AlgGenRegInit callParDump() {
 		TaskMannager tm = new TaskMannager();
 		return tm.getInitialECFparams(ecfPath, paramsPath);
 	}
@@ -207,12 +200,35 @@ public class ECFLab extends JFrame {
 		// TODO
 		dispose();
 	}
-
+	
+	public ILog getLog() {
+		return log;
+	}
+	
+	public IConfiguration getConfiguration() {
+		return configuration;
+	}
+	
+	public Map<String, Action> getActions() {
+		return actions;
+	}
+	
+	public String getEcfPath() {
+		return ecfPath;
+	}
+	
+	public String getParamsPath() {
+		return paramsPath;
+	}
+	
+	public AlgGenRegInit getParDump() {
+		return parDump;
+	}
+	
 	/**
 	 * Runs this application.
 	 * 
-	 * @param args
-	 *            Not used
+	 * @param args Not used
 	 */
 	public static void main(String[] args) {
 		final IConfiguration configuration = new PropertyFile(CONFIGURATION_FILE);
