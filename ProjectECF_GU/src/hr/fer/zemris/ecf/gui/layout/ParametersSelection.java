@@ -1,5 +1,7 @@
 package hr.fer.zemris.ecf.gui.layout;
 
+import hr.fer.zemris.ecf.console.IObserver;
+import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.gui.ECFLab;
 import hr.fer.zemris.ecf.gui.display.ChartFrame;
@@ -11,8 +13,6 @@ import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.param.Entry;
 import hr.fer.zemris.ecf.param.Genotype;
 import hr.fer.zemris.ecf.param.Registry;
-import hr.fer.zemris.ecf.tasks.IObserver;
-import hr.fer.zemris.ecf.tasks.ISubject;
 import hr.fer.zemris.ecf.tasks.TaskMannager;
 import hr.fer.zemris.ecf.xmldom.XmlWriting;
 
@@ -37,7 +37,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final String FILE = "res/dump/writing.txt";
+	private static final String FILE = "res/dump/writing.xml";
 	private static final String LOG = "res/dump/log.txt";
 
 	private ECFLab parent;
@@ -49,6 +49,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 	public ParametersSelection(ECFLab parent) {
 		super(new BorderLayout());
 		this.parent = parent;
+		ecfPath = parent.getEcfPath();
 		algSel = new AlgorithmSelection(parent.getParDump().algorithms);
 		genSel = new GenotypeSelection(parent.getParDump().genotypes);
 		regList = new EntryListPanel(parent.getParDump().registry.getEntryList());
@@ -112,6 +113,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 //			int pn = tm.getCpuCors();
 			int pn = 1;
 			List<Job> jobs = new ArrayList<>(1);
+			job.setObserver(this);
 			jobs.add(job);
 			tm.startTasks(jobs, pn);
 		} catch (Exception e) {
@@ -131,24 +133,8 @@ public class ParametersSelection extends JPanel implements IObserver {
 		return regList.getList();
 	}
 
-	private static class TempPanel extends JPanel {
-
-		private static final long serialVersionUID = 1L;
-
-		public TempPanel(AlgorithmSelection algSel, GenotypeSelection genSel, EntryListPanel regList) {
-			super();
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			add(algSel);
-			add(new JSeparator(JSeparator.VERTICAL));
-			add(genSel);
-			add(new JSeparator(JSeparator.VERTICAL));
-			add(regList);
-		}
-
-	}
-
 	@Override
-	public void update(ISubject subject) {
+	public synchronized void update(ISubject subject) {
 		String logFile = subject.getMessage();
 		OfflineReading off = new OfflineReading();
 		off.read(logFile);
@@ -178,6 +164,23 @@ public class ParametersSelection extends JPanel implements IObserver {
 		LineChartPanel lineChart = new LineChartPanel(coll, colors, chartTitle, xAxisLabel, yAxisLabel, true, false);
 		JFrame frame = new ChartFrame(lineChart);
 		frame.setVisible(true);
+		subject.removeObserver();
+	}
+	
+	private static class TempPanel extends JPanel {
+
+		private static final long serialVersionUID = 1L;
+
+		public TempPanel(AlgorithmSelection algSel, GenotypeSelection genSel, EntryListPanel regList) {
+			super();
+			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+			add(algSel);
+			add(new JSeparator(JSeparator.VERTICAL));
+			add(genSel);
+			add(new JSeparator(JSeparator.VERTICAL));
+			add(regList);
+		}
+
 	}
 
 }

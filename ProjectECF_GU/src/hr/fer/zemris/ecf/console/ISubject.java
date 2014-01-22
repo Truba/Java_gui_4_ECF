@@ -1,4 +1,4 @@
-package hr.fer.zemris.ecf.tasks;
+package hr.fer.zemris.ecf.console;
 
 public interface ISubject {
 	
