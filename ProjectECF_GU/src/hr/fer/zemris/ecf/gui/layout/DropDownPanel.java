@@ -26,6 +26,7 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 	protected String[] model;
 	protected JComboBox<String> box = null;
 	protected List<EntryListPanel> algPanels = new ArrayList<>();
+	protected CardLayout cardLayout;
 	
 	public DropDownPanel(List<T> blocks, String buttonText) {
 		this.blocks = blocks;
@@ -42,7 +43,8 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 		box.setMinimumSize(new Dimension(150, 20));
 		box.setMaximumSize(new Dimension(150, 20));
 		
-		cards = new JPanel(new CardLayout());
+		cardLayout = new CardLayout();
+		cards = new JPanel(cardLayout);
 		
 		int size = blocks.size();
 		for (int i = 0; i < size; i++) {
@@ -87,6 +89,16 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 	public void itemStateChanged(ItemEvent e) {
 		CardLayout cl = (CardLayout) cards.getLayout();
 		cl.show(cards, e.getItem().toString());
+	}
+	
+	public void show(String key) {
+		box.setSelectedItem(key);
+		cardLayout.show(cards, key);
+	}
+	
+	public void show(int index) {
+		box.setSelectedIndex(index);
+		cardLayout.show(cards, model[index]);
 	}
 	
 }

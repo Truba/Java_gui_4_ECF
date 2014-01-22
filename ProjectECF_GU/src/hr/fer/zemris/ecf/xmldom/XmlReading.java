@@ -70,6 +70,23 @@ public class XmlReading {
 	}
 	
 	/**
+	 * This class is used for parsing parameters that was user defined earlier and saved within an archive.
+	 * @param file parameters file (.xml)
+	 * @return AlgGenReg4Writing class filled with necessary data.
+	 */
+	public static AlgGenRegUser readArchive(File file) {
+		agr2list = new AlgGenRegUser();
+		try {
+			readingArchive(file);
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			System.err.println("Error ocured while trying to gather initial data given by ECF in xml form.");
+			e.printStackTrace();
+		}
+		return agr2list;
+	
+}
+	
+	/**
 	 * This class is used for parsing initial parameters set given by ECF.	
 	 * @param file path to the parameters given by ECF.
 	 * @throws SAXException in case of problem.
@@ -116,9 +133,20 @@ public class XmlReading {
 	 */
 	private static void readingArchive(String file) throws SAXException, IOException, ParserConfigurationException {
 		File fXmlFile = new File(file);
+		readingArchive(fXmlFile);
+	}
+	
+	/**
+	 * This class is used for parsing parameters that was user defined earlier and saved within an archive.
+	 * @param file parameters file.
+	 * @throws SAXException in case of problem.
+	 * @throws IOException in case of problem.
+	 * @throws ParserConfigurationException in case of problem.
+	 */
+	private static void readingArchive(File file) throws SAXException, IOException, ParserConfigurationException {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document doc = dBuilder.parse(fXmlFile);		
+		Document doc = dBuilder.parse(file);		
 		doc.getDocumentElement().normalize();
 		
 		Node comment = doc.getChildNodes().item(0);

@@ -14,11 +14,9 @@ public class EntryListPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<Entry> list;
 	private List<EntryFieldPanel> fieldPanels = new ArrayList<>();
 	
 	public EntryListPanel(List<Entry> list) {
-		this.list = list;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		int size = list.size();
 		for (int i = 0; i < size; i++) {
@@ -28,14 +26,6 @@ public class EntryListPanel extends JPanel {
 			fieldPanels.add(fieldPanel);
 			add(fieldPanel);
 		}
-	}
-	
-	public List<Entry> getList() {
-		return list;
-	}
-	
-	public int getEntriesCount() {
-		return list.size();
 	}
 	
 	public List<EntryFieldPanel> getFieldPanels() {
@@ -56,6 +46,19 @@ public class EntryListPanel extends JPanel {
 	
 	public String getDescriptionAt(int index) {
 		return fieldPanels.get(index).getToolTipText();
+	}
+
+	public int getEntriesCount() {
+		return fieldPanels.size();
+	}
+	
+	public EntryFieldPanel getEntryField(String key) {
+		for (EntryFieldPanel efp : fieldPanels) {
+			if (efp.getLabelText().equals(key)) {
+				return efp;
+			}
+		}
+		return null;
 	}
 	
 }

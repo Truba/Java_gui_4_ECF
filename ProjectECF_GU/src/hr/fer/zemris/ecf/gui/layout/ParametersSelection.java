@@ -4,8 +4,8 @@ import hr.fer.zemris.ecf.console.IObserver;
 import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.gui.ECFLab;
-import hr.fer.zemris.ecf.gui.display.ChartFrame;
-import hr.fer.zemris.ecf.gui.display.LineChartPanel;
+import hr.fer.zemris.ecf.gui.chart.ChartFrame;
+import hr.fer.zemris.ecf.gui.chart.LineChartPanel;
 import hr.fer.zemris.ecf.log.Generation;
 import hr.fer.zemris.ecf.log.reader.OfflineReading;
 import hr.fer.zemris.ecf.param.AlgGenRegUser;
@@ -73,13 +73,11 @@ public class ParametersSelection extends JPanel implements IObserver {
 			EntryListPanel pan = algSel.getSelectedEntryList();
 			int size = pan.getEntriesCount();
 			Algorithm alg = algSel.getSelectedItem();
-//			List<Entry> entries = alg.getEntryList();
 			List<Entry> entries = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
 				if (pan.isSelected(i)) {
 					entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
 				}
-//				entries.get(i).value = pan.getValueAt(i);
 			}
 			List<Algorithm> algs = new ArrayList<>(1);
 			algs.add(alg);
@@ -88,13 +86,11 @@ public class ParametersSelection extends JPanel implements IObserver {
 			pan = genSel.getSelectedEntryList();
 			size = pan.getEntriesCount();
 			Genotype gen = genSel.getSelectedItem();
-//			entries = gen.getEntryList();
 			entries = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
 				if (pan.isSelected(i)) {
 					entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
 				}
-//				entries.get(i).value = pan.getValueAt(i);
 			}
 			List<Genotype> gens = new ArrayList<>(1);
 			gens.add(gen);
@@ -103,13 +99,11 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 			// Registry filling
 			size = regList.getEntriesCount();
-//			entries = regList.getList();
 			entries = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
 				if (regList.isSelected(i)) {
 					entries.add(new Entry(regList.getKeyAt(i), regList.getDescriptionAt(i), regList.getValueAt(i)));
 				}
-//				entries.get(i).value = regList.getValueAt(i);
 			}
 			Registry reg = new Registry(entries);
 
@@ -119,8 +113,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 			temp.registry = reg;
 
 			XmlWriting.write(FILE, temp);
-			Job job = new Job(ecfPath, LOG, FILE); // FIXME 3. FILE <->
-													// "lib/parameters1.txt"
+			Job job = new Job(ecfPath, LOG, FILE);
 			TaskMannager tm = new TaskMannager();
 //			int pn = tm.getCpuCors();
 			int pn = 1;
@@ -129,20 +122,29 @@ public class ParametersSelection extends JPanel implements IObserver {
 			jobs.add(job);
 			tm.startTasks(jobs, pn);
 		} catch (Exception e) {
+			parent.reportError(e.getMessage());
 			parent.getLog().log(e);
 		}
 	}
+	
+	public AlgorithmSelection getAlgSel() {
+		return algSel;
+	}
+	
+	public GenotypeSelection getGenSel() {
+		return genSel;
+	}
+	
+	public EntryListPanel getRegList() {
+		return regList;
+	}
 
-	public Algorithm getSelectedAlgortihm() {
+	public Algorithm getSelectedAlgorithm() {
 		return algSel.getSelectedItem();
 	}
 
-	public Genotype getSelecteGenotype() {
+	public Genotype getSelectedGenotype() {
 		return genSel.getSelectedItem();
-	}
-
-	public List<Entry> getSelectedRegistry() {
-		return regList.getList();
 	}
 
 	@Override

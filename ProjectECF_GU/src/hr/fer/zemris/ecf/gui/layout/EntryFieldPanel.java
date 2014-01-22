@@ -45,6 +45,10 @@ public class EntryFieldPanel extends JPanel {
 		return text.getText();
 	}
 	
+	public void setText(String text) {
+		this.text.setText(text);
+	}
+	
 	public String getLabelText() {
 		return label.getText();
 	}
@@ -55,6 +59,10 @@ public class EntryFieldPanel extends JPanel {
 	
 	public boolean isSelected() {
 		return checkBox.isSelected();
+	}
+	
+	public void setSelected(boolean selected) {
+		checkBox.setSelected(selected);
 	}
 	
 	@Override
@@ -70,6 +78,11 @@ public class EntryFieldPanel extends JPanel {
 	@Override
 	public Dimension getMaximumSize() {
 		return new Dimension(250, 20);
+	}
+	
+	@Override
+	public String toString() {
+		return label.getText();
 	}
 	
 }

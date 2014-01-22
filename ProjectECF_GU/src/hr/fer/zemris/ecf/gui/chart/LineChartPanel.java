@@ -1,4 +1,4 @@
-package hr.fer.zemris.ecf.gui.display;
+package hr.fer.zemris.ecf.gui.chart;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
