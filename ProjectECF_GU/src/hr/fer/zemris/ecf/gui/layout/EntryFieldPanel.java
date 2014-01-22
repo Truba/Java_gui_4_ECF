@@ -3,6 +3,7 @@ package hr.fer.zemris.ecf.gui.layout;
 import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -11,6 +12,7 @@ public class EntryFieldPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
+	private JCheckBox checkBox;
 	private JLabel label;
 	private JTextField text;
 	
@@ -27,6 +29,9 @@ public class EntryFieldPanel extends JPanel {
 		this.label = label;
 		this.text = text;
 		setLayout(new BoxLayout(this, axis));
+		checkBox = new JCheckBox();
+		checkBox.setSelected(false);
+		add(checkBox);
 		add(label);
 		add(text);
 	}
@@ -46,6 +51,10 @@ public class EntryFieldPanel extends JPanel {
 	
 	public void setLabelText(String text) {
 		label.setText(text);
+	}
+	
+	public boolean isSelected() {
+		return checkBox.isSelected();
 	}
 	
 	@Override

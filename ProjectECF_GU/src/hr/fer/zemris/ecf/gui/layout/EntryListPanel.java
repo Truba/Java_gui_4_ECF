@@ -42,8 +42,20 @@ public class EntryListPanel extends JPanel {
 		return fieldPanels;
 	}
 	
-	public String getText(int index) {
+	public boolean isSelected(int index) {
+		return fieldPanels.get(index).isSelected();
+	}
+	
+	public String getValueAt(int index) {
 		return fieldPanels.get(index).getText();
+	}
+	
+	public String getKeyAt(int index) {
+		return fieldPanels.get(index).getLabelText();
+	}
+	
+	public String getDescriptionAt(int index) {
+		return fieldPanels.get(index).getToolTipText();
 	}
 	
 }

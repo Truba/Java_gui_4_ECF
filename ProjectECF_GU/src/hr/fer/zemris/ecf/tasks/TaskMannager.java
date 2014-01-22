@@ -89,6 +89,7 @@ public class TaskMannager {
 				res.get();
 			} catch (InterruptedException | ExecutionException e) {
 				System.err.println("Fatal error! Can't fetch jobs.");
+				e.printStackTrace();
 				return false;
 			}
 		}

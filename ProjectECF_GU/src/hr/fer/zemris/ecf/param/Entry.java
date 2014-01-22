@@ -37,6 +37,13 @@ public class Entry {
 		this.value = value;
 	}
 
+	public Entry(String key, String desc, String value) {
+		super();
+		this.key = key;
+		this.desc = desc;
+		this.value = value;
+	}
+
 	/**
 	 * Checks if this entry is mandatory.
 	 * @return true if it is mandatory, false otherwise

@@ -73,9 +73,13 @@ public class ParametersSelection extends JPanel implements IObserver {
 			EntryListPanel pan = algSel.getSelectedEntryList();
 			int size = pan.getEntriesCount();
 			Algorithm alg = algSel.getSelectedItem();
-			List<Entry> entries = alg.getEntryList();
+//			List<Entry> entries = alg.getEntryList();
+			List<Entry> entries = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
-				entries.get(i).value = pan.getText(i);
+				if (pan.isSelected(i)) {
+					entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
+				}
+//				entries.get(i).value = pan.getValueAt(i);
 			}
 			List<Algorithm> algs = new ArrayList<>(1);
 			algs.add(alg);
@@ -84,9 +88,13 @@ public class ParametersSelection extends JPanel implements IObserver {
 			pan = genSel.getSelectedEntryList();
 			size = pan.getEntriesCount();
 			Genotype gen = genSel.getSelectedItem();
-			entries = gen.getEntryList();
+//			entries = gen.getEntryList();
+			entries = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
-				entries.get(i).value = pan.getText(i);
+				if (pan.isSelected(i)) {
+					entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
+				}
+//				entries.get(i).value = pan.getValueAt(i);
 			}
 			List<Genotype> gens = new ArrayList<>(1);
 			gens.add(gen);
@@ -95,11 +103,15 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 			// Registry filling
 			size = regList.getEntriesCount();
-			entries = regList.getList();
-			Registry reg = new Registry(entries);
+//			entries = regList.getList();
+			entries = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
-				entries.get(i).value = regList.getText(i);
+				if (regList.isSelected(i)) {
+					entries.add(new Entry(regList.getKeyAt(i), regList.getDescriptionAt(i), regList.getValueAt(i)));
+				}
+//				entries.get(i).value = regList.getValueAt(i);
 			}
+			Registry reg = new Registry(entries);
 
 			AlgGenRegUser temp = new AlgGenRegUser();
 			temp.algorithm = algs;

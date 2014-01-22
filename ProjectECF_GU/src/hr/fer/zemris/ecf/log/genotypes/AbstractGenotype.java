@@ -44,4 +44,9 @@ public abstract class AbstractGenotype<T> {
 	 */
 	public abstract ArrayList<T> getValues();
 	
+	@Override
+	public String toString() {
+		return value;
+	}
+	
 }

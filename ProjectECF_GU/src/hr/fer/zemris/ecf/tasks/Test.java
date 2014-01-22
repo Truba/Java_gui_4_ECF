@@ -1,21 +1,24 @@
 package hr.fer.zemris.ecf.tasks;
 
+import hr.fer.zemris.ecf.console.IObserver;
+import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
+import hr.fer.zemris.ecf.log.Generation;
+import hr.fer.zemris.ecf.log.reader.OfflineReading;
 
 import java.util.ArrayList;
 
 public class Test {
 	
 	public static void main(String[] args) {
-		String ecfPath = "D:\\Documents\\SVEN\\FER\\Programiranje\\ECF_1.3\\debug\\examples\\GAonemax\\VS\\Debug\\gaonemax.exe";
-		String paramsPath = "lib\\parameters.txt";
-		
+		String ecfPath = "C:/Temp/GAOneMax.exe";
+		String paramsPath = "lib/parameters.txt";
+		Nesto n = new Nesto();
 		ArrayList<Job> jobs = new ArrayList<>();
 		for(int i=0; i<3; i++){
-			jobs.add(new Job(ecfPath, "lib/log"+getNumOfJob(i)+".txt", paramsPath));
-		}
-		for(int i=3; i<5; i++){
-			jobs.add(new Job(ecfPath, "lib/log"+getNumOfJob(i)+".txt", "lib\\parameters1.txt"));
+			Job j = new Job(ecfPath, "lib/log"+getNumOfJob(i)+".txt", paramsPath);
+			j.setObserver(n);
+			jobs.add(j);
 		}
 		
 		TaskMannager ts = new TaskMannager();
@@ -27,6 +30,23 @@ public class Test {
 			return "0" + String.valueOf(i + 1);
 		} 
 		return String.valueOf(i + 1);
+	}
+
+	public static class Nesto implements IObserver{
+
+		public Nesto() {
+		}
+		
+		@Override
+		public void update(ISubject subject) {
+			String logFile = subject.getMessage();
+			OfflineReading off = new OfflineReading();
+			off.read(logFile);
+			ArrayList<Generation> generations = off.getLogFile().generations;
+			
+		}
+		
+		
 	}
 
 }
