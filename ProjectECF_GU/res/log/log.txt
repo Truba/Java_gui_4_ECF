@@ -2014,3 +2014,24 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
 
 -----------------------
+Thu Jan 23 00:12:53 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.gui.ECFLab.<init>(ECFLab.java:103)
+	at hr.fer.zemris.ecf.gui.ECFLab.startGUIApp(ECFLab.java:319)
+	at hr.fer.zemris.ecf.gui.ECFLab$5.run(ECFLab.java:310)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:251)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:727)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:688)
+	at java.awt.EventQueue$3.run(EventQueue.java:686)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:697)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+
+-----------------------

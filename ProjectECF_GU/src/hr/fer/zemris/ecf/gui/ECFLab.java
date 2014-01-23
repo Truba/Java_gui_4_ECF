@@ -1,5 +1,6 @@
 package hr.fer.zemris.ecf.gui;
 
+import hr.fer.zemris.ecf.gui.display.ECFExePathPanel;
 import hr.fer.zemris.ecf.gui.layout.EntryFieldPanel;
 import hr.fer.zemris.ecf.gui.layout.EntryListPanel;
 import hr.fer.zemris.ecf.gui.layout.ParametersSelection;
@@ -76,32 +77,46 @@ public class ECFLab extends JFrame {
 	public ECFLab(IConfiguration configuration, ILog log) {
 		this.configuration = configuration;
 		this.log = log;
-		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		setLookAndFeel(true);
-		initGUI();
-
-		setTitle(configuration.getValue(ConfigurationKey.APP_TITLE));
-		Image image = null;
 		try {
-			image = ImageIO.read(new FileInputStream(configuration.getValue(ConfigurationKey.APP_ICON_PATH)));
-		} catch (IOException e) {
+			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+			setLookAndFeel(true);
+			initGUI();
+
+			setTitle(configuration.getValue(ConfigurationKey.APP_TITLE));
+			Image image = null;
+			try {
+				image = ImageIO.read(new FileInputStream(configuration.getValue(ConfigurationKey.APP_ICON_PATH)));
+			} catch (IOException e) {
+				log.log(e);
+			}
+
+			setIconImage(image);
+			setLocation(300, 100);
+			setSize(900, 600);
+			setLayout(new BorderLayout());
+
+			ECFExePathPanel ecfExePanel = new ECFExePathPanel();
+			int retVal = JOptionPane.showConfirmDialog(this, ecfExePanel, "Choose executable ECF file",
+					JOptionPane.OK_CANCEL_OPTION);
+
+			if (retVal == JOptionPane.CANCEL_OPTION) {
+				ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
+			} else {
+				ecfPath = ecfExePanel.getText();
+			}
+
+			paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
+			parDump = callParDump();
+
+			tabbedPane = new JTabbedPane();
+			add(tabbedPane, BorderLayout.CENTER);
+			// TODO
+
+			setVisible(true);
+		} catch (Exception e) {
 			log.log(e);
+			reportError(e.getMessage());
 		}
-
-		setIconImage(image);
-		setLocation(300, 100);
-		setSize(900, 600);
-		setLayout(new BorderLayout());
-
-		ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
-		paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
-		parDump = callParDump();
-
-		tabbedPane = new JTabbedPane();
-		add(tabbedPane, BorderLayout.CENTER);
-		// TODO
-
-		setVisible(true);
 	}
 
 	private void initGUI() {

@@ -153,6 +153,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 		OfflineReading off = new OfflineReading();
 		off.read(logFile);
 		ArrayList<Generation> generations = off.getLogFile().generations;
+		String solution = off.getLogFile().hallOfFame.get(0).genotypes.get(0).toString();
 		int size = generations.size();
 		XYSeries sMinFit = new XYSeries("Min Fit");
 		XYSeries sMaxFit = new XYSeries("Max Fit");
@@ -176,7 +177,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 		String xAxisLabel = "Generation";
 		String yAxisLabel = "Fitness";
 		LineChartPanel lineChart = new LineChartPanel(coll, colors, chartTitle, xAxisLabel, yAxisLabel, true, false);
-		JFrame frame = new ChartFrame(lineChart);
+		JFrame frame = new ChartFrame(lineChart, solution);
 		frame.setVisible(true);
 		subject.removeObserver();
 	}
