@@ -76,8 +76,14 @@ public class OfflineReading {
 	 */
 	private void createHallOfFame(Scanner sc) {
 		StringBuilder sb = new StringBuilder();
+		String line;
 		while(sc.hasNextLine()){
-			sb.append(sc.nextLine());			
+			line = sc.nextLine();
+			if (line.equals("</HallOfFame>")){
+				sb.append(line);
+				break;
+			}
+			sb.append(line);			
 		}
 		try {
 			parseHallOfFame(sb.toString());
