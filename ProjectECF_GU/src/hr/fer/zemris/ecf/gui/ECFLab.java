@@ -19,6 +19,7 @@ import hr.fer.zemris.ecf.tasks.TaskMannager;
 import hr.fer.zemris.ecf.xmldom.XmlReading;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
@@ -31,6 +32,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
@@ -95,27 +98,29 @@ public class ECFLab extends JFrame {
 			setSize(900, 600);
 			setLayout(new BorderLayout());
 
-			ECFExePathPanel ecfExePanel = new ECFExePathPanel();
-			int retVal = JOptionPane.showConfirmDialog(this, ecfExePanel, "Choose executable ECF file",
-					JOptionPane.OK_CANCEL_OPTION);
-
-			if (retVal == JOptionPane.CANCEL_OPTION) {
-				ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
-			} else {
-				ecfPath = ecfExePanel.getText();
-			}
-
+			chooseECFExe();
 			paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
 			parDump = callParDump();
 
 			tabbedPane = new JTabbedPane();
 			add(tabbedPane, BorderLayout.CENTER);
-			// TODO
 
 			setVisible(true);
 		} catch (Exception e) {
 			log.log(e);
 			reportError(e.getMessage());
+		}
+	}
+
+	private void chooseECFExe() {
+		ECFExePathPanel ecfExePanel = new ECFExePathPanel();
+		int retVal = JOptionPane.showConfirmDialog(this, ecfExePanel, "Choose executable ECF file",
+				JOptionPane.OK_CANCEL_OPTION);
+
+		if (retVal == JOptionPane.CANCEL_OPTION) {
+			ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
+		} else {
+			ecfPath = ecfExePanel.getText();
 		}
 	}
 
@@ -174,7 +179,45 @@ public class ECFLab extends JFrame {
 		action.putValue(Action.SHORT_DESCRIPTION, "Save experiment");
 		actions.put("Save", action);
 
+		action = new AbstractAction("Change ECF") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				chooseECFExe();
+			}
+		};
+		action.putValue(Action.SHORT_DESCRIPTION, "Change ECF executable file");
+		actions.put("ChangeECFExe", action);
+		
+		action = new AbstractAction("ECF home page") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ecfHomePage();
+			}
+		};
+		action.putValue(Action.SHORT_DESCRIPTION, "Go to ECF home page");
+		actions.put("ecfHomePage", action);
+		
 		// TODO nastavak akcija
+	}
+
+	protected void ecfHomePage() {
+		URI uri;
+		try {
+			uri = new URI(configuration.getValue(ConfigurationKey.ECF_HOME_PAGE));
+			Desktop.getDesktop().browse(uri);
+		} catch (URISyntaxException e) {
+			log.log(e);
+			e.printStackTrace();
+		} catch (IOException e) {
+			log.log(e);
+			e.printStackTrace();
+		}
 	}
 
 	protected void save() {
@@ -244,12 +287,17 @@ public class ECFLab extends JFrame {
 	}
 
 	private void initMenuBar() {
-		JMenu fileMenu = new JMenu("File");
-
-		fileMenu.add(actions.get("New"));
-		fileMenu.add(actions.get("Open"));
-		fileMenu.add(actions.get("Save"));
-		menuBar.add(fileMenu);
+		JMenu confMenu = new JMenu("Configuration");
+		confMenu.add(actions.get("New"));
+		confMenu.add(actions.get("Open"));
+		confMenu.add(actions.get("Save"));
+		
+		JMenu exeMenu = new JMenu("ECF");
+		exeMenu.add(actions.get("ChangeECFExe"));
+		exeMenu.add(actions.get("ecfHomePage"));
+		
+		menuBar.add(confMenu);
+		menuBar.add(exeMenu);
 
 		setJMenuBar(menuBar);
 	}
@@ -371,15 +419,5 @@ public class ECFLab extends JFrame {
 		}
 
 	}
-
-	// URI uri;
-	// try {
-	// uri = new URI("https://www.google.hr/");
-	// Desktop.getDesktop().browse(uri);
-	// } catch (URISyntaxException e) {
-	// e.printStackTrace();
-	// } catch (IOException e) {
-	// e.printStackTrace();
-	// }
 
 }

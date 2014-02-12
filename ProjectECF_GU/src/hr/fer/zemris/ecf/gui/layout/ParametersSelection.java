@@ -69,53 +69,11 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 	protected void clicked() {
 		try {
-			// Algorithm filling
-			EntryListPanel pan = algSel.getSelectedEntryList();
-			int size = pan.getEntriesCount();
-			Algorithm alg = algSel.getSelectedItem();
-			List<Entry> entries = new ArrayList<>();
-			for (int i = 0; i < size; i++) {
-				if (pan.isSelected(i)) {
-					entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
-				}
-			}
-			List<Algorithm> algs = new ArrayList<>(1);
-			algs.add(alg);
-
-			// Genotype filling
-			pan = genSel.getSelectedEntryList();
-			size = pan.getEntriesCount();
-			Genotype gen = genSel.getSelectedItem();
-			entries = new ArrayList<>();
-			for (int i = 0; i < size; i++) {
-				if (pan.isSelected(i)) {
-					entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
-				}
-			}
-			List<Genotype> gens = new ArrayList<>(1);
-			gens.add(gen);
-			List<List<Genotype>> genBlock = new ArrayList<>(1);
-			genBlock.add(gens);
-
-			// Registry filling
-			size = regList.getEntriesCount();
-			entries = new ArrayList<>();
-			for (int i = 0; i < size; i++) {
-				if (regList.isSelected(i)) {
-					entries.add(new Entry(regList.getKeyAt(i), regList.getDescriptionAt(i), regList.getValueAt(i)));
-				}
-			}
-			Registry reg = new Registry(entries);
-
-			AlgGenRegUser temp = new AlgGenRegUser();
-			temp.algorithm = algs;
-			temp.genotypes = genBlock;
-			temp.registry = reg;
-
+			AlgGenRegUser temp = getParameters();
 			XmlWriting.write(FILE, temp);
 			Job job = new Job(ecfPath, LOG, FILE);
 			TaskMannager tm = new TaskMannager();
-//			int pn = tm.getCpuCors();
+			// int pn = tm.getCpuCors();
 			int pn = 1;
 			List<Job> jobs = new ArrayList<>(1);
 			job.setObserver(this);
@@ -126,15 +84,61 @@ public class ParametersSelection extends JPanel implements IObserver {
 			parent.getLog().log(e);
 		}
 	}
-	
+
+	public AlgGenRegUser getParameters() {
+		// Algorithm filling
+		EntryListPanel pan = algSel.getSelectedEntryList();
+		int size = pan.getEntriesCount();
+		Algorithm alg = algSel.getSelectedItem();
+		List<Entry> entries = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			if (pan.isSelected(i)) {
+				entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
+			}
+		}
+		List<Algorithm> algs = new ArrayList<>(1);
+		algs.add(alg);
+
+		// Genotype filling
+		pan = genSel.getSelectedEntryList();
+		size = pan.getEntriesCount();
+		Genotype gen = genSel.getSelectedItem();
+		entries = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			if (pan.isSelected(i)) {
+				entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
+			}
+		}
+		List<Genotype> gens = new ArrayList<>(1);
+		gens.add(gen);
+		List<List<Genotype>> genBlock = new ArrayList<>(1);
+		genBlock.add(gens);
+
+		// Registry filling
+		size = regList.getEntriesCount();
+		entries = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			if (regList.isSelected(i)) {
+				entries.add(new Entry(regList.getKeyAt(i), regList.getDescriptionAt(i), regList.getValueAt(i)));
+			}
+		}
+		Registry reg = new Registry(entries);
+
+		AlgGenRegUser temp = new AlgGenRegUser();
+		temp.algorithm = algs;
+		temp.genotypes = genBlock;
+		temp.registry = reg;
+		return temp;
+	}
+
 	public AlgorithmSelection getAlgSel() {
 		return algSel;
 	}
-	
+
 	public GenotypeSelection getGenSel() {
 		return genSel;
 	}
-	
+
 	public EntryListPanel getRegList() {
 		return regList;
 	}
@@ -172,7 +176,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 		colors.add(Color.BLACK);
 		colors.add(Color.RED);
 		colors.add(Color.BLUE);
-//		String chartTitle = alg.getName();
+		// String chartTitle = alg.getName();
 		String chartTitle = "Algorithm";
 		String xAxisLabel = "Generation";
 		String yAxisLabel = "Fitness";
@@ -181,7 +185,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 		frame.setVisible(true);
 		subject.removeObserver();
 	}
-	
+
 	private static class TempPanel extends JPanel {
 
 		private static final long serialVersionUID = 1L;
