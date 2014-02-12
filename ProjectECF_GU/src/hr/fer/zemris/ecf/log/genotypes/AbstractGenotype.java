@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * This is an abstract class that is extended by classes that implement specific genotype type.
  * <b>Classes that extend this class has to have the same name as the the name of some genotype and they have to be in <code>hr.fer.zemris.ecf.log.genotypes</code> package.</b>
  * For example: in ECF there is a genotype named BitString and in here there is <code>hr.fer.zemris.ecf.log.genotypes.BitString.java</code> class.
+ * Only exception to this rule is the {@link UnknownGenotype} class.
  * @version 1.0
  *
  * @param <T> This parameter depends of the type of the genotype.

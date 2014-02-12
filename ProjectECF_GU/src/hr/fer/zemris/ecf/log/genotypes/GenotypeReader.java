@@ -28,8 +28,7 @@ public class GenotypeReader {
 			Constructor<?> cons = myClass.getConstructor(InitialGenotype.class);
 			o = cons.newInstance(ig);
 		} catch (Exception e) {
-			System.err.println("Genotype: " + ig.name + " has not been implemented.");
-			e.printStackTrace();
+			o = new UnknownGenotype(ig);
 		}
 		return (AbstractGenotype<?>) o;
 	}
