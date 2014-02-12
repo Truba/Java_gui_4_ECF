@@ -82,6 +82,7 @@ public class TaskMannager {
 			results = service.invokeAll(tasks);
 		} catch (InterruptedException e) { 
 			System.err.println("Fatal error! Can't do parallelization");
+			service.shutdown();
 			return false;
 		}
 		for(Future<Void> res : results){
@@ -90,6 +91,7 @@ public class TaskMannager {
 			} catch (InterruptedException | ExecutionException e) {
 				System.err.println("Fatal error! Can't fetch jobs.");
 				e.printStackTrace();
+				service.shutdown();
 				return false;
 			}
 		}
