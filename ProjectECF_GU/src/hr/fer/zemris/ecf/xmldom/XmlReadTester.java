@@ -23,7 +23,7 @@ public class XmlReadTester {
 //		AlgGenReg4Writing sTANKOVIC_OVO_MI_TREBAS_STVORIT_SA_PARAMETRIMA_KOJE_KORISNIK_IZABERE
 //		= new AlgGenReg4Writing(agr.algorithms, createGeotypesForTesting(agr.genotypes), agr.registry);
 		AlgGenRegUser s = XmlReading.readArchive("lib/pSta.txt");
-		//XmlWriting.write("lib/out.xml",s);
+		XmlWriting.write("lib/out.xml",s);
 
 	}
 

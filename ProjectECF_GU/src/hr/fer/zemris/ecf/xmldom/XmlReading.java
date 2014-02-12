@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -148,13 +149,20 @@ public class XmlReading {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(file);		
 		doc.getDocumentElement().normalize();
-		
-		Node comment = doc.getChildNodes().item(0);
-		agr2list.userComment = comment.getNodeValue();
-		
 		NodeList ecf = doc.getChildNodes();
 		
-		Node tempNode = ecf.item(1);
+		Node comment = ecf.item(0);
+		Node tempNode;
+		if(comment instanceof Comment){
+			agr2list.userComment = comment.getNodeValue();
+			tempNode = ecf.item(1);
+		}
+		else{
+			agr2list.userComment = agr2list.getUserComment();
+			tempNode = ecf.item(0);
+		}
+		
+		
 		NodeList algGenReg = tempNode.getChildNodes();
 		for(int count = 0; count < algGenReg.getLength(); count++){
 			switch (algGenReg.item(count).getNodeName()) {
