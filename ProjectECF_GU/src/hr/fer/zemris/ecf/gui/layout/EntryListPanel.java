@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class EntryListPanel extends JPanel {
 
@@ -20,9 +18,10 @@ public class EntryListPanel extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		int size = list.size();
 		for (int i = 0; i < size; i++) {
-			JLabel label = new JLabel(list.get(i).key);
-			JTextField text = new JTextField(list.get(i).value);
-			EntryFieldPanel fieldPanel = new EntryFieldPanel(label, text, list.get(i).desc);
+//			JLabel label = new JLabel(list.get(i).key);
+//			JTextField text = new JTextField(list.get(i).value);
+//			EntryFieldPanel fieldPanel = new EntryFieldPanel(label, text, list.get(i).desc);
+			EntryFieldPanel fieldPanel = new EntryFieldPanel(list.get(i));
 			fieldPanels.add(fieldPanel);
 			add(fieldPanel);
 		}

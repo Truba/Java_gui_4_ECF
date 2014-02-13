@@ -12,11 +12,11 @@ public class Test {
 	
 	public static void main(String[] args) {
 		String ecfPath = "C:/Temp/GAOneMax.exe";
-		String paramsPath = "lib/parameters.txt";
+		String paramsPath = "test/parameters.txt";
 		Nesto n = new Nesto();
 		ArrayList<Job> jobs = new ArrayList<>();
 		for(int i=0; i<3; i++){
-			Job j = new Job(ecfPath, "lib/log"+getNumOfJob(i)+".txt", paramsPath);
+			Job j = new Job(ecfPath, "test/log"+getNumOfJob(i)+".txt", paramsPath);
 			j.setObserver(n);
 			jobs.add(j);
 		}

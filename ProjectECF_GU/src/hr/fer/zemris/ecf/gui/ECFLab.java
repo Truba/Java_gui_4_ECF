@@ -117,9 +117,7 @@ public class ECFLab extends JFrame {
 		int retVal = JOptionPane.showConfirmDialog(this, ecfExePanel, "Choose executable ECF file",
 				JOptionPane.OK_CANCEL_OPTION);
 
-		if (retVal == JOptionPane.CANCEL_OPTION) {
-			ecfPath = configuration.getValue(ConfigurationKey.DEFAULT_ECF_EXE_PATH);
-		} else {
+		if (retVal == JOptionPane.OK_OPTION) {
 			ecfPath = ecfExePanel.getText();
 		}
 	}
@@ -150,8 +148,8 @@ public class ECFLab extends JFrame {
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
-		action.putValue(Action.SHORT_DESCRIPTION, "Create new experiment");
-		actions.put("New", action);
+		action.putValue(Action.SHORT_DESCRIPTION, "Create new configuration");
+		actions.put("NewConf", action);
 
 		action = new AbstractAction("Open") {
 
@@ -163,8 +161,8 @@ public class ECFLab extends JFrame {
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
-		action.putValue(Action.SHORT_DESCRIPTION, "Open existing experiment");
-		actions.put("Open", action);
+		action.putValue(Action.SHORT_DESCRIPTION, "Open existing configuration");
+		actions.put("OpenConf", action);
 
 		action = new AbstractAction("Save") {
 
@@ -177,7 +175,20 @@ public class ECFLab extends JFrame {
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
 		action.putValue(Action.SHORT_DESCRIPTION, "Save experiment");
-		actions.put("Save", action);
+		actions.put("SaveConf", action);
+		
+		action = new AbstractAction("Save As") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveAs();
+			}
+		};
+		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
+		action.putValue(Action.SHORT_DESCRIPTION, "Save experiment as");
+		actions.put("SaveConfAs", action);
 
 		action = new AbstractAction("Change ECF") {
 
@@ -204,6 +215,11 @@ public class ECFLab extends JFrame {
 		actions.put("ecfHomePage", action);
 		
 		// TODO nastavak akcija
+	}
+
+	protected void saveAs() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	protected void ecfHomePage() {
@@ -288,9 +304,10 @@ public class ECFLab extends JFrame {
 
 	private void initMenuBar() {
 		JMenu confMenu = new JMenu("Configuration");
-		confMenu.add(actions.get("New"));
-		confMenu.add(actions.get("Open"));
-		confMenu.add(actions.get("Save"));
+		confMenu.add(actions.get("NewConf"));
+		confMenu.add(actions.get("OpenConf"));
+		confMenu.add(actions.get("SaveConf"));
+		confMenu.add(actions.get("SaveConfAs"));
 		
 		JMenu exeMenu = new JMenu("ECF");
 		exeMenu.add(actions.get("ChangeECFExe"));

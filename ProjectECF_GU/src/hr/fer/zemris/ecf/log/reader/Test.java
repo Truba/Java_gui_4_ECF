@@ -10,7 +10,7 @@ public class Test {
 	public static void main(String[] args) {
 		//OnlineReading or = new OnlineReading();
 		OfflineReading off = new OfflineReading();
-		off.read("lib/log.txt");
+		off.read("test/log.txt");
 		ArrayList<Generation> gen = off.getLogFile().generations;
 		System.out.println(gen.get(gen.size()-1).population.avgFitness);
 		

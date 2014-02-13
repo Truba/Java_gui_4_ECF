@@ -1,5 +1,7 @@
 package hr.fer.zemris.ecf.gui.layout;
 
+import hr.fer.zemris.ecf.param.Entry;
+
 import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
@@ -34,6 +36,15 @@ public class EntryFieldPanel extends JPanel {
 		add(checkBox);
 		add(label);
 		add(text);
+	}
+	
+	public EntryFieldPanel(Entry entry) {
+		this(new JLabel(entry.key), new JTextField(entry.value), entry.desc);
+		boolean b = entry.isMandatory();
+		if (b) {
+			setSelected(true);
+			checkBox.setEnabled(false);
+		}
 	}
 	
 	public EntryFieldPanel(JLabel label, JTextField text, int axis, String tooltipText) {
