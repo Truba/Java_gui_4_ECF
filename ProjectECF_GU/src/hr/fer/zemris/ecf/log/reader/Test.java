@@ -3,7 +3,6 @@ package hr.fer.zemris.ecf.log.reader;
 import hr.fer.zemris.ecf.log.Generation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Test {
 	

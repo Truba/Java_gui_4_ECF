@@ -74,7 +74,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 			Job job = new Job(ecfPath, LOG, FILE);
 			TaskMannager tm = new TaskMannager();
 			// int pn = tm.getCpuCors();
-			int pn = 1;
+			int pn = 1; // TODO
 			List<Job> jobs = new ArrayList<>(1);
 			job.setObserver(this);
 			jobs.add(job);

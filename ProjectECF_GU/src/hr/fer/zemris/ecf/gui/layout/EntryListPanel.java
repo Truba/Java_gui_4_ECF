@@ -2,6 +2,7 @@ package hr.fer.zemris.ecf.gui.layout;
 
 import hr.fer.zemris.ecf.param.Entry;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 public class EntryListPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private static final int RGB = 223;
 
 	private List<EntryFieldPanel> fieldPanels = new ArrayList<>();
 	
@@ -18,10 +20,10 @@ public class EntryListPanel extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		int size = list.size();
 		for (int i = 0; i < size; i++) {
-//			JLabel label = new JLabel(list.get(i).key);
-//			JTextField text = new JTextField(list.get(i).value);
-//			EntryFieldPanel fieldPanel = new EntryFieldPanel(label, text, list.get(i).desc);
 			EntryFieldPanel fieldPanel = new EntryFieldPanel(list.get(i));
+			if (i % 2 == 0) {
+				fieldPanel.setBackground(new Color(RGB, RGB, RGB));
+			}
 			fieldPanels.add(fieldPanel);
 			add(fieldPanel);
 		}

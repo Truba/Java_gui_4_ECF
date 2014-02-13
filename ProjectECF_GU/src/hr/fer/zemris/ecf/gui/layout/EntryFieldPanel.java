@@ -18,6 +18,8 @@ public class EntryFieldPanel extends JPanel {
 	private JLabel label;
 	private JTextField text;
 	
+	private final Dimension dim = new Dimension(130, 20);
+	
 	public EntryFieldPanel(JLabel label, JTextField text) {
 		this(label, text, BoxLayout.X_AXIS);
 	}
@@ -30,6 +32,17 @@ public class EntryFieldPanel extends JPanel {
 		super();
 		this.label = label;
 		this.text = text;
+		
+		label.setSize(dim);
+		label.setPreferredSize(dim);
+		label.setMaximumSize(dim);
+		label.setMinimumSize(dim);
+		
+		text.setSize(dim);
+		text.setPreferredSize(dim);
+		text.setMaximumSize(dim);
+		text.setMinimumSize(dim);
+		
 		setLayout(new BoxLayout(this, axis));
 		checkBox = new JCheckBox();
 		checkBox.setSelected(false);
@@ -77,23 +90,23 @@ public class EntryFieldPanel extends JPanel {
 	}
 	
 	@Override
-	public Dimension getPreferredSize() {
-		return new Dimension(250, 20);
-	}
-	
-	@Override
-	public Dimension getMinimumSize() {
-		return new Dimension(250, 20);
-	}
-	
-	@Override
-	public Dimension getMaximumSize() {
-		return new Dimension(250, 20);
-	}
-	
-	@Override
 	public String toString() {
 		return label.getText();
 	}
+	
+//	@Override
+//	public Dimension getPreferredSize() {
+//		return new Dimension(250, 20);
+//	}
+//	
+//	@Override
+//	public Dimension getMinimumSize() {
+//		return new Dimension(250, 20);
+//	}
+//	
+//	@Override
+//	public Dimension getMaximumSize() {
+//		return new Dimension(250, 20);
+//	}
 	
 }
