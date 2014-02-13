@@ -10,7 +10,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class ECFExePathPanel extends JPanel {
+public class BrowsePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -18,7 +18,7 @@ public class ECFExePathPanel extends JPanel {
 	private JButton button;
 	private File file = null;
 	
-	public ECFExePathPanel() {
+	public BrowsePanel() {
 		super();
 		text = new JTextField("");
 		text.setMinimumSize(new Dimension(200, 20));

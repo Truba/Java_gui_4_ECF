@@ -1,6 +1,7 @@
 package hr.fer.zemris.ecf.gui;
 
-import hr.fer.zemris.ecf.gui.display.ECFExePathPanel;
+import hr.fer.zemris.ecf.gui.chart.ChartUtils;
+import hr.fer.zemris.ecf.gui.display.BrowsePanel;
 import hr.fer.zemris.ecf.gui.layout.EntryFieldPanel;
 import hr.fer.zemris.ecf.gui.layout.EntryListPanel;
 import hr.fer.zemris.ecf.gui.layout.ParametersSelection;
@@ -98,7 +99,6 @@ public class ECFLab extends JFrame {
 			setSize(900, 600);
 			setLayout(new BorderLayout());
 
-			chooseECFExe();
 			paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
 			parDump = callParDump();
 
@@ -106,6 +106,7 @@ public class ECFLab extends JFrame {
 			add(tabbedPane, BorderLayout.CENTER);
 
 			setVisible(true);
+			chooseECFExe();
 		} catch (Exception e) {
 			log.log(e);
 			reportError(e.getMessage());
@@ -113,7 +114,7 @@ public class ECFLab extends JFrame {
 	}
 
 	private void chooseECFExe() {
-		ECFExePathPanel ecfExePanel = new ECFExePathPanel();
+		BrowsePanel ecfExePanel = new BrowsePanel();
 		int retVal = JOptionPane.showConfirmDialog(this, ecfExePanel, "Choose executable ECF file",
 				JOptionPane.OK_CANCEL_OPTION);
 
@@ -174,7 +175,7 @@ public class ECFLab extends JFrame {
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
-		action.putValue(Action.SHORT_DESCRIPTION, "Save experiment");
+		action.putValue(Action.SHORT_DESCRIPTION, "Save configuration");
 		actions.put("SaveConf", action);
 		
 		action = new AbstractAction("Save As") {
@@ -187,9 +188,45 @@ public class ECFLab extends JFrame {
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
-		action.putValue(Action.SHORT_DESCRIPTION, "Save experiment as");
+		action.putValue(Action.SHORT_DESCRIPTION, "Save configuration as");
 		actions.put("SaveConfAs", action);
 
+		action = new AbstractAction("Open Log") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openLog();
+			}
+		};
+		action.putValue(Action.SHORT_DESCRIPTION, "Open log file");
+		actions.put("OpenLog", action);
+		
+		action = new AbstractAction("Save Log") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveLog();
+			}
+		};
+		action.putValue(Action.SHORT_DESCRIPTION, "Save log file");
+		actions.put("SaveLog", action);
+		
+		action = new AbstractAction("Save Log As") {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveLogAs();
+			}
+		};
+		action.putValue(Action.SHORT_DESCRIPTION, "Save log file as");
+		actions.put("SaveLogAs", action);
+		
 		action = new AbstractAction("Change ECF") {
 
 			private static final long serialVersionUID = 1L;
@@ -217,9 +254,24 @@ public class ECFLab extends JFrame {
 		// TODO nastavak akcija
 	}
 
-	protected void saveAs() {
+	protected void saveLogAs() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	protected void saveLog() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void openLog() {
+		BrowsePanel logPathPanel = new BrowsePanel();
+		int retVal = JOptionPane.showConfirmDialog(this, logPathPanel, "Choose log file",
+				JOptionPane.OK_CANCEL_OPTION);
+		
+		if (retVal == JOptionPane.OK_OPTION) {
+			ChartUtils.showResults(logPathPanel.getText());
+		}
 	}
 
 	protected void ecfHomePage() {
@@ -236,6 +288,11 @@ public class ECFLab extends JFrame {
 		}
 	}
 
+	protected void saveAs() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	protected void save() {
 		// TODO Auto-generated method stub
 
@@ -309,11 +366,17 @@ public class ECFLab extends JFrame {
 		confMenu.add(actions.get("SaveConf"));
 		confMenu.add(actions.get("SaveConfAs"));
 		
+		JMenu logMenu = new JMenu("Log");
+		logMenu.add(actions.get("OpenLog"));
+		logMenu.add(actions.get("SaveLog"));
+		logMenu.add(actions.get("SaveLogAs"));
+		
 		JMenu exeMenu = new JMenu("ECF");
 		exeMenu.add(actions.get("ChangeECFExe"));
 		exeMenu.add(actions.get("ecfHomePage"));
 		
 		menuBar.add(confMenu);
+		menuBar.add(logMenu);
 		menuBar.add(exeMenu);
 
 		setJMenuBar(menuBar);
@@ -334,8 +397,15 @@ public class ECFLab extends JFrame {
 	 * frame.
 	 */
 	protected void exit() {
-		// TODO
-		dispose();
+		boolean b = Boolean.parseBoolean(configuration.getValue(ConfigurationKey.CONFIRM_EXIT));
+		if (b) {
+			int ret = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Really exit?", JOptionPane.YES_NO_OPTION);
+			if (ret == JOptionPane.YES_OPTION) {
+				dispose();
+			}
+		} else {
+			dispose();
+		}
 	}
 
 	public ILog getLog() {

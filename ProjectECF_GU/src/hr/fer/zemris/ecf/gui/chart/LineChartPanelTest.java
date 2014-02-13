@@ -1,6 +1,4 @@
-package hr.fer.zemris.ecf.test.panels;
-
-import hr.fer.zemris.ecf.gui.chart.LineChartPanel;
+package hr.fer.zemris.ecf.gui.chart;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

@@ -1,5 +1,3 @@
--- ECF, version 1.3.2 --
-Parsing configuration file: res/dump/writing.xml
 Warning: migration operator is not configured (migration will not occur between demes).
 Start time: Thu Feb 13 21:54:07 2014
 
