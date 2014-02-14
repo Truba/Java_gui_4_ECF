@@ -55,6 +55,7 @@ public class CmdTalk implements ITalk{
 	public void write(Job job) {
 		String path = job.ecfPath + ">";
 		String command = job.logFilePath + " " + job.paramsPath;
+		//String command = job.logFilePath + " " + "2> NEKI_ERROR_FILE_PATH" + job.paramsPath;  OVO POGLDAJ
 		Process process;
 		System.out.println("cmd.exe /c \""+path+""+command+"\"");
 		try {
