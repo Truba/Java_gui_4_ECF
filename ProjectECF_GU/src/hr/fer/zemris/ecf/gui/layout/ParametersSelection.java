@@ -5,6 +5,7 @@ import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.gui.ECFLab;
 import hr.fer.zemris.ecf.gui.chart.ChartUtils;
+import hr.fer.zemris.ecf.gui.model.conf.ConfigurationKey;
 import hr.fer.zemris.ecf.param.AlgGenRegUser;
 import hr.fer.zemris.ecf.param.Algorithm;
 import hr.fer.zemris.ecf.param.Entry;
@@ -29,14 +30,12 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final String FILE = "res/dump/writing.xml";
-	private static final String LOG = "res/dump/log.txt";
-
 	private ECFLab parent;
 	private AlgorithmSelection algSel;
 	private GenotypeSelection genSel;
 	private EntryListPanel regList;
 	private String ecfPath;
+	private DefinePanel definePanel;
 
 	public ParametersSelection(ECFLab parent) {
 		super(new BorderLayout());
@@ -45,6 +44,8 @@ public class ParametersSelection extends JPanel implements IObserver {
 		algSel = new AlgorithmSelection(parent.getParDump().algorithms);
 		genSel = new GenotypeSelection(parent.getParDump().genotypes);
 		regList = new EntryListPanel(parent.getParDump().registry.getEntryList());
+		String file = parent.getConfiguration().getValue(ConfigurationKey.DEFAULT_PARAMS_PATH);
+		String log = parent.getConfiguration().getValue(ConfigurationKey.DEFAULT_LOG_PATH);
 		add(new JScrollPane(new TempPanel(algSel, genSel, regList)), BorderLayout.CENTER);
 		JButton button = new JButton(new AbstractAction() {
 
@@ -56,17 +57,20 @@ public class ParametersSelection extends JPanel implements IObserver {
 			}
 		});
 		button.setText("Run");
-		add(button, BorderLayout.SOUTH);
+		int cores = Runtime.getRuntime().availableProcessors();
+		definePanel = new DefinePanel(file, log, cores, button);
+		add(definePanel, BorderLayout.SOUTH);
 	}
 
 	protected void clicked() {
 		try {
 			AlgGenRegUser temp = getParameters();
-			XmlWriting.write(FILE, temp);
-			Job job = new Job(ecfPath, LOG, FILE);
+			String file = definePanel.getParamsPath();
+			String log = definePanel.getLogPath();
+			XmlWriting.write(file, temp);
+			Job job = new Job(ecfPath, log, file);
 			TaskMannager tm = new TaskMannager();
-			// int pn = tm.getCpuCors();
-			int pn = 1; // TODO
+			int pn = definePanel.getThreadsCount();
 			List<Job> jobs = new ArrayList<>(1);
 			job.setObserver(this);
 			jobs.add(job);

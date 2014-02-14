@@ -13,6 +13,9 @@ public class ConfigurationKey {
 	public static final String LOG_FILE_PATH = "log_file_path";
 	public static final String ECF_HOME_PAGE = "ecf_home_page";
 	public static final String CONFIRM_EXIT = "confirm_exit";
+	public static final String DEFAULT_PARAMS_PATH = "default_params_path";
+	public static final String DEFAULT_LOG_PATH = "default_log_path";
+//	public static final String
 	
 	private ConfigurationKey() {
 	}

@@ -191,7 +191,7 @@ public class ECFLab extends JFrame {
 		action.putValue(Action.SHORT_DESCRIPTION, "Save configuration as");
 		actions.put("SaveConfAs", action);
 
-		action = new AbstractAction("Open Log") {
+		action = new AbstractAction("Open") {
 
 			private static final long serialVersionUID = 1L;
 
@@ -203,7 +203,7 @@ public class ECFLab extends JFrame {
 		action.putValue(Action.SHORT_DESCRIPTION, "Open log file");
 		actions.put("OpenLog", action);
 		
-		action = new AbstractAction("Save Log") {
+		action = new AbstractAction("Save") {
 
 			private static final long serialVersionUID = 1L;
 
@@ -214,18 +214,6 @@ public class ECFLab extends JFrame {
 		};
 		action.putValue(Action.SHORT_DESCRIPTION, "Save log file");
 		actions.put("SaveLog", action);
-		
-		action = new AbstractAction("Save Log As") {
-
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				saveLogAs();
-			}
-		};
-		action.putValue(Action.SHORT_DESCRIPTION, "Save log file as");
-		actions.put("SaveLogAs", action);
 		
 		action = new AbstractAction("Change ECF") {
 
@@ -252,11 +240,6 @@ public class ECFLab extends JFrame {
 		actions.put("ecfHomePage", action);
 		
 		// TODO nastavak akcija
-	}
-
-	protected void saveLogAs() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	protected void saveLog() {
@@ -369,7 +352,6 @@ public class ECFLab extends JFrame {
 		JMenu logMenu = new JMenu("Log");
 		logMenu.add(actions.get("OpenLog"));
 		logMenu.add(actions.get("SaveLog"));
-		logMenu.add(actions.get("SaveLogAs"));
 		
 		JMenu exeMenu = new JMenu("ECF");
 		exeMenu.add(actions.get("ChangeECFExe"));
