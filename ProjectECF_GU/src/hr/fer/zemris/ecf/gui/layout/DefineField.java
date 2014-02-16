@@ -10,19 +10,23 @@ public class DefineField extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JLabel label;
-	private JTextField text;
-	
+	private JTextField textField;
+
 	public DefineField(String key, String value) {
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		label = new JLabel(key);
-		text = new JTextField(value);
+		textField = new JTextField(value);
 		add(label);
-		add(text);
+		add(textField);
 	}
-	
+
 	public String getText() {
-		return text.getText();
+		return textField.getText();
 	}
-	
+
+	public void setText(String text) {
+		textField.setText(text);
+	}
+
 }

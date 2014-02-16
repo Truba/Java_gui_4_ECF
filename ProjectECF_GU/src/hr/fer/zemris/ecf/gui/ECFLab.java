@@ -18,6 +18,7 @@ import hr.fer.zemris.ecf.param.Genotype;
 import hr.fer.zemris.ecf.param.Registry;
 import hr.fer.zemris.ecf.tasks.TaskMannager;
 import hr.fer.zemris.ecf.xmldom.XmlReading;
+import hr.fer.zemris.ecf.xmldom.XmlWriting;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;
@@ -99,9 +100,6 @@ public class ECFLab extends JFrame {
 			setSize(900, 600);
 			setLayout(new BorderLayout());
 
-			paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
-			parDump = callParDump();
-
 			tabbedPane = new JTabbedPane();
 			add(tabbedPane, BorderLayout.CENTER);
 
@@ -120,6 +118,8 @@ public class ECFLab extends JFrame {
 
 		if (retVal == JOptionPane.OK_OPTION) {
 			ecfPath = ecfExePanel.getText();
+			paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
+			parDump = callParDump();
 		}
 	}
 
@@ -133,8 +133,6 @@ public class ECFLab extends JFrame {
 
 		initActions();
 		initMenuBar();
-
-		// TODO
 	}
 
 	private void initActions() {
@@ -145,7 +143,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				newTab("New algorithm");
+				newTab("New configuration*");
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
@@ -158,7 +156,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				open();
+				openConf();
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
@@ -171,7 +169,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				save();
+				saveConf();
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
@@ -184,7 +182,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				saveAs();
+				saveConfAs();
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
@@ -238,8 +236,6 @@ public class ECFLab extends JFrame {
 		};
 		action.putValue(Action.SHORT_DESCRIPTION, "Go to ECF home page");
 		actions.put("ecfHomePage", action);
-		
-		// TODO nastavak akcija
 	}
 
 	protected void saveLog() {
@@ -271,17 +267,26 @@ public class ECFLab extends JFrame {
 		}
 	}
 
-	protected void saveAs() {
-		// TODO Auto-generated method stub
-		
+	protected void saveConfAs() {
+		JFileChooser fc = new JFileChooser();
+		int retVal = fc.showSaveDialog(this);
+		if (retVal == JFileChooser.APPROVE_OPTION) {
+			File file = fc.getSelectedFile();
+			String path = file.getAbsolutePath();
+			ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
+			XmlWriting.write(path, ps.getParameters());
+			JOptionPane.showMessageDialog(this, "Saved under name: " + path, "Saved succesfully", JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 	
-	protected void save() {
-		// TODO Auto-generated method stub
-
+	protected void saveConf() {
+		ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
+		String path = ps.getDefinePanel().getParamsPath();
+		XmlWriting.write(path, ps.getParameters());
+		tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(), path);
 	}
 
-	protected void open() {
+	protected void openConf() {
 		try {
 			JFileChooser fc = new JFileChooser();
 			int retVal = fc.showOpenDialog(this);
@@ -290,7 +295,7 @@ public class ECFLab extends JFrame {
 			}
 			File file = fc.getSelectedFile();
 			AlgGenRegUser agru = XmlReading.readArchive(file);
-			ParametersSelection ps = newTab(file.getName());
+			ParametersSelection ps = newTab(file.getAbsolutePath());
 
 			Algorithm alg = agru.algorithm.get(0);
 			List<Entry> entries = alg.getEntryList();
@@ -320,12 +325,14 @@ public class ECFLab extends JFrame {
 				efp.setSelected(true);
 				efp.setText(entry.value);
 			}
+			
+			ps.getDefinePanel().setParamsPath(file.getAbsolutePath());
 		} catch (Exception e) {
 			String message = e.getMessage();
 			if (message == null) {
 				message = "Error";
 			}
-			message.trim();
+			message = message.trim();
 			reportError(message.isEmpty() ? "Error" : message);
 			log.log(e);
 		}

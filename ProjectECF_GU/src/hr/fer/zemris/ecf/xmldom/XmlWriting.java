@@ -43,7 +43,7 @@ public class XmlWriting {
 		try {
 			writing(file);
 		} catch (ParserConfigurationException | TransformerException e) {
-			System.err.println("Error ocured while trying to create a paramethers xml for ECF.");
+			System.err.println("Error ocured while trying to create a parameters xml for ECF.");
 			e.printStackTrace();
 		}
 	}

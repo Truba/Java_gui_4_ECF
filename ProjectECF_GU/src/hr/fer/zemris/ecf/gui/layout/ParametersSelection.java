@@ -41,6 +41,9 @@ public class ParametersSelection extends JPanel implements IObserver {
 		super(new BorderLayout());
 		this.parent = parent;
 		ecfPath = parent.getEcfPath();
+		if (ecfPath == null) {
+			throw new NullPointerException("ECF executable file undefined!");
+		}
 		algSel = new AlgorithmSelection(parent.getParDump().algorithms);
 		genSel = new GenotypeSelection(parent.getParDump().genotypes);
 		regList = new EntryListPanel(parent.getParDump().registry.getEntryList());
@@ -92,8 +95,9 @@ public class ParametersSelection extends JPanel implements IObserver {
 				entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
 			}
 		}
+		Algorithm algTemp = new Algorithm(alg.getName(), entries);
 		List<Algorithm> algs = new ArrayList<>(1);
-		algs.add(alg);
+		algs.add(algTemp);
 
 		// Genotype filling
 		pan = genSel.getSelectedEntryList();
@@ -105,8 +109,9 @@ public class ParametersSelection extends JPanel implements IObserver {
 				entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
 			}
 		}
+		Genotype genTemp = new Genotype(gen.getName(), entries);
 		List<Genotype> gens = new ArrayList<>(1);
-		gens.add(gen);
+		gens.add(genTemp);
 		List<List<Genotype>> genBlock = new ArrayList<>(1);
 		genBlock.add(gens);
 
@@ -145,6 +150,10 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 	public Genotype getSelectedGenotype() {
 		return genSel.getSelectedItem();
+	}
+	
+	public DefinePanel getDefinePanel() {
+		return definePanel;
 	}
 
 	@Override

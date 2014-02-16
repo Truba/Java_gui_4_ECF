@@ -11,7 +11,7 @@ public class DefinePanel extends JPanel {
 	private DefineField params;
 	private DefineField log;
 	private DefineField threadsCount;
-	
+
 	public DefinePanel(String paramsPath, String logPath, int threads, JButton button) {
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -23,17 +23,29 @@ public class DefinePanel extends JPanel {
 		add(threadsCount);
 		add(button);
 	}
-	
+
 	public String getParamsPath() {
 		return params.getText();
 	}
-	
+
+	public void setParamsPath(String path) {
+		params.setText(path);
+	}
+
 	public String getLogPath() {
 		return log.getText();
 	}
-	
+
+	public void setLogPath(String path) {
+		log.setText(path);
+	}
+
 	public int getThreadsCount() {
 		return Integer.valueOf(threadsCount.getText());
 	}
-	
+
+	public void setThreadsCount(int num) {
+		threadsCount.setText(String.valueOf(num));
+	}
+
 }

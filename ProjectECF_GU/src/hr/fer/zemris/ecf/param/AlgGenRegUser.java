@@ -50,13 +50,13 @@ public class AlgGenRegUser {
 	
 	/**
 	 * This method is used for retrieving user comment.	 *
-	 * @return user comment or text: "There are no user comments for this paramethers."
+	 * @return user comment or text: "There are no user comments for this parameters."
 	 */
 	public String getUserComment(){
 		if (!userComment.isEmpty()){
 			return userComment;
 		}
-		return "There are no user comments for this paramethers.";
+		return "There are no user comments for this parameters.";
 	}
 
 }
