@@ -5,6 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Frame for displaying chart with results.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class ChartFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;

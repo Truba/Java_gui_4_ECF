@@ -26,6 +26,11 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Panel containing chart and table for dispaying y-values at certain x-value.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class LineChartPanel extends JPanel implements ChartProgressListener {
 
 	private static final long serialVersionUID = 1L;
@@ -42,6 +47,15 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 	private ChartPanel chartPanel;
 	private ChartTableModel tableModel;
 
+	/**
+	 * @param dataset Dataset for chart
+	 * @param seriesColor List of colors for each serie
+	 * @param chartTitle Chart title
+	 * @param xAxisLabel X-axis value
+	 * @param yAxisLabel Y-axis value
+	 * @param legend If legend sholud be displayed
+	 * @param tooltips If tooltips should be displayed
+	 */
 	public LineChartPanel(XYSeriesCollection dataset, List<Color> seriesColor, String chartTitle, String xAxisLabel,
 			String yAxisLabel, boolean legend, boolean tooltips) {
 		super(new BorderLayout());
@@ -84,11 +98,19 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 		add(dashboard, BorderLayout.SOUTH);
 	}
 
+	/**
+	 * @param spec Initial values
+	 */
 	public LineChartPanel(ChartSpecification spec) {
 		this(spec.dataset, spec.seriesColor, spec.chartTitle, spec.xAxisLabel, spec.yAxisLabel, spec.legend,
 				spec.tooltips);
 	}
 
+	/**
+	 * Chart drawing
+	 * @param dataset Dataset to be drawn
+	 * @return Drawn chart
+	 */
 	private JFreeChart createXYLineChart(XYDataset dataset) {
 		chart = ChartFactory.createXYLineChart(chartTitle, xAxisLabel, yAxisLabel, dataset, PlotOrientation.VERTICAL,
 				legend, tooltips, false);
@@ -117,6 +139,9 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 		return chart;
 	}
 
+	/**
+	 * @return Current dataset
+	 */
 	public XYSeriesCollection getDataset() {
 		return dataset;
 	}
@@ -149,6 +174,10 @@ public class LineChartPanel extends JPanel implements ChartProgressListener {
 		repaint();
 	}
 
+	/**
+	 * @param d Selected x-value
+	 * @return Nearest x-value in the dataset
+	 */
 	private int findClosestItem(double d) {
 		XYSeries s = dataset.getSeries(0);
 		int size = s.getItemCount();

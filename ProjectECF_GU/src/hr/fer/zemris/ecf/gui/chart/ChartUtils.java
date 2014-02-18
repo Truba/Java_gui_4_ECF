@@ -12,8 +12,18 @@ import javax.swing.JFrame;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Class with static methods for chart display.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class ChartUtils {
 	
+	/**
+	 * Displays chart in a new frame. Reads results from the log file and then displays it.
+	 * @param logFile Path to the log file
+	 * @throws Exception If reading log file goes wrong
+	 */
 	public static void showResults(String logFile) throws Exception {
 		OfflineReading off = new OfflineReading();
 		off.read(logFile);

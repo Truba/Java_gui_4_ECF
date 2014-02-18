@@ -17,17 +17,26 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
+/**
+ * Panel with drop down panel for choosing sort of {@link EntryBlock} and list
+ * of {@link Entry} fields for defining specific parameters.
+ * 
+ * @author Domagoj Stanković
+ * @version 1.0
+ * @param <T>
+ *            Sort of {@link EntryBlock} displayed for choice
+ */
 public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemListener {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	protected JPanel cards;
 	protected List<T> blocks;
 	protected String[] model;
 	protected JComboBox<String> box = null;
 	protected List<EntryListPanel> algPanels = new ArrayList<>();
 	protected CardLayout cardLayout;
-	
+
 	public DropDownPanel(List<T> blocks, String buttonText) {
 		this.blocks = blocks;
 		setLayout(new BorderLayout());
@@ -42,10 +51,10 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 		box.setPreferredSize(new Dimension(150, 20));
 		box.setMinimumSize(new Dimension(150, 20));
 		box.setMaximumSize(new Dimension(150, 20));
-		
+
 		cardLayout = new CardLayout();
 		cards = new JPanel(cardLayout);
-		
+
 		int size = blocks.size();
 		for (int i = 0; i < size; i++) {
 			List<Entry> ent = blocks.get(i).getEntryList();
@@ -53,7 +62,7 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 			algPanels.add(card);
 			cards.add(card, model[i]);
 		}
-		
+
 		if (buttonText != null) {
 			JButton button = new JButton(new AbstractAction() {
 
@@ -67,19 +76,25 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 			button.setText(buttonText);
 			add(button, BorderLayout.SOUTH);
 		}
-		
+
 		add(box, BorderLayout.NORTH);
 		add(cards, BorderLayout.CENTER);
 	}
-	
+
 	protected void clicked() {
 	}
-	
+
+	/**
+	 * @return Selected sort of {@link EntryBlock} that is chosen in the drop down menu
+	 */
 	public T getSelectedItem() {
 		int index = box.getSelectedIndex();
 		return blocks.get(index);
 	}
-	
+
+	/**
+	 * @return Selected list of {@link Entry} objects with specified parameters
+	 */
 	public EntryListPanel getSelectedEntryList() {
 		int index = box.getSelectedIndex();
 		return algPanels.get(index);
@@ -90,15 +105,23 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 		CardLayout cl = (CardLayout) cards.getLayout();
 		cl.show(cards, e.getItem().toString());
 	}
-	
+
+	/**
+	 * Shows specific card
+	 * @param key Card key
+	 */
 	public void show(String key) {
 		box.setSelectedItem(key);
 		cardLayout.show(cards, key);
 	}
-	
+
+	/**
+	 * Shows specific card
+	 * @param index Index of card
+	 */
 	public void show(int index) {
 		box.setSelectedIndex(index);
 		cardLayout.show(cards, model[index]);
 	}
-	
+
 }

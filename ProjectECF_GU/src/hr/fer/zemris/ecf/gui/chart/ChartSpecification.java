@@ -6,6 +6,11 @@ import java.util.List;
 
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Object for easier initialization of {@link LineChartPanel}. Fields are initially set to default values.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class ChartSpecification {
 
 	XYSeriesCollection dataset;

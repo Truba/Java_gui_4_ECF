@@ -9,6 +9,11 @@ import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+/**
+ * List of {@link EntryFieldPanel} objects.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class EntryListPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -29,30 +34,56 @@ public class EntryListPanel extends JPanel {
 		}
 	}
 	
+	/**
+	 * @return List of {@link EntryFieldPanel} objects
+	 */
 	public List<EntryFieldPanel> getFieldPanels() {
 		return fieldPanels;
 	}
 	
+	/**
+	 * @param index Index of specified {@link EntryFieldPanel}
+	 * @return <code>true</code> if field is selected, <code>false</code> otherwise
+	 */
 	public boolean isSelected(int index) {
 		return fieldPanels.get(index).isSelected();
 	}
 	
+	/**
+	 * @param index Index of specified {@link EntryFieldPanel}
+	 * @return Value from the text field on the specified index
+	 */
 	public String getValueAt(int index) {
 		return fieldPanels.get(index).getText();
 	}
 	
+	/**
+	 * @param index Index of specified {@link EntryFieldPanel}
+	 * @return Key from the label at the specified index
+	 */
 	public String getKeyAt(int index) {
 		return fieldPanels.get(index).getLabelText();
 	}
 	
+	/**
+	 * @param index Index of specified {@link EntryFieldPanel}
+	 * @return Description of the parameter at the specified index
+	 */
 	public String getDescriptionAt(int index) {
 		return fieldPanels.get(index).getToolTipText();
 	}
 
+	/**
+	 * @return Number of entries in the list
+	 */
 	public int getEntriesCount() {
 		return fieldPanels.size();
 	}
 	
+	/**
+	 * @param key Entry field key
+	 * @return {@link EntryFieldPanel} with the specified key
+	 */
 	public EntryFieldPanel getEntryField(String key) {
 		for (EntryFieldPanel efp : fieldPanels) {
 			if (efp.getLabelText().equals(key)) {

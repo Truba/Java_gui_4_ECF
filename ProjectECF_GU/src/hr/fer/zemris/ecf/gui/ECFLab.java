@@ -37,6 +37,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +56,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
+import javax.swing.LookAndFeel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -68,20 +74,20 @@ public class ECFLab extends JFrame {
 	private static final String CONFIGURATION_FILE = "res/conf/conf.properties";
 
 	private IConfiguration configuration;
-	private ILog log;
+	private ILog logger;
 	private Map<String, Action> actions = new HashMap<>();
 	private JMenuBar menuBar = new JMenuBar();
 	private JTabbedPane tabbedPane;
 	private String ecfPath;
-	private String paramsPath;
+	private String parDumpPath;
 	private AlgGenRegInit parDump;
 
 	/**
 	 * Creates a new main frame for ECF Lab.
 	 */
-	public ECFLab(IConfiguration configuration, ILog log) {
+	public ECFLab(IConfiguration configuration, ILog logger) {
 		this.configuration = configuration;
-		this.log = log;
+		this.logger = logger;
 		try {
 			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 			setLookAndFeel(true);
@@ -92,7 +98,7 @@ public class ECFLab extends JFrame {
 			try {
 				image = ImageIO.read(new FileInputStream(configuration.getValue(ConfigurationKey.APP_ICON_PATH)));
 			} catch (IOException e) {
-				log.log(e);
+				logger.log(e);
 			}
 
 			setIconImage(image);
@@ -106,11 +112,14 @@ public class ECFLab extends JFrame {
 			setVisible(true);
 			chooseECFExe();
 		} catch (Exception e) {
-			log.log(e);
+			logger.log(e);
 			reportError(e.getMessage());
 		}
 	}
 
+	/**
+	 * Displays dialog for choosing ECF executable file.
+	 */
 	private void chooseECFExe() {
 		BrowsePanel ecfExePanel = new BrowsePanel();
 		int retVal = JOptionPane.showConfirmDialog(this, ecfExePanel, "Choose executable ECF file",
@@ -118,11 +127,14 @@ public class ECFLab extends JFrame {
 
 		if (retVal == JOptionPane.OK_OPTION) {
 			ecfPath = ecfExePanel.getText();
-			paramsPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
+			parDumpPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
 			parDump = callParDump();
 		}
 	}
 
+	/**
+	 * Initializes exit action, other actions and menu bar.
+	 */
 	private void initGUI() {
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -135,6 +147,9 @@ public class ECFLab extends JFrame {
 		initMenuBar();
 	}
 
+	/**
+	 * Initializes main actions for ECF Lab GUI.
+	 */
 	private void initActions() {
 		Action action;
 		action = new AbstractAction("New") {
@@ -238,11 +253,35 @@ public class ECFLab extends JFrame {
 		actions.put("ecfHomePage", action);
 	}
 
+	/**
+	 * Copies log file created during last experiment to the destination path.
+	 */
 	protected void saveLog() {
-		// TODO Auto-generated method stub
-		
+		ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
+		boolean b = ps.wasRunBefore();
+		if (!b) {
+			JOptionPane.showMessageDialog(this, "This experiment was never run before!", "Action unavailable", JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		JFileChooser fc = new JFileChooser();
+		int retVal = fc.showSaveDialog(this);
+		if (retVal == JFileChooser.APPROVE_OPTION) {
+			File file = fc.getSelectedFile();
+			Path source = Paths.get(ps.getLastLogFilePath());
+			Path target = Paths.get(file.getAbsolutePath());
+			CopyOption options = StandardCopyOption.REPLACE_EXISTING;
+			try {
+				Files.copy(source, target, options);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(this, "Log file copied successfully!", "Saved successfully", JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
+	/**
+	 * Opens dialog for choosing log file to be viewed. Then displays results.
+	 */
 	protected void openLog() {
 		BrowsePanel logPathPanel = new BrowsePanel();
 		int retVal = JOptionPane.showConfirmDialog(this, logPathPanel, "Choose log file",
@@ -252,26 +291,32 @@ public class ECFLab extends JFrame {
 			try {
 				ChartUtils.showResults(logPathPanel.getText());
 			} catch (Exception e) {
-				log.log(e);
+				logger.log(e);
 				reportError(e.getMessage());
 			}
 		}
 	}
 
+	/**
+	 * Displays ECF home page in users default browser.
+	 */
 	protected void ecfHomePage() {
 		URI uri;
 		try {
 			uri = new URI(configuration.getValue(ConfigurationKey.ECF_HOME_PAGE));
 			Desktop.getDesktop().browse(uri);
 		} catch (URISyntaxException e) {
-			log.log(e);
+			logger.log(e);
 			e.printStackTrace();
 		} catch (IOException e) {
-			log.log(e);
+			logger.log(e);
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Saves current configuration under the name chosen in the file chooser dialog.
+	 */
 	protected void saveConfAs() {
 		JFileChooser fc = new JFileChooser();
 		int retVal = fc.showSaveDialog(this);
@@ -284,6 +329,9 @@ public class ECFLab extends JFrame {
 		}
 	}
 	
+	/**
+	 * Saves current configuration under the name written in the define panel of the selected {@link ParametersSelection} panel.
+	 */
 	protected void saveConf() {
 		ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
 		String path = ps.getDefinePanel().getParamsPath();
@@ -339,21 +387,33 @@ public class ECFLab extends JFrame {
 			}
 			message = message.trim();
 			reportError(message.isEmpty() ? "Error" : message);
-			log.log(e);
+			logger.log(e);
 		}
 	}
 
+	/**
+	 * Creates new tab with {@link ParametersSelection} panel.
+	 * @param tabName Name of the new tab
+	 * @return Created {@link ParametersSelection} panel
+	 */
 	protected ParametersSelection newTab(String tabName) {
 		ParametersSelection parSel = new ParametersSelection(this);
 		tabbedPane.add(tabName, parSel);
 		return parSel;
 	}
 
+	/**
+	 * Calls parameters dump from ECF executable file.
+	 * @return
+	 */
 	protected AlgGenRegInit callParDump() {
 		TaskMannager tm = new TaskMannager();
-		return tm.getInitialECFparams(ecfPath, paramsPath);
+		return tm.getInitialECFparams(ecfPath, parDumpPath);
 	}
 
+	/**
+	 * Initializes menu bar with all main actions.
+	 */
 	private void initMenuBar() {
 		JMenu confMenu = new JMenu("Configuration");
 		confMenu.add(actions.get("NewConf"));
@@ -402,26 +462,50 @@ public class ECFLab extends JFrame {
 		}
 	}
 
-	public ILog getLog() {
-		return log;
+	/**
+	 * Logger for errors.
+	 * @return Error logger
+	 */
+	public ILog getLogger() {
+		return logger;
 	}
 
+	/**
+	 * External application configuration.
+	 * @return Configuration
+	 */
 	public IConfiguration getConfiguration() {
 		return configuration;
 	}
 
+	/**
+	 * All main actions.
+	 * @return Main actions.
+	 */
 	public Map<String, Action> getActions() {
 		return actions;
 	}
 
+	/**
+	 * Current ECF executable file path.
+	 * @return ECF exe path
+	 */
 	public String getEcfPath() {
 		return ecfPath;
 	}
 
-	public String getParamsPath() {
-		return paramsPath;
+	/**
+	 * Path to the parameters dump file.
+	 * @return Path to the parameters dump file
+	 */
+	public String getParDumpPath() {
+		return parDumpPath;
 	}
 
+	/**
+	 * Object with all parameters from the selected ECF exe.
+	 * @return {@link AlgGenRegInit} object with all the parameters from the current ECF executable file.
+	 */
 	public AlgGenRegInit getParDump() {
 		return parDump;
 	}
@@ -454,6 +538,10 @@ public class ECFLab extends JFrame {
 		new ECFLab(configuration, log);
 	}
 
+	/**
+	 * Sets {@link LookAndFeel} to the system or to the java look.
+	 * @param system True for system look, false for java look
+	 */
 	protected void setLookAndFeel(boolean system) {
 		String newLookAndFeel = system ? UIManager.getSystemLookAndFeelClassName() : UIManager
 				.getCrossPlatformLookAndFeelClassName();
@@ -465,6 +553,11 @@ public class ECFLab extends JFrame {
 		}
 	}
 
+	/**
+	 * Class for handling EDT exceptions.
+	 * @author Domagoj Stanković
+	 * @version 1.0
+	 */
 	public static class EDTExceptionHandler implements Thread.UncaughtExceptionHandler {
 
 		private ILog log;

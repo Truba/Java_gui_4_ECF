@@ -5,6 +5,11 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+/**
+ * Model for chart table.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class ChartTableModel extends DefaultTableModel implements TableModel {
 
 	private static final long serialVersionUID = 1L;
@@ -14,6 +19,11 @@ public class ChartTableModel extends DefaultTableModel implements TableModel {
 	private Object[][] data;
 	private List<String> colNames;
 	
+	/**
+	 * @param row Number of rows
+	 * @param col Number of columns
+	 * @param colNames List with names of columns
+	 */
 	public ChartTableModel(int row, int col, List<String> colNames) {
 		data = new Object[row][col];
 		this.row = row;

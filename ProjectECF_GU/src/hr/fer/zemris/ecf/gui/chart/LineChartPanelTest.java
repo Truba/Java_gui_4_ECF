@@ -17,6 +17,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Test for {@link LineChartPanel}.
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class LineChartPanelTest extends JFrame {
 
 	private static final long serialVersionUID = 1L;

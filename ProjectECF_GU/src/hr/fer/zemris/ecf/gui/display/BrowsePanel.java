@@ -10,14 +10,20 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Panel for file browsing and displaying it's path.
+ * 
+ * @author Domagoj Stanković
+ * @version 1.0
+ */
 public class BrowsePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private JTextField text;
 	private JButton button;
 	private File file = null;
-	
+
 	public BrowsePanel() {
 		super();
 		text = new JTextField("");
@@ -26,7 +32,7 @@ public class BrowsePanel extends JPanel {
 		text.setPreferredSize(new Dimension(200, 20));
 		text.setSize(new Dimension(200, 20));
 		button = new JButton(new AbstractAction() {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -35,11 +41,14 @@ public class BrowsePanel extends JPanel {
 			}
 		});
 		button.setText("Browse");
-		
+
 		add(text);
 		add(button);
 	}
-	
+
+	/**
+	 * Action when "Browse" button is clicked. File chooser dialog appears.
+	 */
 	protected void click() {
 		JFileChooser fc = new JFileChooser();
 		int retVal = fc.showDialog(this, "Choose");
@@ -50,12 +59,18 @@ public class BrowsePanel extends JPanel {
 		text.setText(file.getAbsolutePath());
 	}
 
+	/**
+	 * @return File path
+	 */
 	public String getText() {
 		return text.getText();
 	}
-	
+
+	/**
+	 * @return Selected file
+	 */
 	public File getFile() {
 		return file;
 	}
-	
+
 }
