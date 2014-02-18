@@ -6,7 +6,7 @@ public interface ISubject {
 	
 	public void removeObserver();
 	
-	public void finished();
+	public void finished() throws Exception;
 	
 	public String getMessage();
 	

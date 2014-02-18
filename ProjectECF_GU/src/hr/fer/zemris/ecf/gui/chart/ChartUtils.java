@@ -14,7 +14,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class ChartUtils {
 	
-	public static void showResults(String logFile) {
+	public static void showResults(String logFile) throws Exception {
 		OfflineReading off = new OfflineReading();
 		off.read(logFile);
 		ArrayList<Generation> generations = off.getLogFile().generations;

@@ -3,7 +3,6 @@ package hr.fer.zemris.ecf.tasks;
 import hr.fer.zemris.ecf.console.IObserver;
 import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
-import hr.fer.zemris.ecf.log.Generation;
 import hr.fer.zemris.ecf.log.reader.OfflineReading;
 
 import java.util.ArrayList;
@@ -22,7 +21,11 @@ public class Test {
 		}
 		
 		TaskMannager ts = new TaskMannager();
-		ts.startTasks(jobs, ts.getCpuCors());
+		try {
+			ts.startTasks(jobs, ts.getCpuCors());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static String getNumOfJob(int i) {
@@ -41,8 +44,12 @@ public class Test {
 		public void update(ISubject subject) {
 			String logFile = subject.getMessage();
 			OfflineReading off = new OfflineReading();
-			off.read(logFile);
-			ArrayList<Generation> generations = off.getLogFile().generations;
+			try {
+				off.read(logFile);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+//			ArrayList<Generation> generations = off.getLogFile().generations;
 			
 		}
 		

@@ -1,5 +1,6 @@
 package hr.fer.zemris.ecf.log.reader;
 
+import hr.fer.zemris.ecf.console.CmdTalk;
 import hr.fer.zemris.ecf.log.Generation;
 import hr.fer.zemris.ecf.log.Individual;
 import hr.fer.zemris.ecf.log.LogFile;
@@ -10,6 +11,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,14 +36,14 @@ import org.xml.sax.SAXException;
  */
 public class OfflineReading {
 	
-	private ArrayList<Generation> genarations;
+	private ArrayList<Generation> generations;
 	private ArrayList<Individual> hallOfFame;
 	
 	/**
 	 * Constructor, it initializes the {@link Generation} list and {@link Individual} list to new array lists.
 	 */
 	public OfflineReading(){
-		genarations = new ArrayList<>();
+		generations = new ArrayList<>();
 		hallOfFame = new ArrayList<>();
 	}
 	
@@ -48,33 +52,58 @@ public class OfflineReading {
 	 * @return new logFile class produced form {@link Generation} and {@link Individual} list stored in this class.
 	 */
 	public LogFile getLogFile(){
-		return new LogFile(genarations,hallOfFame);
+		return new LogFile(generations,hallOfFame);
 	}
 	
 	/**
 	 * User of this class only needs to know to give it the path to the log file and the log file will be "magically" parsed into
 	 * {@link Generation} and {@link Individual} lists stored in this class.
 	 * @param file
+	 * @throws Exception If reading goes wrong
 	 */
-	public void read(String file) {
+	public void read(String file) throws Exception {
 		Scanner sc = null;
 		try {
 			sc = new Scanner(new File(file));
 		} catch (FileNotFoundException e) {
 			System.err.println("Can't find \"log\" file.");
-			e.printStackTrace();
+			throw e;
 		}
-		reading(sc);
-		createHallOfFame(sc);
+		try {
+			reading(sc);
+			createHallOfFame(sc);
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			sc.close();
+			String errPath = CmdTalk.ERROR_FILE_PATH;
+			File errFile = new File(errPath);
+			String message = "Error";
+			if (errFile.exists()) {
+				try {
+					byte[] bytes = Files.readAllBytes(Paths.get(errPath));
+					message = new String(bytes, StandardCharsets.UTF_8).trim();
+					if (message.isEmpty()) {
+						throw e;
+					}
+					errFile.delete();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				throw new Exception(message);
+			} else {
+				throw e;
+			}
+		}
 		sc.close();
-		
 	}
 	
 	/**
 	 * This meted creates hall of fame by calling parseHallOfFame meted from this class.
 	 * @param sc scanner to where the hall of fame is
+	 * @throws IOException If error occurs while reading HallOfFame from log file
+	 * @throws SAXException If error occurs while reading HallOfFame from log file
+	 * @throws ParserConfigurationException If error occurs while reading HallOfFame from log file
 	 */
-	private void createHallOfFame(Scanner sc) {
+	private void createHallOfFame(Scanner sc) throws ParserConfigurationException, SAXException, IOException {
 		StringBuilder sb = new StringBuilder();
 		String line;
 		while(sc.hasNextLine()){
@@ -85,12 +114,7 @@ public class OfflineReading {
 			}
 			sb.append(line);			
 		}
-		try {
-			parseHallOfFame(sb.toString());
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			System.err.println("Error ocured while trying to read HallOfFame from log file.");
-			e.printStackTrace();
-		}
+		parseHallOfFame(sb.toString());
 	}
 	
 	/**
@@ -111,12 +135,12 @@ public class OfflineReading {
 		while(sc.hasNextLine()){
 			line = sc.nextLine();
 			if(line.contains("Generation")){
-				genarations.add(GenerationReading.parse(gen));
+				generations.add(GenerationReading.parse(gen));
 				gen = new ArrayList<>();
 				
 			}
 			if(line.contains("Best of run")){
-				genarations.add(GenerationReading.parse(gen));
+				generations.add(GenerationReading.parse(gen));
 				gen = new ArrayList<>();
 				break;
 			}

@@ -143,7 +143,7 @@ public class ECFLab extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				newTab("New configuration*");
+				newTab("New configuration");
 			}
 		};
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
@@ -249,7 +249,12 @@ public class ECFLab extends JFrame {
 				JOptionPane.OK_CANCEL_OPTION);
 		
 		if (retVal == JOptionPane.OK_OPTION) {
-			ChartUtils.showResults(logPathPanel.getText());
+			try {
+				ChartUtils.showResults(logPathPanel.getText());
+			} catch (Exception e) {
+				log.log(e);
+				reportError(e.getMessage());
+			}
 		}
 	}
 
@@ -378,7 +383,7 @@ public class ECFLab extends JFrame {
 	 *            Message to be shown
 	 */
 	public void reportError(String errorMessage) {
-		JOptionPane.showMessageDialog(this, errorMessage, "Error", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(this, errorMessage, "Error", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	/**

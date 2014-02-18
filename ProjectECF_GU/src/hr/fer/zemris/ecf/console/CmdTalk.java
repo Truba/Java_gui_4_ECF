@@ -9,6 +9,8 @@ import java.io.IOException;
  */
 public class CmdTalk implements ITalk{
 	
+	public static final String ERROR_FILE_PATH = "res/err/error.txt";
+	
 	@Override
 	public void write(String ecfPath, String paramsPath){
 		
@@ -54,12 +56,12 @@ public class CmdTalk implements ITalk{
 	@Override
 	public void write(Job job) {
 		String path = job.ecfPath + ">";
-		String command = job.logFilePath + " " + job.paramsPath;
-		//String command = job.logFilePath + " " + "2> NEKI_ERROR_FILE_PATH" + job.paramsPath;  OVO POGLDAJ
+//		String command = job.logFilePath + " " + job.paramsPath;
+		String command = job.logFilePath + " " + "2> " + ERROR_FILE_PATH + " " + job.paramsPath;
 		Process process;
-		System.out.println("cmd.exe /c \""+path+""+command+"\"");
+		System.out.println("cmd.exe /c \"" + path + "" + command + "\""); // FIXME zasto izmedu path i command ide "" ?
 		try {
-			process = new ProcessBuilder("cmd.exe", "/c", "\""+path+""+command+"\"").start();
+			process = new ProcessBuilder("cmd.exe", "/c", "\"" + path + "" + command + "\"").start(); // FIXME zasto izmedu path i command ide "" ?
 			process.waitFor();
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();

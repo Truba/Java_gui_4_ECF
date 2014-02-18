@@ -58,7 +58,7 @@ public class Job implements ISubject {
 	}
 
 	@Override
-	public void finished() {
+	public void finished() throws Exception {
 		if (observer != null) {
 			observer.update(this);
 		}

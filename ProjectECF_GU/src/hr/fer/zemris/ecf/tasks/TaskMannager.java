@@ -5,6 +5,7 @@ import hr.fer.zemris.ecf.console.ITalk;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.param.AlgGenRegInit;
 import hr.fer.zemris.ecf.xmldom.XmlReading;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -67,8 +68,9 @@ public class TaskMannager {
 	 * @param taskDescriptions array list of jobs needed to do.
 	 * @param numOfThreads number of threads to run them on.
 	 * @return if all done with no problem, false if problem.
+	 * @throws Exception If problem occurs while running
 	 */
-	public boolean startTasks(List<Job> taskDescriptions, int numOfThreads) {		
+	public boolean startTasks(List<Job> taskDescriptions, int numOfThreads) throws Exception {		
 		
 		ExecutorService service = Executors.newFixedThreadPool(numOfThreads);
 		List<Task> tasks = new ArrayList<>();
@@ -89,10 +91,8 @@ public class TaskMannager {
 			try {
 				res.get();
 			} catch (InterruptedException | ExecutionException e) {
-				System.err.println("Fatal error! Can't fetch jobs.");
-				e.printStackTrace();
 				service.shutdown();
-				return false;
+				throw e;
 			}
 		}
 		service.shutdown();

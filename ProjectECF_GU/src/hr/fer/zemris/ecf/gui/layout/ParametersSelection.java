@@ -79,7 +79,11 @@ public class ParametersSelection extends JPanel implements IObserver {
 			jobs.add(job);
 			tm.startTasks(jobs, pn);
 		} catch (Exception e) {
-			parent.reportError(e.getMessage());
+			String message = e.getMessage();
+			if (message.startsWith("java.lang.Exception: ")) {
+				message = message.substring(21);
+			}
+			parent.reportError(message);
 			parent.getLog().log(e);
 		}
 	}
@@ -151,15 +155,20 @@ public class ParametersSelection extends JPanel implements IObserver {
 	public Genotype getSelectedGenotype() {
 		return genSel.getSelectedItem();
 	}
-	
+
 	public DefinePanel getDefinePanel() {
 		return definePanel;
 	}
 
 	@Override
-	public synchronized void update(ISubject subject) {
+	public synchronized void update(ISubject subject) throws Exception {
+		// try {
 		String logFile = subject.getMessage();
 		ChartUtils.showResults(logFile);
+		// } catch (Exception e) {
+		// parent.getLog().log(e);
+		// parent.reportError(e.getMessage());
+		// }
 		subject.removeObserver();
 	}
 
