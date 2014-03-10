@@ -49,12 +49,15 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.LookAndFeel;
 import javax.swing.SwingUtilities;
@@ -73,11 +76,13 @@ public class ECFLab extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static final String CONFIGURATION_FILE = "res/conf/conf.properties";
 
+	private String appName;
 	private IConfiguration configuration;
 	private ILog logger;
 	private Map<String, Action> actions = new HashMap<>();
 	private JMenuBar menuBar = new JMenuBar();
 	private JTabbedPane tabbedPane;
+	private JToolBar toolbar;
 	private String ecfPath;
 	private String parDumpPath;
 	private AlgGenRegInit parDump;
@@ -93,18 +98,20 @@ public class ECFLab extends JFrame {
 			setLookAndFeel(true);
 			initGUI();
 
-			setTitle(configuration.getValue(ConfigurationKey.APP_TITLE));
-			Image image = null;
+			appName = configuration.getValue(ConfigurationKey.APP_TITLE);
+			setTitle(appName);
 			try {
-				image = ImageIO.read(new FileInputStream(configuration.getValue(ConfigurationKey.APP_ICON_PATH)));
+				Image image = ImageIO.read(new FileInputStream(configuration.getValue(ConfigurationKey.APP_ICON_PATH)));
+				setIconImage(image);
 			} catch (IOException e) {
 				logger.log(e);
 			}
 
-			setIconImage(image);
 			setLocation(300, 100);
 			setSize(900, 600);
 			setLayout(new BorderLayout());
+
+			add(toolbar, BorderLayout.NORTH);
 
 			tabbedPane = new JTabbedPane();
 			add(tabbedPane, BorderLayout.CENTER);
@@ -128,6 +135,7 @@ public class ECFLab extends JFrame {
 		if (retVal == JOptionPane.OK_OPTION) {
 			ecfPath = ecfExePanel.getText();
 			parDumpPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
+			setTitle(appName + " - " + ecfPath);
 			parDump = callParDump();
 		}
 	}
@@ -145,6 +153,45 @@ public class ECFLab extends JFrame {
 
 		initActions();
 		initMenuBar();
+		initToolbar();
+	}
+
+	/**
+	 * Initializes toolbar.
+	 */
+	private void initToolbar() {
+		toolbar = new JToolBar();
+		toolbar.setFloatable(false);
+
+		JButton button = makeToolbarButton(ConfigurationKey.ICON_NEW_CONF_PATH, "NewConf", "New configuration");
+		toolbar.add(button);
+
+		button = makeToolbarButton(ConfigurationKey.ICON_OPEN_CONF_PATH, "OpenConf", "Open existing configuration");
+		toolbar.add(button);
+
+		button = makeToolbarButton(ConfigurationKey.ICON_SAVE_CONF_PATH, "SaveConf", "Save configuration");
+		toolbar.add(button);
+
+		button = makeToolbarButton(ConfigurationKey.ICON_SAVE_CONF_AS_PATH, "SaveConfAs", "Save configuration As");
+		toolbar.add(button);
+		
+		toolbar.addSeparator();
+		
+		button = makeToolbarButton(ConfigurationKey.ICON_OPEN_LOG_PATH, "OpenLog", "Open log file");
+		toolbar.add(button);
+		
+		button = makeToolbarButton(ConfigurationKey.ICON_SAVE_LOG_PATH, "SaveLog", "Save log file");
+		toolbar.add(button);
+	}
+
+	protected JButton makeToolbarButton(String imgKey, String action, String toolTipText) {
+		JButton button = new JButton(actions.get(action));
+		button.setText("");
+		button.setToolTipText(toolTipText);
+		String imgPath = configuration.getValue(imgKey);
+		ImageIcon icon = new ImageIcon(imgPath);
+		button.setIcon(icon);
+		return button;
 	}
 
 	/**
@@ -190,7 +237,7 @@ public class ECFLab extends JFrame {
 		action.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
 		action.putValue(Action.SHORT_DESCRIPTION, "Save configuration");
 		actions.put("SaveConf", action);
-		
+
 		action = new AbstractAction("Save As") {
 
 			private static final long serialVersionUID = 1L;
@@ -215,7 +262,7 @@ public class ECFLab extends JFrame {
 		};
 		action.putValue(Action.SHORT_DESCRIPTION, "Open log file");
 		actions.put("OpenLog", action);
-		
+
 		action = new AbstractAction("Save") {
 
 			private static final long serialVersionUID = 1L;
@@ -227,7 +274,7 @@ public class ECFLab extends JFrame {
 		};
 		action.putValue(Action.SHORT_DESCRIPTION, "Save log file");
 		actions.put("SaveLog", action);
-		
+
 		action = new AbstractAction("Change ECF") {
 
 			private static final long serialVersionUID = 1L;
@@ -239,7 +286,7 @@ public class ECFLab extends JFrame {
 		};
 		action.putValue(Action.SHORT_DESCRIPTION, "Change ECF executable file");
 		actions.put("ChangeECFExe", action);
-		
+
 		action = new AbstractAction("ECF home page") {
 
 			private static final long serialVersionUID = 1L;
@@ -260,7 +307,8 @@ public class ECFLab extends JFrame {
 		ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
 		boolean b = ps.wasRunBefore();
 		if (!b) {
-			JOptionPane.showMessageDialog(this, "This experiment was never run before!", "Action unavailable", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "This experiment was never run before!", "Action unavailable",
+					JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 		JFileChooser fc = new JFileChooser();
@@ -275,7 +323,8 @@ public class ECFLab extends JFrame {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(this, "Log file copied successfully!", "Saved successfully", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Log file copied successfully!", "Saved successfully",
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -284,9 +333,8 @@ public class ECFLab extends JFrame {
 	 */
 	protected void openLog() {
 		BrowsePanel logPathPanel = new BrowsePanel();
-		int retVal = JOptionPane.showConfirmDialog(this, logPathPanel, "Choose log file",
-				JOptionPane.OK_CANCEL_OPTION);
-		
+		int retVal = JOptionPane.showConfirmDialog(this, logPathPanel, "Choose log file", JOptionPane.OK_CANCEL_OPTION);
+
 		if (retVal == JOptionPane.OK_OPTION) {
 			try {
 				ChartUtils.showResults(logPathPanel.getText());
@@ -315,7 +363,8 @@ public class ECFLab extends JFrame {
 	}
 
 	/**
-	 * Saves current configuration under the name chosen in the file chooser dialog.
+	 * Saves current configuration under the name chosen in the file chooser
+	 * dialog.
 	 */
 	protected void saveConfAs() {
 		JFileChooser fc = new JFileChooser();
@@ -325,12 +374,14 @@ public class ECFLab extends JFrame {
 			String path = file.getAbsolutePath();
 			ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
 			XmlWriting.write(path, ps.getParameters());
-			JOptionPane.showMessageDialog(this, "Saved under name: " + path, "Saved succesfully", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Saved under name: " + path, "Saved succesfully",
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
-	
+
 	/**
-	 * Saves current configuration under the name written in the define panel of the selected {@link ParametersSelection} panel.
+	 * Saves current configuration under the name written in the define panel of
+	 * the selected {@link ParametersSelection} panel.
 	 */
 	protected void saveConf() {
 		ParametersSelection ps = (ParametersSelection) tabbedPane.getSelectedComponent();
@@ -378,7 +429,7 @@ public class ECFLab extends JFrame {
 				efp.setSelected(true);
 				efp.setText(entry.value);
 			}
-			
+
 			ps.getDefinePanel().setParamsPath(file.getAbsolutePath());
 		} catch (Exception e) {
 			String message = e.getMessage();
@@ -393,17 +444,21 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Creates new tab with {@link ParametersSelection} panel.
-	 * @param tabName Name of the new tab
+	 * 
+	 * @param tabName
+	 *            Name of the new tab
 	 * @return Created {@link ParametersSelection} panel
 	 */
 	protected ParametersSelection newTab(String tabName) {
 		ParametersSelection parSel = new ParametersSelection(this);
 		tabbedPane.add(tabName, parSel);
+		tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
 		return parSel;
 	}
 
 	/**
 	 * Calls parameters dump from ECF executable file.
+	 * 
 	 * @return
 	 */
 	protected AlgGenRegInit callParDump() {
@@ -420,15 +475,15 @@ public class ECFLab extends JFrame {
 		confMenu.add(actions.get("OpenConf"));
 		confMenu.add(actions.get("SaveConf"));
 		confMenu.add(actions.get("SaveConfAs"));
-		
+
 		JMenu logMenu = new JMenu("Log");
 		logMenu.add(actions.get("OpenLog"));
 		logMenu.add(actions.get("SaveLog"));
-		
+
 		JMenu exeMenu = new JMenu("ECF");
 		exeMenu.add(actions.get("ChangeECFExe"));
 		exeMenu.add(actions.get("ecfHomePage"));
-		
+
 		menuBar.add(confMenu);
 		menuBar.add(logMenu);
 		menuBar.add(exeMenu);
@@ -453,7 +508,8 @@ public class ECFLab extends JFrame {
 	protected void exit() {
 		boolean b = Boolean.parseBoolean(configuration.getValue(ConfigurationKey.CONFIRM_EXIT));
 		if (b) {
-			int ret = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Really exit?", JOptionPane.YES_NO_OPTION);
+			int ret = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Really exit?",
+					JOptionPane.YES_NO_OPTION);
 			if (ret == JOptionPane.YES_OPTION) {
 				dispose();
 			}
@@ -464,6 +520,7 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Logger for errors.
+	 * 
 	 * @return Error logger
 	 */
 	public ILog getLogger() {
@@ -472,6 +529,7 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * External application configuration.
+	 * 
 	 * @return Configuration
 	 */
 	public IConfiguration getConfiguration() {
@@ -480,6 +538,7 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * All main actions.
+	 * 
 	 * @return Main actions.
 	 */
 	public Map<String, Action> getActions() {
@@ -488,6 +547,7 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Current ECF executable file path.
+	 * 
 	 * @return ECF exe path
 	 */
 	public String getEcfPath() {
@@ -496,6 +556,7 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Path to the parameters dump file.
+	 * 
 	 * @return Path to the parameters dump file
 	 */
 	public String getParDumpPath() {
@@ -504,7 +565,9 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Object with all parameters from the selected ECF exe.
-	 * @return {@link AlgGenRegInit} object with all the parameters from the current ECF executable file.
+	 * 
+	 * @return {@link AlgGenRegInit} object with all the parameters from the
+	 *         current ECF executable file.
 	 */
 	public AlgGenRegInit getParDump() {
 		return parDump;
@@ -540,7 +603,9 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Sets {@link LookAndFeel} to the system or to the java look.
-	 * @param system True for system look, false for java look
+	 * 
+	 * @param system
+	 *            True for system look, false for java look
 	 */
 	protected void setLookAndFeel(boolean system) {
 		String newLookAndFeel = system ? UIManager.getSystemLookAndFeelClassName() : UIManager
@@ -555,6 +620,7 @@ public class ECFLab extends JFrame {
 
 	/**
 	 * Class for handling EDT exceptions.
+	 * 
 	 * @author Domagoj Stanković
 	 * @version 1.0
 	 */

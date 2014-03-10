@@ -155,6 +155,7 @@
 		<Entry key="crossover.genotypes" desc="if there are multiple genotypes, which to cross? &apos;random&apos;: a random pair, &apos;all&apos;: all pairs (default: random)">random</Entry>
 		<Entry key="crossover.protected" desc="indexes of genotypes (separated by spaces) that are excluded (protected) from crossover (default: none)"></Entry>
 		<Entry key="crx.sbx.ni" desc="">1</Entry>
+		<Entry key="learning_trails" desc="">learning_trails.txt</Entry>
 		<Entry key="log.filename" desc="log filename (default: none)"></Entry>
 		<Entry key="log.frequency" desc="log only every &apos;frequency&apos; generations (default: 1)">1</Entry>
 		<Entry key="log.level" desc="log level; valid values are 1 (minimal) to 5 (verbose) (default: 3)">3</Entry>
@@ -176,5 +177,6 @@
 		<Entry key="term.maxgen" desc="max number of generations (default: none)">0</Entry>
 		<Entry key="term.maxtime" desc="max number of seconds to run (default: none)">0</Entry>
 		<Entry key="term.stagnation" desc="max number of consecutive generations without improvement (default: 5000 / pop_size)">50</Entry>
+		<Entry key="test_trails" desc="">test_trails.txt</Entry>
 	</Registry>
 </ECF>
