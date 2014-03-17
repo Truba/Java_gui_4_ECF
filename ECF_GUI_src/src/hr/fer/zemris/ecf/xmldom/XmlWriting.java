@@ -98,6 +98,7 @@ public class XmlWriting {
 			Entry e = eList.get(i);
 			Element entry = doc.createElement("Entry");
 			entry.setAttribute("key", e.key);
+			entry.setAttribute("desc", e.desc);
 			entry.appendChild(doc.createTextNode(e.value));
 			registry.appendChild(entry);
 			
@@ -120,6 +121,7 @@ public class XmlWriting {
 				Entry e = eList.get(i);
 				Element entry = doc.createElement("Entry");
 				entry.setAttribute("key", e.key);
+				entry.setAttribute("desc", e.desc);
 				entry.appendChild(doc.createTextNode(e.value));
 				genType.appendChild(entry);
 				
@@ -146,6 +148,7 @@ public class XmlWriting {
 				Entry e = eList.get(i);
 				Element entry = doc.createElement("Entry");
 				entry.setAttribute("key", e.key);
+				entry.setAttribute("desc", e.desc);
 				entry.appendChild(doc.createTextNode(e.value));
 				algType.appendChild(entry);
 				

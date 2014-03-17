@@ -3913,3 +3913,2256 @@ java.lang.NullPointerException: ECF executable file undefined!
 	at java.awt.EventDispatchThread.run(Unknown Source)
 
 -----------------------
+Wed Mar 12 09:57:51 CET 2014
+java.lang.Exception: Error: Initialization failed!
+java.util.concurrent.FutureTask.report(Unknown Source)
+java.util.concurrent.FutureTask.get(Unknown Source)
+hr.fer.zemris.ecf.tasks.TaskMannager.startTasks(TaskMannager.java:92)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection.clicked(ParametersSelection.java:102)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$1.actionPerformed(ParametersSelection.java:75)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Mar 12 10:00:10 CET 2014
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of file.
+java.util.concurrent.FutureTask.report(Unknown Source)
+java.util.concurrent.FutureTask.get(Unknown Source)
+hr.fer.zemris.ecf.tasks.TaskMannager.startTasks(TaskMannager.java:92)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection.clicked(ParametersSelection.java:102)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$1.actionPerformed(ParametersSelection.java:75)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Mar 12 10:01:13 CET 2014
+java.lang.Exception: -- ECF, version 1.3.2 --
+Parsing configuration file: C:\Temp\ECF\params.xml
+Error: ABC algorithm accepts only a single FloatingPoint genotype!
+java.util.concurrent.FutureTask.report(Unknown Source)
+java.util.concurrent.FutureTask.get(Unknown Source)
+hr.fer.zemris.ecf.tasks.TaskMannager.startTasks(TaskMannager.java:92)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection.clicked(ParametersSelection.java:102)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$1.actionPerformed(ParametersSelection.java:75)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Mar 12 10:03:54 CET 2014
+java.lang.Exception: -- ECF, version 1.3.2 --
+Parsing configuration file: C:\Temp\ECF\params.xml
+java.util.concurrent.FutureTask.report(Unknown Source)
+java.util.concurrent.FutureTask.get(Unknown Source)
+hr.fer.zemris.ecf.tasks.TaskMannager.startTasks(TaskMannager.java:92)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection.clicked(ParametersSelection.java:102)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$1.actionPerformed(ParametersSelection.java:75)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Mar 12 10:04:05 CET 2014
+java.lang.Exception: -- ECF, version 1.3.2 --
+Parsing configuration file: C:\Temp\ECF\params.xml
+Error: ABC algorithm accepts only a single FloatingPoint genotype!
+java.util.concurrent.FutureTask.report(Unknown Source)
+java.util.concurrent.FutureTask.get(Unknown Source)
+hr.fer.zemris.ecf.tasks.TaskMannager.startTasks(TaskMannager.java:92)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection.clicked(ParametersSelection.java:102)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$1.actionPerformed(ParametersSelection.java:75)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Mar 12 11:51:37 CET 2014
+java.lang.Exception: -- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+Warning: migration operator is not configured (migration will not occur between demes).
+Start time: Wed Mar 12 11:51:23 2014
+
+Evaluating initial population...
+Generation: 0
+Elapsed time: 0
+Deme: 0
+Evaluations: 150
+Stats: fitness
+	max: 13
+	min: 6
+	avg: 9.26667
+	stdev: 2.1324
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 5
+	avg: 9.66667
+	stdev: 2.73336
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 13
+	min: 5
+	avg: 9.1
+	stdev: 2.09021
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 15
+	min: 6
+	avg: 10.2333
+	stdev: 2.12835
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 14
+	min: 5
+	avg: 10.2333
+	stdev: 2.17641
+
+Population:
+Evaluations: 150
+Stats: fitness
+	max: 16
+	min: 5
+	avg: 9.7
+	stdev: 2.31395
+
+Generation: 1
+Elapsed time: 0
+Deme: 0
+Evaluations: 237
+Stats: fitness
+	max: 13
+	min: 4
+	avg: 10.0333
+	stdev: 2.56614
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 6
+	avg: 11.2667
+	stdev: 2.75347
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 13
+	min: 7
+	avg: 10.3333
+	stdev: 1.68836
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 15
+	min: 8
+	avg: 11.4667
+	stdev: 2.12916
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 15
+	min: 9
+	avg: 11.7667
+	stdev: 1.6955
+
+Population:
+Evaluations: 237
+Stats: fitness
+	max: 16
+	min: 4
+	avg: 10.9733
+	stdev: 2.30986
+
+Generation: 2
+Elapsed time: 0
+Deme: 0
+Evaluations: 323
+Stats: fitness
+	max: 15
+	min: 7
+	avg: 10.5
+	stdev: 2.14556
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 9
+	avg: 12.4667
+	stdev: 2.19299
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 14
+	min: 6
+	avg: 11.1667
+	stdev: 1.76329
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 15
+	min: 9
+	avg: 12.6
+	stdev: 1.81184
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 10
+	avg: 12.6667
+	stdev: 1.68836
+
+Population:
+Evaluations: 323
+Stats: fitness
+	max: 16
+	min: 6
+	avg: 11.88
+	stdev: 2.12367
+
+Generation: 3
+Elapsed time: 0
+Deme: 0
+Evaluations: 405
+Stats: fitness
+	max: 15
+	min: 8
+	avg: 12.3
+	stdev: 1.85974
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 17
+	min: 9
+	avg: 13.9333
+	stdev: 1.85571
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 15
+	min: 6
+	avg: 10.9333
+	stdev: 2.25806
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 8
+	avg: 13.4333
+	stdev: 1.67504
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 10
+	avg: 13.2333
+	stdev: 1.90613
+
+Population:
+Evaluations: 405
+Stats: fitness
+	max: 17
+	min: 6
+	avg: 12.7667
+	stdev: 2.19283
+
+Generation: 4
+Elapsed time: 0
+Deme: 0
+Evaluations: 492
+Stats: fitness
+	max: 16
+	min: 11
+	avg: 12.9667
+	stdev: 1.35146
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 17
+	min: 12
+	avg: 14.7333
+	stdev: 1.46059
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 15
+	min: 8
+	avg: 11.5
+	stdev: 1.85231
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 9
+	avg: 13.6
+	stdev: 1.71404
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 10
+	avg: 14.3667
+	stdev: 1.69143
+
+Population:
+Evaluations: 492
+Stats: fitness
+	max: 18
+	min: 8
+	avg: 13.4333
+	stdev: 1.98666
+
+Generation: 5
+Elapsed time: 0
+Deme: 0
+Evaluations: 581
+Stats: fitness
+	max: 16
+	min: 11
+	avg: 13.8
+	stdev: 1.34933
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 13
+	avg: 15.4667
+	stdev: 1.38298
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 16
+	min: 8
+	avg: 12.2667
+	stdev: 2.24274
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 17
+	min: 13
+	avg: 14.5333
+	stdev: 1.16658
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 14.7
+	stdev: 1.76459
+
+Population:
+Evaluations: 581
+Stats: fitness
+	max: 19
+	min: 8
+	avg: 14.1533
+	stdev: 1.95399
+
+Generation: 6
+Elapsed time: 0
+Deme: 0
+Evaluations: 663
+Stats: fitness
+	max: 16
+	min: 12
+	avg: 14.3
+	stdev: 1.34293
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 13
+	avg: 16.1667
+	stdev: 1.4875
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 17
+	min: 10
+	avg: 13.6667
+	stdev: 1.78757
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 13
+	avg: 15.4333
+	stdev: 1.40647
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 15.0667
+	stdev: 2.2884
+
+Population:
+Evaluations: 663
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 14.9267
+	stdev: 1.90896
+
+Generation: 7
+Elapsed time: 0
+Deme: 0
+Evaluations: 747
+Stats: fitness
+	max: 17
+	min: 13
+	avg: 15.1
+	stdev: 1.12495
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 14
+	avg: 16.7333
+	stdev: 1.17248
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 17
+	min: 12
+	avg: 14.4667
+	stdev: 1.56983
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 13
+	avg: 16.2667
+	stdev: 1.14269
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 15.8
+	stdev: 2.36934
+
+Population:
+Evaluations: 747
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 15.6733
+	stdev: 1.74932
+
+Generation: 8
+Elapsed time: 0
+Deme: 0
+Evaluations: 833
+Stats: fitness
+	max: 17
+	min: 13
+	avg: 15.4333
+	stdev: 0.971431
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 15
+	avg: 17.1333
+	stdev: 0.860366
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 15.4
+	stdev: 1.81184
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 18
+	min: 14
+	avg: 16.3333
+	stdev: 1.1547
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 13
+	avg: 16.4667
+	stdev: 2.04658
+
+Population:
+Evaluations: 833
+Stats: fitness
+	max: 19
+	min: 10
+	avg: 16.1533
+	stdev: 1.59156
+
+Generation: 9
+Elapsed time: 0
+Deme: 0
+Evaluations: 922
+Stats: fitness
+	max: 18
+	min: 13
+	avg: 15.8333
+	stdev: 1.20583
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 13
+	avg: 17.1333
+	stdev: 1.45586
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 12
+	avg: 15.7
+	stdev: 1.87819
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 16.8
+	stdev: 1.12648
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 13
+	avg: 17.2667
+	stdev: 1.8742
+
+Population:
+Evaluations: 922
+Stats: fitness
+	max: 20
+	min: 12
+	avg: 16.5467
+	stdev: 1.67542
+
+Generation: 10
+Elapsed time: 0
+Deme: 0
+Evaluations: 1001
+Stats: fitness
+	max: 20
+	min: 13
+	avg: 15.9
+	stdev: 1.66816
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 15
+	avg: 17.6333
+	stdev: 0.999425
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 14
+	avg: 16.2333
+	stdev: 1.6121
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 17
+	stdev: 1.17444
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 15
+	avg: 18
+	stdev: 1.17444
+
+Population:
+Evaluations: 1001
+Stats: fitness
+	max: 20
+	min: 13
+	avg: 16.9533
+	stdev: 1.57016
+
+Generation: 11
+Elapsed time: 0
+Deme: 0
+Evaluations: 1083
+Stats: fitness
+	max: 20
+	min: 12
+	avg: 16.4667
+	stdev: 1.87052
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 16
+	avg: 17.4333
+	stdev: 1.04
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 15
+	avg: 17.5
+	stdev: 1.33261
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 17.5333
+	stdev: 1.10589
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.0333
+	stdev: 0.889918
+
+Population:
+Evaluations: 1083
+Stats: fitness
+	max: 20
+	min: 12
+	avg: 17.3933
+	stdev: 1.39084
+
+Generation: 12
+Elapsed time: 0
+Deme: 0
+Evaluations: 1173
+Stats: fitness
+	max: 20
+	min: 14
+	avg: 16.8333
+	stdev: 1.68325
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 16
+	avg: 17.9
+	stdev: 0.959526
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 16
+	avg: 17.9333
+	stdev: 1.25762
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 17.6333
+	stdev: 1.09807
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.6
+	stdev: 0.674665
+
+Population:
+Evaluations: 1173
+Stats: fitness
+	max: 20
+	min: 14
+	avg: 17.78
+	stdev: 1.31336
+
+Generation: 13
+Elapsed time: 0
+Deme: 0
+Evaluations: 1252
+Stats: fitness
+	max: 20
+	min: 14
+	avg: 17.4
+	stdev: 1.71404
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 17
+	avg: 18.2667
+	stdev: 0.639684
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.0667
+	stdev: 0.691492
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 17.6667
+	stdev: 1.12444
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.8
+	stdev: 0.805156
+
+Population:
+Evaluations: 1252
+Stats: fitness
+	max: 20
+	min: 14
+	avg: 18.24
+	stdev: 1.24659
+
+Generation: 14
+Elapsed time: 0
+Deme: 0
+Evaluations: 1331
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 18.2
+	stdev: 1.60602
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 19
+	min: 17
+	avg: 18.3
+	stdev: 0.702213
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.3333
+	stdev: 0.844182
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 16
+	avg: 18.0333
+	stdev: 1.0662
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.3667
+	stdev: 0.556053
+
+Population:
+Evaluations: 1331
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 18.6467
+	stdev: 1.17616
+
+Generation: 15
+Elapsed time: 0
+Deme: 0
+Evaluations: 1409
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 19.0333
+	stdev: 1.35146
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.5667
+	stdev: 0.678911
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.7
+	stdev: 0.987857
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 19.3333
+	stdev: 0.802296
+
+Population:
+Evaluations: 1409
+Stats: fitness
+	max: 20
+	min: 15
+	avg: 19.1
+	stdev: 1.01169
+
+Generation: 16
+Elapsed time: 0
+Deme: 0
+Evaluations: 1494
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.4333
+	stdev: 0.727932
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.8333
+	stdev: 0.833908
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 18.8667
+	stdev: 0.937102
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.3
+	stdev: 0.749713
+
+Population:
+Evaluations: 1494
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 19.2667
+	stdev: 0.840999
+
+Generation: 17
+Elapsed time: 0
+Deme: 0
+Evaluations: 1575
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.6333
+	stdev: 0.614948
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 19.0333
+	stdev: 0.889918
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.1667
+	stdev: 0.74664
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.5
+	stdev: 0.682288
+
+Population:
+Evaluations: 1575
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 19.4267
+	stdev: 0.744097
+
+Generation: 18
+Elapsed time: 0
+Deme: 0
+Evaluations: 1664
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.6
+	stdev: 0.498273
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 19.0333
+	stdev: 0.889918
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.5333
+	stdev: 0.62881
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7333
+	stdev: 0.449776
+
+Population:
+Evaluations: 1664
+Stats: fitness
+	max: 20
+	min: 17
+	avg: 19.5467
+	stdev: 0.658052
+
+Generation: 19
+Elapsed time: 0
+Deme: 0
+Evaluations: 1751
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.3
+	stdev: 0.534983
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.6667
+	stdev: 0.479463
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Population:
+Evaluations: 1751
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.7
+	stdev: 0.479048
+
+Generation: 20
+Elapsed time: 0
+Deme: 0
+Evaluations: 1831
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.7667
+	stdev: 0.504007
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.0333
+	stdev: 0.668675
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Population:
+Evaluations: 1831
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.68
+	stdev: 0.5639
+
+Generation: 21
+Elapsed time: 0
+Deme: 0
+Evaluations: 1920
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.7333
+	stdev: 0.583292
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.3333
+	stdev: 0.758098
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Population:
+Evaluations: 1920
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.7267
+	stdev: 0.548276
+
+Generation: 22
+Elapsed time: 0
+Deme: 0
+Evaluations: 2000
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.5333
+	stdev: 0.62881
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7667
+	stdev: 0.430183
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Population:
+Evaluations: 2000
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.7733
+	stdev: 0.45645
+
+Generation: 23
+Elapsed time: 0
+Deme: 0
+Evaluations: 2088
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7667
+	stdev: 0.430183
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.6
+	stdev: 0.563242
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7
+	stdev: 0.466092
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Population:
+Evaluations: 2088
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.76
+	stdev: 0.449565
+
+Generation: 24
+Elapsed time: 0
+Deme: 0
+Evaluations: 2171
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7667
+	stdev: 0.430183
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.6333
+	stdev: 0.490133
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9667
+	stdev: 0.182574
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7667
+	stdev: 0.430183
+
+Population:
+Evaluations: 2171
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7933
+	stdev: 0.411345
+
+Generation: 25
+Elapsed time: 0
+Deme: 0
+Evaluations: 2258
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Population:
+Evaluations: 2258
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8467
+	stdev: 0.366414
+
+Generation: 26
+Elapsed time: 0
+Deme: 0
+Evaluations: 2334
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.7667
+	stdev: 0.504007
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9333
+	stdev: 0.253708
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Population:
+Evaluations: 2334
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.86
+	stdev: 0.371795
+
+Generation: 27
+Elapsed time: 0
+Deme: 0
+Evaluations: 2422
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9667
+	stdev: 0.182574
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.7667
+	stdev: 0.430183
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Population:
+Evaluations: 2422
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8467
+	stdev: 0.366246
+
+Generation: 28
+Elapsed time: 0
+Deme: 0
+Evaluations: 2499
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9333
+	stdev: 0.253708
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9333
+	stdev: 0.253708
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Population:
+Evaluations: 2499
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.88
+	stdev: 0.330364
+
+Generation: 29
+Elapsed time: 0
+Deme: 0
+Evaluations: 2588
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.6
+	stdev: 0.498273
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.9
+	stdev: 0.305129
+
+Population:
+Evaluations: 2588
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406367
+
+Generation: 30
+Elapsed time: 0
+Deme: 0
+Evaluations: 2673
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 1
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8333
+	stdev: 0.379049
+
+Deme: 2
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8
+	stdev: 0.406838
+
+Deme: 3
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.8
+	stdev: 0.484234
+
+Deme: 4
+Evaluations: 0
+Stats: fitness
+	max: 20
+	min: 19
+	avg: 19.8667
+	stdev: 0.345746
+
+Population:
+Evaluations: 2673
+Stats: fitness
+	max: 20
+	min: 18
+	avg: 19.82
+	stdev: 0.407993
+
+Termination: max generation reached (30)
+
+Best of run: 
+<HallOfFame size="1">
+	<Individual size="1" gen="9">
+		<FitnessMax value="20"/>
+		<BitString size="20">11111111111111111111</BitString>
+	</Individual>
+</HallOfFame>
+java.util.concurrent.FutureTask.report(Unknown Source)
+java.util.concurrent.FutureTask.get(Unknown Source)
+hr.fer.zemris.ecf.tasks.TaskMannager.startTasks(TaskMannager.java:92)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection.clicked(ParametersSelection.java:102)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$1.actionPerformed(ParametersSelection.java:75)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Thu Mar 13 00:40:04 CET 2014
+java.lang.NullPointerException
+	at java.lang.StringBuilder.<init>(Unknown Source)
+	at hr.fer.zemris.ecf.gui.model.log.impl.FileLog.log(FileLog.java:41)
+	at hr.fer.zemris.ecf.gui.ECFLab.<init>(ECFLab.java:130)
+	at hr.fer.zemris.ecf.gui.ECFLab.startGUIApp(ECFLab.java:608)
+	at hr.fer.zemris.ecf.gui.ECFLab$10.run(ECFLab.java:599)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 00:40:14 CET 2014
+java.lang.NullPointerException
+	at java.lang.StringBuilder.<init>(Unknown Source)
+	at hr.fer.zemris.ecf.gui.model.log.impl.FileLog.log(FileLog.java:41)
+	at hr.fer.zemris.ecf.gui.ECFLab.<init>(ECFLab.java:130)
+	at hr.fer.zemris.ecf.gui.ECFLab.startGUIApp(ECFLab.java:608)
+	at hr.fer.zemris.ecf.gui.ECFLab$10.run(ECFLab.java:599)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 05:07:11 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:84)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 05:08:17 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:85)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 05:08:25 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:85)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 20:00:21 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:85)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 21:29:45 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:85)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 21:30:57 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:85)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Thu Mar 13 21:32:18 CET 2014
+java.lang.NullPointerException
+	at hr.fer.zemris.ecf.param.Entry.isMandatory(Entry.java:52)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldPanel.<init>(EntryFieldPanel.java:80)
+	at hr.fer.zemris.ecf.gui.layout.EntryListPanel.<init>(EntryListPanel.java:28)
+	at hr.fer.zemris.ecf.gui.layout.EntryFieldDisplay.<init>(EntryFieldDisplay.java:30)
+	at hr.fer.zemris.ecf.gui.layout.impl.FrameDisplay.<init>(FrameDisplay.java:20)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection.add(EntryBlockSelection.java:85)
+	at hr.fer.zemris.ecf.gui.layout.EntryBlockSelection$1.actionPerformed(EntryBlockSelection.java:35)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Mon Mar 17 14:24:58 CET 2014
+java.lang.NullPointerException
+	at java.lang.StringBuilder.<init>(Unknown Source)
+	at hr.fer.zemris.ecf.gui.model.log.impl.FileLog.log(FileLog.java:41)
+	at hr.fer.zemris.ecf.gui.ECFLab.openConf(ECFLab.java:455)
+	at hr.fer.zemris.ecf.gui.ECFLab$3.actionPerformed(ECFLab.java:227)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------

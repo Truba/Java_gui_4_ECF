@@ -14,7 +14,7 @@ public class GenotypeSelection extends DropDownPanel<Genotype> {
 	private static final long serialVersionUID = 1L;
 	
 	public GenotypeSelection(List<Genotype> blocks) {
-		super(blocks, null);
+		super(blocks);
 	}
 
 }

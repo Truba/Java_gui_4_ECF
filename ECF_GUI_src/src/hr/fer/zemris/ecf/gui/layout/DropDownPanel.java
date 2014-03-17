@@ -3,7 +3,6 @@ package hr.fer.zemris.ecf.gui.layout;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -12,10 +11,9 @@ import java.util.List;
 import hr.fer.zemris.ecf.param.Entry;
 import hr.fer.zemris.ecf.param.EntryBlock;
 
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  * Panel with drop down panel for choosing sort of {@link EntryBlock} and list
@@ -37,7 +35,7 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 	protected List<EntryListPanel> algPanels = new ArrayList<>();
 	protected CardLayout cardLayout;
 
-	public DropDownPanel(List<T> blocks, String buttonText) {
+	public DropDownPanel(List<T> blocks) {
 		this.blocks = blocks;
 		setLayout(new BorderLayout());
 		int n = blocks.size();
@@ -58,30 +56,13 @@ public class DropDownPanel<T extends EntryBlock> extends JPanel implements ItemL
 		int size = blocks.size();
 		for (int i = 0; i < size; i++) {
 			List<Entry> ent = blocks.get(i).getEntryList();
-			EntryListPanel card = new EntryListPanel(ent);
+			EntryListPanel card = EntryListPanel.getComponent(ent);
 			algPanels.add(card);
 			cards.add(card, model[i]);
 		}
 
-		if (buttonText != null) {
-			JButton button = new JButton(new AbstractAction() {
-
-				private static final long serialVersionUID = 1L;
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					clicked();
-				}
-			});
-			button.setText(buttonText);
-			add(button, BorderLayout.SOUTH);
-		}
-
 		add(box, BorderLayout.NORTH);
-		add(cards, BorderLayout.CENTER);
-	}
-
-	protected void clicked() {
+		add(new JScrollPane(cards), BorderLayout.CENTER);
 	}
 
 	/**

@@ -13,7 +13,7 @@ public class AlgorithmSelection extends DropDownPanel<Algorithm> {
 	private static final long serialVersionUID = 1L;
 
 	public AlgorithmSelection(List<Algorithm> list) {
-		super(list, null);
+		super(list);
 	}
 
 }

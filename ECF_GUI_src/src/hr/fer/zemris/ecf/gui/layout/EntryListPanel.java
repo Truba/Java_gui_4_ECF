@@ -21,11 +21,11 @@ public class EntryListPanel extends JPanel {
 
 	private List<EntryFieldPanel> fieldPanels = new ArrayList<>();
 	
-	public EntryListPanel(List<Entry> list) {
+	public EntryListPanel(List<EntryFieldPanel> list) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		int size = list.size();
 		for (int i = 0; i < size; i++) {
-			EntryFieldPanel fieldPanel = new EntryFieldPanel(list.get(i));
+			EntryFieldPanel fieldPanel = list.get(i);
 			if (i % 2 == 0) {
 				fieldPanel.setBackground(new Color(RGB, RGB, RGB));
 			}
@@ -91,6 +91,33 @@ public class EntryListPanel extends JPanel {
 			}
 		}
 		return null;
+	}
+	
+	public List<Entry> getSelectedEntries() {
+		int size = getEntriesCount();
+		List<Entry> entries = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			if (isSelected(i)) {
+				entries.add(new Entry(getKeyAt(i), getDescriptionAt(i), getValueAt(i)));
+			}
+		}
+		return entries;
+	}
+	
+	public static EntryListPanel getComponent(List<Entry> list) {
+		List<EntryFieldPanel> fields = new ArrayList<>(list.size());
+		for (Entry e : list) {
+			fields.add(new EntryFieldPanel(e));
+		}
+		return new EntryListPanel(fields);
+	}
+	
+	public EntryListPanel copy() {
+		List<EntryFieldPanel> list = new ArrayList<>(fieldPanels.size());
+		for (EntryFieldPanel efp : fieldPanels) {
+			list.add(efp.copy());
+		}
+		return new EntryListPanel(list);
 	}
 	
 }

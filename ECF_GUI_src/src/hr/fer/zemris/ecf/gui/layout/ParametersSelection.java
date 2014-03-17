@@ -15,6 +15,7 @@ import hr.fer.zemris.ecf.tasks.TaskMannager;
 import hr.fer.zemris.ecf.xmldom.XmlWriting;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,8 @@ public class ParametersSelection extends JPanel implements IObserver {
 	private static final long serialVersionUID = 1L;
 
 	private ECFLab parent;
-	private AlgorithmSelection algSel;
-	private GenotypeSelection genSel;
+	private EntryBlockSelection<Algorithm> algSel;
+	private EntryBlockSelection<Genotype> genSel;
 	private EntryListPanel regList;
 	private String ecfPath;
 	private DefinePanel definePanel;
@@ -60,12 +61,14 @@ public class ParametersSelection extends JPanel implements IObserver {
 		if (ecfPath == null) {
 			throw new NullPointerException("ECF executable file undefined!");
 		}
-		algSel = new AlgorithmSelection(parent.getParDump().algorithms);
-		genSel = new GenotypeSelection(parent.getParDump().genotypes);
-		regList = new EntryListPanel(parent.getParDump().registry.getEntryList());
+		algSel = new EntryBlockSelection<>(new DropDownPanel<>(parent.getParDump().algorithms));
+		genSel = new EntryBlockSelection<>(new DropDownPanel<>(parent.getParDump().genotypes));
+		regList = EntryListPanel.getComponent(parent.getParDump().registry.getEntryList());
 		String file = parent.getConfiguration().getValue(ConfigurationKey.DEFAULT_PARAMS_PATH);
 		String log = parent.getConfiguration().getValue(ConfigurationKey.DEFAULT_LOG_PATH);
-		add(new JScrollPane(new TempPanel(algSel, genSel, regList)), BorderLayout.CENTER);
+//		add(new JScrollPane(new TempPanel(algSel, genSel, regList)), BorderLayout.CENTER);
+//		add(new TempPanel(new JScrollPane(algSel), new JScrollPane(genSel), new JScrollPane(regList)), BorderLayout.CENTER);
+		add(new TempPanel(algSel, genSel, new JScrollPane(regList)), BorderLayout.CENTER);
 		JButton button = new JButton(new AbstractAction() {
 
 			private static final long serialVersionUID = 1L;
@@ -119,38 +122,24 @@ public class ParametersSelection extends JPanel implements IObserver {
 	 */
 	public AlgGenRegUser getParameters() {
 		// Algorithm filling
-		EntryListPanel pan = algSel.getSelectedEntryList();
-		int size = pan.getEntriesCount();
-		Algorithm alg = algSel.getSelectedItem();
-		List<Entry> entries = new ArrayList<>();
-		for (int i = 0; i < size; i++) {
-			if (pan.isSelected(i)) {
-				entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
-			}
+		List<EntryFieldDisplay<Algorithm>> algList = algSel.getAddedEntries();
+		List<Algorithm> algs = new ArrayList<>(algList.size());
+		for (EntryFieldDisplay<Algorithm> a : algList) {
+			algs.add(new Algorithm(a.getBlock().getName(), a.getBlockDisplay().getSelectedEntries()));
 		}
-		Algorithm algTemp = new Algorithm(alg.getName(), entries);
-		List<Algorithm> algs = new ArrayList<>(1);
-		algs.add(algTemp);
 
 		// Genotype filling
-		pan = genSel.getSelectedEntryList();
-		size = pan.getEntriesCount();
-		Genotype gen = genSel.getSelectedItem();
-		entries = new ArrayList<>();
-		for (int i = 0; i < size; i++) {
-			if (pan.isSelected(i)) {
-				entries.add(new Entry(pan.getKeyAt(i), pan.getDescriptionAt(i), pan.getValueAt(i)));
-			}
+		List<EntryFieldDisplay<Genotype>> genList = genSel.getAddedEntries();
+		List<Genotype> gens = new ArrayList<>(genList.size());
+		for (EntryFieldDisplay<Genotype> g : genList) {
+			gens.add(new Genotype(g.getBlock().getName(), g.getBlockDisplay().getSelectedEntries()));
 		}
-		Genotype genTemp = new Genotype(gen.getName(), entries);
-		List<Genotype> gens = new ArrayList<>(1);
-		gens.add(genTemp);
 		List<List<Genotype>> genBlock = new ArrayList<>(1);
 		genBlock.add(gens);
 
 		// Registry filling
-		size = regList.getEntriesCount();
-		entries = new ArrayList<>();
+		int size = regList.getEntriesCount();
+		List<Entry> entries = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
 			if (regList.isSelected(i)) {
 				entries.add(new Entry(regList.getKeyAt(i), regList.getDescriptionAt(i), regList.getValueAt(i)));
@@ -168,14 +157,14 @@ public class ParametersSelection extends JPanel implements IObserver {
 	/**
 	 * @return {@link AlgorithmSelection} from the selected {@link ParametersSelection} panel
 	 */
-	public AlgorithmSelection getAlgSel() {
+	public EntryBlockSelection<Algorithm> getAlgSel() {
 		return algSel;
 	}
 
 	/**
 	 * @return {@link GenotypeSelection} from the selected {@link ParametersSelection} panel
 	 */
-	public GenotypeSelection getGenSel() {
+	public EntryBlockSelection<Genotype> getGenSel() {
 		return genSel;
 	}
 
@@ -228,7 +217,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 		private static final long serialVersionUID = 1L;
 
-		public TempPanel(AlgorithmSelection algSel, GenotypeSelection genSel, EntryListPanel regList) {
+		public TempPanel(Component algSel, Component genSel, Component regList) {
 			super();
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			add(algSel);

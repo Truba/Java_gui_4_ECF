@@ -24,6 +24,7 @@ public class EntryFieldPanel extends JPanel {
 	private JCheckBox checkBox;
 	private JLabel label;
 	private JTextField text;
+	private boolean mandatory = false;
 
 	private final Dimension dim = new Dimension(130, 20);
 
@@ -79,8 +80,7 @@ public class EntryFieldPanel extends JPanel {
 		this(new JLabel(entry.key), new JTextField(entry.value), entry.desc);
 		boolean b = entry.isMandatory();
 		if (b) {
-			setSelected(true);
-			checkBox.setEnabled(false);
+			setMandatory();
 		}
 	}
 
@@ -136,10 +136,33 @@ public class EntryFieldPanel extends JPanel {
 	public void setSelected(boolean selected) {
 		checkBox.setSelected(selected);
 	}
+	
+	public String getDescription() {
+		return text.getToolTipText();
+	}
+	
+	public boolean isMandatory() {
+		return mandatory;
+	}
+	
+	public void setMandatory() {
+		setSelected(true);
+		checkBox.setEnabled(false);
+		mandatory = true;
+	}
 
 	@Override
 	public String toString() {
 		return label.getText();
+	}
+	
+	public EntryFieldPanel copy() {
+		EntryFieldPanel efp = new EntryFieldPanel(new JLabel(getLabelText()), new JTextField(getText()), getDescription());
+		efp.setSelected(isSelected());
+		if (isMandatory()) {
+			efp.setMandatory();
+		}
+		return efp;
 	}
 
 }

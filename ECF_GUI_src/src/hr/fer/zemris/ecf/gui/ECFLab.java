@@ -2,6 +2,7 @@ package hr.fer.zemris.ecf.gui;
 
 import hr.fer.zemris.ecf.gui.chart.ChartUtils;
 import hr.fer.zemris.ecf.gui.display.BrowsePanel;
+import hr.fer.zemris.ecf.gui.layout.EntryBlockSelection;
 import hr.fer.zemris.ecf.gui.layout.EntryFieldPanel;
 import hr.fer.zemris.ecf.gui.layout.EntryListPanel;
 import hr.fer.zemris.ecf.gui.layout.ParametersSelection;
@@ -75,8 +76,15 @@ public class ECFLab extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String CONFIGURATION_FILE = "res/conf/conf.properties";
+	private static final String ICON_NEW_CONF_PATH = "res/img/toolbar/New.png";
+	private static final String ICON_OPEN_CONF_PATH = "res/img/toolbar/Open.png";
+	private static final String ICON_SAVE_CONF_PATH = "res/img/toolbar/Save.png";
+	private static final String ICON_SAVE_CONF_AS_PATH = "res/img/toolbar/Save_as.png";
+	private static final String ICON_OPEN_LOG_PATH = "res/img/toolbar/Chart.png";
+	private static final String ICON_SAVE_LOG_PATH = "res/img/toolbar/Save_data.png";
+	private static final String APP_TITLE = "ECF Lab";
+	private static final String APP_ICON_PATH = "res/img/icon/dna_icon.png";
 
-	private String appName;
 	private IConfiguration configuration;
 	private ILog logger;
 	private Map<String, Action> actions = new HashMap<>();
@@ -98,10 +106,9 @@ public class ECFLab extends JFrame {
 			setLookAndFeel(true);
 			initGUI();
 
-			appName = configuration.getValue(ConfigurationKey.APP_TITLE);
-			setTitle(appName);
+			setTitle(APP_TITLE);
 			try {
-				Image image = ImageIO.read(new FileInputStream(configuration.getValue(ConfigurationKey.APP_ICON_PATH)));
+				Image image = ImageIO.read(new FileInputStream(APP_ICON_PATH));
 				setIconImage(image);
 			} catch (IOException e) {
 				logger.log(e);
@@ -135,7 +142,7 @@ public class ECFLab extends JFrame {
 		if (retVal == JOptionPane.OK_OPTION) {
 			ecfPath = ecfExePanel.getText();
 			parDumpPath = configuration.getValue(ConfigurationKey.DEFAULT_PARAMS_DUMP);
-			setTitle(appName + " - " + ecfPath);
+			setTitle(APP_TITLE + " - " + ecfPath);
 			parDump = callParDump();
 		}
 	}
@@ -163,32 +170,31 @@ public class ECFLab extends JFrame {
 		toolbar = new JToolBar();
 		toolbar.setFloatable(false);
 
-		JButton button = makeToolbarButton(ConfigurationKey.ICON_NEW_CONF_PATH, "NewConf", "New configuration");
+		JButton button = makeToolbarButton(ICON_NEW_CONF_PATH, "NewConf", "New configuration");
 		toolbar.add(button);
 
-		button = makeToolbarButton(ConfigurationKey.ICON_OPEN_CONF_PATH, "OpenConf", "Open existing configuration");
+		button = makeToolbarButton(ICON_OPEN_CONF_PATH, "OpenConf", "Open existing configuration");
 		toolbar.add(button);
 
-		button = makeToolbarButton(ConfigurationKey.ICON_SAVE_CONF_PATH, "SaveConf", "Save configuration");
+		button = makeToolbarButton(ICON_SAVE_CONF_PATH, "SaveConf", "Save configuration");
 		toolbar.add(button);
 
-		button = makeToolbarButton(ConfigurationKey.ICON_SAVE_CONF_AS_PATH, "SaveConfAs", "Save configuration As");
+		button = makeToolbarButton(ICON_SAVE_CONF_AS_PATH, "SaveConfAs", "Save configuration As");
 		toolbar.add(button);
 		
 		toolbar.addSeparator();
 		
-		button = makeToolbarButton(ConfigurationKey.ICON_OPEN_LOG_PATH, "OpenLog", "Open log file");
+		button = makeToolbarButton(ICON_OPEN_LOG_PATH, "OpenLog", "Open log file");
 		toolbar.add(button);
 		
-		button = makeToolbarButton(ConfigurationKey.ICON_SAVE_LOG_PATH, "SaveLog", "Save log file");
+		button = makeToolbarButton(ICON_SAVE_LOG_PATH, "SaveLog", "Save log file");
 		toolbar.add(button);
 	}
 
-	protected JButton makeToolbarButton(String imgKey, String action, String toolTipText) {
+	protected JButton makeToolbarButton(String imgPath, String action, String toolTipText) {
 		JButton button = new JButton(actions.get(action));
 		button.setText("");
-		button.setToolTipText(toolTipText);
-		String imgPath = configuration.getValue(imgKey);
+		button.setToolTipText(toolTipText);;
 		ImageIcon icon = new ImageIcon(imgPath);
 		button.setIcon(icon);
 		return button;
@@ -401,29 +407,37 @@ public class ECFLab extends JFrame {
 			AlgGenRegUser agru = XmlReading.readArchive(file);
 			ParametersSelection ps = newTab(file.getAbsolutePath());
 
-			Algorithm alg = agru.algorithm.get(0);
-			List<Entry> entries = alg.getEntryList();
-			ps.getAlgSel().show(alg.getName());
-			EntryListPanel enp = ps.getAlgSel().getSelectedEntryList();
-			for (Entry entry : entries) {
-				EntryFieldPanel efp = enp.getEntryField(entry.key);
-				efp.setSelected(true);
-				efp.setText(entry.value);
+			List<Algorithm> algs = agru.algorithm;
+			for (Algorithm alg : algs) {
+				List<Entry> entries = alg.getEntryList();
+				ps.getAlgSel().show(alg.getName());
+				EntryListPanel enp = ps.getAlgSel().getSelectedEntryList();
+				for (Entry entry : entries) {
+					EntryFieldPanel efp = enp.getEntryField(entry.key);
+					efp.setSelected(true);
+					efp.setText(entry.value);
+				}
+				EntryBlockSelection<Algorithm> algSel = ps.getAlgSel();
+				algSel.add();
 			}
 
-			Genotype gen = agru.genotypes.get(0).get(0);
-			entries = gen.getEntryList();
-			ps.getGenSel().show(gen.getName());
-			enp = ps.getGenSel().getSelectedEntryList();
-			for (Entry entry : entries) {
-				EntryFieldPanel efp = enp.getEntryField(entry.key);
-				efp.setSelected(true);
-				efp.setText(entry.value);
+			List<Genotype> gens = agru.genotypes.get(0);
+			for (Genotype gen : gens) {
+				List<Entry> entries = gen.getEntryList();
+				ps.getGenSel().show(gen.getName());
+				EntryListPanel enp = ps.getGenSel().getSelectedEntryList();
+				for (Entry entry : entries) {
+					EntryFieldPanel efp = enp.getEntryField(entry.key);
+					efp.setSelected(true);
+					efp.setText(entry.value);
+				}
+				EntryBlockSelection<Genotype> genSel = ps.getGenSel();
+				genSel.add();
 			}
 
 			Registry reg = agru.registry;
-			entries = reg.getEntryList();
-			enp = ps.getRegList();
+			List<Entry> entries = reg.getEntryList();
+			EntryListPanel enp = ps.getRegList();
 			for (Entry entry : entries) {
 				EntryFieldPanel efp = enp.getEntryField(entry.key);
 				efp.setSelected(true);

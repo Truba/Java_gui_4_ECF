@@ -23,7 +23,8 @@ public class Entry {
 	/**
 	 * Constructor.
 	 */
-	public Entry() {		
+	public Entry() {
+		this(null, null);
 	}
 	
 	/**
@@ -32,16 +33,14 @@ public class Entry {
 	 * @param value Value
 	 */
 	public Entry(String key, String value) {
-		super();
-		this.key = key;
-		this.value = value;
+		this(key, null, value);
 	}
 
 	public Entry(String key, String desc, String value) {
 		super();
-		this.key = key;
-		this.desc = desc;
-		this.value = value;
+		this.key = key == null ? "" : key;
+		this.desc = desc == null ? "" : desc;
+		this.value = value == null ? "" : value;
 	}
 
 	/**
@@ -49,7 +48,7 @@ public class Entry {
 	 * @return true if it is mandatory, false otherwise
 	 */
 	public boolean isMandatory() {
-	return desc.contains("(mandatory)");
+		return desc.contains("(mandatory)");
 	}
 	
 	@Override
