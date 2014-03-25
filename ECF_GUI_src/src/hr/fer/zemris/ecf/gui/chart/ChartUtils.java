@@ -47,8 +47,7 @@ public class ChartUtils {
 		colors.add(Color.BLACK);
 		colors.add(Color.RED);
 		colors.add(Color.BLUE);
-		// String chartTitle = alg.getName();
-		String chartTitle = "Algorithm";
+		String chartTitle = logFile;
 		String xAxisLabel = "Generation";
 		String yAxisLabel = "Fitness";
 		LineChartPanel lineChart = new LineChartPanel(coll, colors, chartTitle, xAxisLabel, yAxisLabel, true, false);

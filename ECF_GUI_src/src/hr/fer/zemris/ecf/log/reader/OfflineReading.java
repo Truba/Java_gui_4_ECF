@@ -81,10 +81,12 @@ public class OfflineReading {
 				try {
 					byte[] bytes = Files.readAllBytes(Paths.get(errPath));
 					message = new String(bytes, StandardCharsets.UTF_8).trim();
+//					errFile.delete();
 					if (message.isEmpty()) {
 						throw e;
 					}
-					errFile.delete();
+					bytes = Files.readAllBytes(Paths.get(file));
+					message += "\n*************\n" +  new String(bytes, StandardCharsets.UTF_8).trim();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

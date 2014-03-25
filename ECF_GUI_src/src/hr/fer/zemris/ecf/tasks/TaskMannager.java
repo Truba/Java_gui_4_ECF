@@ -6,12 +6,7 @@ import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.param.AlgGenRegInit;
 import hr.fer.zemris.ecf.xmldom.XmlReading;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 /**
  * This class is a manager for tasks and threads that are running those tasks. It's main use is to talk to GUI.
@@ -22,7 +17,6 @@ import java.util.concurrent.Future;
  */
 public class TaskMannager {
 	
-	private List<Future<Void>> results;
 	private ITalk console;
 	private int cpuCors;
 	
@@ -33,14 +27,6 @@ public class TaskMannager {
 		DetectOS os = new DetectOS(); 
         console = os.getOS_console();
         cpuCors = Runtime.getRuntime().availableProcessors();
-	}
-	
-	/**
-	 * This is probably useless method.
-	 * @return list of future voids as the results of {@link Task}s well done.
-	 */
-	public List<Future<Void>> getResults() {
-		return results;
 	}
 	
 	/**
@@ -70,33 +56,20 @@ public class TaskMannager {
 	 * @return if all done with no problem, false if problem.
 	 * @throws Exception If problem occurs while running
 	 */
-	public boolean startTasks(List<Job> taskDescriptions, int numOfThreads) throws Exception {		
+	public void startTasks(List<Job> taskDescriptions, int numOfThreads) throws Exception {		
 		
-		ExecutorService service = Executors.newFixedThreadPool(numOfThreads);
-		List<Task> tasks = new ArrayList<>();
+		Thread[] threads = new Thread[numOfThreads];
 		
-		for(int i=0; i<taskDescriptions.size(); i++){
-			tasks.add(new Task(taskDescriptions.get(i),console));
+		int size = taskDescriptions.size();
+		for (int i=0; i < size; i++){
+			Task task = new Task(taskDescriptions.get(i),console);
+			threads[i] = new Thread(task);
+			threads[i].setDaemon(true);
 		}
 
-		results = null;
-		try {
-			results = service.invokeAll(tasks);
-		} catch (InterruptedException e) { 
-			System.err.println("Fatal error! Can't do parallelization");
-			service.shutdown();
-			return false;
+		for (int i = 0; i < size; i++) {
+			threads[i].start();
 		}
-		for(Future<Void> res : results){
-			try {
-				res.get();
-			} catch (InterruptedException | ExecutionException e) {
-				service.shutdown();
-				throw e;
-			}
-		}
-		service.shutdown();
-		return true;
 	}
 
 

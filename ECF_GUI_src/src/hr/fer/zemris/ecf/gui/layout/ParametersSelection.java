@@ -206,6 +206,21 @@ public class ParametersSelection extends JPanel implements IObserver {
 		// parent.reportError(e.getMessage());
 		// }
 		subject.removeObserver();
+		
+//		SwingUtilities.invokeAndWait(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				String logFile = subject.getMessage();
+//				try {
+//					ChartUtils.showResults(logFile);
+//				} catch (Exception e) {
+//					parent.getLogger().log(e);
+//					parent.reportError(e.getMessage());
+//				}
+//				subject.removeObserver();
+//			}
+//		});
 	}
 
 	/**

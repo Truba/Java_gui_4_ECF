@@ -64,19 +64,26 @@ public class XmlWriting {
 		Element rootElement = doc.createElement("ECF");
 		doc.appendChild(rootElement);
 		
-		Element algorithms = doc.createElement("Algorithm");
-		algorithm(algorithms,doc);
-		rootElement.appendChild(algorithms);
-			
-		for (List<Genotype> gList : agrw.genotypes){
-			Element genotypes = doc.createElement("Genotype");
-			genotype(genotypes,doc,gList);
-			rootElement.appendChild(genotypes);
+		if(!agrw.algorithm.isEmpty()){
+			Element algorithms = doc.createElement("Algorithm");
+			algorithm(algorithms,doc);
+			rootElement.appendChild(algorithms);
 		}
-				
-		Element registry = doc.createElement("Registry");
-		registry(registry,doc);
-		rootElement.appendChild(registry);
+		
+		
+		for (List<Genotype> gList : agrw.genotypes){
+			if(!gList.isEmpty()){
+				Element genotypes = doc.createElement("Genotype");
+				genotype(genotypes,doc,gList);
+				rootElement.appendChild(genotypes);
+			}
+		}
+		
+		if(!agrw.registry.getEntryList().isEmpty()){
+			Element registry = doc.createElement("Registry");
+			registry(registry,doc);
+			rootElement.appendChild(registry);
+		}
 		
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
