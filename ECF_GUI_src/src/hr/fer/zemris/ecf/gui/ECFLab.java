@@ -1,7 +1,8 @@
 package hr.fer.zemris.ecf.gui;
 
-import hr.fer.zemris.ecf.gui.chart.ChartUtils;
 import hr.fer.zemris.ecf.gui.display.BrowsePanel;
+import hr.fer.zemris.ecf.gui.display.FrameDisplayer;
+import hr.fer.zemris.ecf.gui.display.ResultDisplay;
 import hr.fer.zemris.ecf.gui.layout.EntryBlockSelection;
 import hr.fer.zemris.ecf.gui.layout.EntryFieldPanel;
 import hr.fer.zemris.ecf.gui.layout.EntryListPanel;
@@ -94,6 +95,7 @@ public class ECFLab extends JFrame {
 	private String ecfPath;
 	private String parDumpPath;
 	private AlgGenRegInit parDump;
+	private ResultDisplay resultDisplay;
 
 	/**
 	 * Creates a new main frame for ECF Lab.
@@ -123,6 +125,8 @@ public class ECFLab extends JFrame {
 			tabbedPane = new JTabbedPane();
 			add(tabbedPane, BorderLayout.CENTER);
 
+			resultDisplay = new FrameDisplayer();
+			
 			setVisible(true);
 			chooseECFExe();
 		} catch (Exception e) {
@@ -343,7 +347,7 @@ public class ECFLab extends JFrame {
 
 		if (retVal == JOptionPane.OK_OPTION) {
 			try {
-				ChartUtils.showResults(logPathPanel.getText());
+				resultDisplay.displayResult(logPathPanel.getText());
 			} catch (Exception e) {
 				logger.log(e);
 				reportError(e.getMessage());
@@ -585,6 +589,13 @@ public class ECFLab extends JFrame {
 	 */
 	public AlgGenRegInit getParDump() {
 		return parDump;
+	}
+	
+	/**
+	 * @return Object which main purpose is to display a result of experiment.
+	 */
+	public ResultDisplay getResultDisplay() {
+		return resultDisplay;
 	}
 
 	/**

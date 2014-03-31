@@ -1,9 +1,9 @@
 package hr.fer.zemris.ecf.tasks;
 
-import java.lang.management.ManagementFactory;
-
 import hr.fer.zemris.ecf.console.ITalk;
 import hr.fer.zemris.ecf.console.Job;
+
+import java.util.concurrent.Callable;
 
 /**
  * This class represents one thread task a.k.a. one ECF task. The thread that gets this is stopped until the ECF finishes this specific task.
@@ -12,7 +12,7 @@ import hr.fer.zemris.ecf.console.Job;
  * @version 1.0
  *
  */
-public class Task implements Runnable {
+public class Task implements Callable<Void> {
 	
 	private Job job;
 	private ITalk console;
@@ -27,19 +27,13 @@ public class Task implements Runnable {
 		this.console = console;
 	}
 
+
 	@Override
-	public void run() {
-		// FIXME example
-		System.out.println(Thread.currentThread().getId());
-		System.out.println(ManagementFactory.getRuntimeMXBean().getName());
+	public Void call() throws Exception {
 		console.write(job);
 		job.isDone = true;
-		try {
-			job.finished();
-		} catch (Exception e) {
-			// TODO rijesiti!!
-			e.printStackTrace();
-		}
+		job.finished();
+		return null;
 	}
 
 }

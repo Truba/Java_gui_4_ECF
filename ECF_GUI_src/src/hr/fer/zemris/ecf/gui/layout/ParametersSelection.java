@@ -4,7 +4,6 @@ import hr.fer.zemris.ecf.console.IObserver;
 import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.gui.ECFLab;
-import hr.fer.zemris.ecf.gui.chart.ChartUtils;
 import hr.fer.zemris.ecf.gui.model.conf.ConfigurationKey;
 import hr.fer.zemris.ecf.param.AlgGenRegUser;
 import hr.fer.zemris.ecf.param.Algorithm;
@@ -97,12 +96,24 @@ public class ParametersSelection extends JPanel implements IObserver {
 			lastLogFilePath = log;
 			XmlWriting.write(file, temp);
 			Job job = new Job(ecfPath, log, file);
-			TaskMannager tm = new TaskMannager();
-			int pn = definePanel.getThreadsCount();
-			List<Job> jobs = new ArrayList<>(1);
+			final TaskMannager tm = new TaskMannager();
+			final int pn = definePanel.getThreadsCount();
+			final List<Job> jobs = new ArrayList<>(1);
 			job.setObserver(this);
 			jobs.add(job);
-			tm.startTasks(jobs, pn);
+			Thread t = new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					try {
+						tm.startTasks(jobs, pn);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+			t.start();
 		} catch (Exception e) {
 			String message = e.getMessage();
 			if (message.startsWith("java.lang.Exception: ")) {
@@ -200,7 +211,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 	public synchronized void update(ISubject subject) throws Exception {
 		// try {
 		String logFile = subject.getMessage();
-		ChartUtils.showResults(logFile);
+		parent.getResultDisplay().displayResult(logFile);
 		// } catch (Exception e) {
 		// parent.getLog().log(e);
 		// parent.reportError(e.getMessage());
