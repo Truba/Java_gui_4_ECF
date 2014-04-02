@@ -24,13 +24,14 @@ public class BrowsePanel extends JPanel {
 	private JButton button;
 	private File file = null;
 
-	public BrowsePanel() {
+	public BrowsePanel(String initText) {
 		super();
-		text = new JTextField("");
-		text.setMinimumSize(new Dimension(200, 20));
-		text.setMaximumSize(new Dimension(200, 20));
-		text.setPreferredSize(new Dimension(200, 20));
-		text.setSize(new Dimension(200, 20));
+		text = new JTextField(initText);
+		Dimension dim = new Dimension(200, 20);
+		text.setMinimumSize(dim);
+//		text.setMaximumSize(dim);
+		text.setPreferredSize(dim);
+//		text.setSize(dim);
 		button = new JButton(new AbstractAction() {
 
 			private static final long serialVersionUID = 1L;
@@ -44,6 +45,10 @@ public class BrowsePanel extends JPanel {
 
 		add(text);
 		add(button);
+	}
+
+	public BrowsePanel() {
+		this("");
 	}
 
 	/**
@@ -71,6 +76,10 @@ public class BrowsePanel extends JPanel {
 	 */
 	public File getFile() {
 		return file;
+	}
+
+	public void setText(String text) {
+		this.text.setText(text);
 	}
 
 }

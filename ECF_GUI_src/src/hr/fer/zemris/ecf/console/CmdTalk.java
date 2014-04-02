@@ -9,8 +9,6 @@ import java.io.IOException;
  */
 public class CmdTalk implements ITalk{
 	
-	public static final String ERROR_FILE_PATH = "res/err/error.txt";
-	
 	@Override
 	public void write(String ecfPath, String paramsPath){
 		
@@ -56,8 +54,9 @@ public class CmdTalk implements ITalk{
 	@Override
 	public void write(Job job) {
 		String path = job.ecfPath + ">";
-//		String command = job.logFilePath + " " + job.paramsPath;
-		String command = job.logFilePath +  " 2> " + ERROR_FILE_PATH + " " + job.paramsPath;
+		String errorFilePath = job.logFilePath + ".err";
+		//		String command = job.logFilePath + " " + job.paramsPath;
+		String command = job.logFilePath +  " 2> " + errorFilePath + " " + job.paramsPath;
 		Process process;
 		System.out.println("cmd.exe /c \"" + path + "" + command + "\"");
 		try {

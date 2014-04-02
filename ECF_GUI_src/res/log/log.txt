@@ -6831,3 +6831,468 @@ java.awt.EventDispatchThread.pumpEvents(Unknown Source)
 java.awt.EventDispatchThread.pumpEvents(Unknown Source)
 java.awt.EventDispatchThread.run(Unknown Source)
 -----------------------
+Tue Apr 01 13:53:49 CEST 2014
+java.lang.NullPointerException
+	at java.lang.StringBuilder.<init>(Unknown Source)
+	at hr.fer.zemris.ecf.gui.model.log.impl.FileLog.log(FileLog.java:41)
+	at hr.fer.zemris.ecf.gui.ECFLab.openConf(ECFLab.java:459)
+	at hr.fer.zemris.ecf.gui.ECFLab$3.actionPerformed(ECFLab.java:231)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+-----------------------
+Wed Apr 02 13:18:01 CEST 2014
+Index: 0, Size: 0
+java.util.ArrayList.rangeCheck(Unknown Source)
+java.util.ArrayList.get(Unknown Source)
+hr.fer.zemris.ecf.gui.ECFLab.openConf(ECFLab.java:428)
+hr.fer.zemris.ecf.gui.ECFLab$3.actionPerformed(ECFLab.java:231)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:18:21 CEST 2014
+Index: 0, Size: 0
+java.util.ArrayList.rangeCheck(Unknown Source)
+java.util.ArrayList.get(Unknown Source)
+hr.fer.zemris.ecf.gui.ECFLab.openConf(ECFLab.java:428)
+hr.fer.zemris.ecf.gui.ECFLab$3.actionPerformed(ECFLab.java:231)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:19:34 CEST 2014
+Index: 0, Size: 0
+java.util.ArrayList.rangeCheck(Unknown Source)
+java.util.ArrayList.get(Unknown Source)
+hr.fer.zemris.ecf.gui.ECFLab.openConf(ECFLab.java:428)
+hr.fer.zemris.ecf.gui.ECFLab$3.actionPerformed(ECFLab.java:231)
+javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+java.awt.Component.processMouseEvent(Unknown Source)
+javax.swing.JComponent.processMouseEvent(Unknown Source)
+java.awt.Component.processEvent(Unknown Source)
+java.awt.Container.processEvent(Unknown Source)
+java.awt.Component.dispatchEventImpl(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+java.awt.Container.dispatchEventImpl(Unknown Source)
+java.awt.Window.dispatchEventImpl(Unknown Source)
+java.awt.Component.dispatchEvent(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.awt.EventQueue$4.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:38:30 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:16 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:19 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:20 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:20 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:21 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:22 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:22 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:23 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:24 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:39:24 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------
+Wed Apr 02 13:41:04 CEST 2014
+Error: no Genotype defined!
+Error: Initialization failed!
+*************
+-- ECF, version 1.3.2 --
+Parsing configuration file: C:\Users\Domagoj\Documents\ECF\parameters.txt
+hr.fer.zemris.ecf.log.reader.OfflineReading.read(OfflineReading.java:92)
+hr.fer.zemris.ecf.gui.display.FrameDisplayer.displayResult(FrameDisplayer.java:22)
+hr.fer.zemris.ecf.gui.layout.ParametersSelection$3.run(ParametersSelection.java:267)
+java.awt.event.InvocationEvent.dispatch(Unknown Source)
+java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+java.awt.EventQueue.access$200(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.awt.EventQueue$3.run(Unknown Source)
+java.security.AccessController.doPrivileged(Native Method)
+java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+java.awt.EventQueue.dispatchEvent(Unknown Source)
+java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+java.awt.EventDispatchThread.run(Unknown Source)
+-----------------------

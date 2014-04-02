@@ -25,6 +25,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.SwingUtilities;
 
 /**
  * Panel that displays available parameters for the selected ECF executable
@@ -37,6 +38,8 @@ import javax.swing.JSeparator;
 public class ParametersSelection extends JPanel implements IObserver {
 
 	private static final long serialVersionUID = 1L;
+
+	private static final boolean DAEMON = false;
 
 	private ECFLab parent;
 	private EntryBlockSelection<Algorithm> algSel;
@@ -65,8 +68,10 @@ public class ParametersSelection extends JPanel implements IObserver {
 		regList = EntryListPanel.getComponent(parent.getParDump().registry.getEntryList());
 		String file = parent.getConfiguration().getValue(ConfigurationKey.DEFAULT_PARAMS_PATH);
 		String log = parent.getConfiguration().getValue(ConfigurationKey.DEFAULT_LOG_PATH);
-//		add(new JScrollPane(new TempPanel(algSel, genSel, regList)), BorderLayout.CENTER);
-//		add(new TempPanel(new JScrollPane(algSel), new JScrollPane(genSel), new JScrollPane(regList)), BorderLayout.CENTER);
+		// add(new JScrollPane(new TempPanel(algSel, genSel, regList)),
+		// BorderLayout.CENTER);
+		// add(new TempPanel(new JScrollPane(algSel), new JScrollPane(genSel),
+		// new JScrollPane(regList)), BorderLayout.CENTER);
 		add(new TempPanel(algSel, genSel, new JScrollPane(regList)), BorderLayout.CENTER);
 		JButton button = new JButton(new AbstractAction() {
 
@@ -85,8 +90,8 @@ public class ParametersSelection extends JPanel implements IObserver {
 
 	/**
 	 * Action performed when the "Run" button is clicked. Configuration file is
-	 * created under the specified path. Then the ECF exe is run and the
-	 * results are written to the log file under the specified path.
+	 * created under the specified path. Then the ECF exe is run and the results
+	 * are written to the log file under the specified path.
 	 */
 	protected void clicked() {
 		try {
@@ -94,25 +99,59 @@ public class ParametersSelection extends JPanel implements IObserver {
 			String file = definePanel.getParamsPath();
 			String log = definePanel.getLogPath();
 			lastLogFilePath = log;
+			int pn = definePanel.getThreadsCount();
+			boolean change = false;
+			int repeats = 1;
+			if (pn > 1) {
+				List<Entry> list = temp.registry.getEntryList();
+				for (Entry e : list) {
+					if (e.key.equals("batch.repeats")) {
+						repeats = Integer.parseInt(e.value);
+						if (repeats > 1) {
+							e.value = "1";
+							change = true;
+						}
+						break;
+					}
+				}
+				pn = 1;
+			}
 			XmlWriting.write(file, temp);
-			Job job = new Job(ecfPath, log, file);
-			final TaskMannager tm = new TaskMannager();
-			final int pn = definePanel.getThreadsCount();
-			final List<Job> jobs = new ArrayList<>(1);
-			job.setObserver(this);
-			jobs.add(job);
+			final List<Job> jobs;
+			if (change) {
+				jobs = new ArrayList<>(repeats);
+				for (int i = 0; i < repeats; i++) {
+					String newLog;
+					int index = log.lastIndexOf(".");
+					if (index < 0) {
+						newLog = log + "_" + (i + 1);
+					} else {
+						newLog = log.substring(0, index) + "_" + (i + 1) + log.substring(index);
+					}
+					Job job = new Job(ecfPath, newLog, file);
+					job.setObserver(this);
+					jobs.add(job);
+				}
+			} else {
+				jobs = new ArrayList<>(1);
+				Job job = new Job(ecfPath, log, file);
+				job.setObserver(this);
+				jobs.add(job);
+			}
+			final int tCount = pn;
 			Thread t = new Thread(new Runnable() {
-				
+
 				@Override
 				public void run() {
+					TaskMannager tm = new TaskMannager();
 					try {
-						tm.startTasks(jobs, pn);
+						tm.startTasks(jobs, tCount);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
 			});
+			t.setDaemon(DAEMON);
 			t.start();
 		} catch (Exception e) {
 			String message = e.getMessage();
@@ -166,76 +205,79 @@ public class ParametersSelection extends JPanel implements IObserver {
 	}
 
 	/**
-	 * @return {@link AlgorithmSelection} from the selected {@link ParametersSelection} panel
+	 * @return {@link AlgorithmSelection} from the selected
+	 *         {@link ParametersSelection} panel
 	 */
 	public EntryBlockSelection<Algorithm> getAlgSel() {
 		return algSel;
 	}
 
 	/**
-	 * @return {@link GenotypeSelection} from the selected {@link ParametersSelection} panel
+	 * @return {@link GenotypeSelection} from the selected
+	 *         {@link ParametersSelection} panel
 	 */
 	public EntryBlockSelection<Genotype> getGenSel() {
 		return genSel;
 	}
 
 	/**
-	 * @return {@link EntryFieldPanel} representing Registry from the selected {@link ParametersSelection} panel
+	 * @return {@link EntryFieldPanel} representing Registry from the selected
+	 *         {@link ParametersSelection} panel
 	 */
 	public EntryListPanel getRegList() {
 		return regList;
 	}
 
 	/**
-	 * @return Selected {@link Algorithm} from the selected {@link ParametersSelection} panel
+	 * @return Selected {@link Algorithm} from the selected
+	 *         {@link ParametersSelection} panel
 	 */
 	public Algorithm getSelectedAlgorithm() {
 		return algSel.getSelectedItem();
 	}
 
 	/**
-	 * @return Selected {@link Genotype} from the selected {@link ParametersSelection} panel
+	 * @return Selected {@link Genotype} from the selected
+	 *         {@link ParametersSelection} panel
 	 */
 	public Genotype getSelectedGenotype() {
 		return genSel.getSelectedItem();
 	}
 
 	/**
-	 * @return {@link DefinePanel} containing information about configuration and log files paths
+	 * @return {@link DefinePanel} containing information about configuration
+	 *         and log files paths
 	 */
 	public DefinePanel getDefinePanel() {
 		return definePanel;
 	}
 
 	@Override
-	public synchronized void update(ISubject subject) throws Exception {
-		// try {
-		String logFile = subject.getMessage();
-		parent.getResultDisplay().displayResult(logFile);
-		// } catch (Exception e) {
-		// parent.getLog().log(e);
-		// parent.reportError(e.getMessage());
-		// }
-		subject.removeObserver();
-		
-//		SwingUtilities.invokeAndWait(new Runnable() {
-//			
-//			@Override
-//			public void run() {
-//				String logFile = subject.getMessage();
-//				try {
-//					ChartUtils.showResults(logFile);
-//				} catch (Exception e) {
-//					parent.getLogger().log(e);
-//					parent.reportError(e.getMessage());
-//				}
-//				subject.removeObserver();
-//			}
-//		});
+	public synchronized void update(final ISubject subject) throws Exception {
+//		String logFile = subject.getMessage();
+//		parent.getResultDisplay().displayResult(logFile);
+//		subject.removeObserver();
+
+		SwingUtilities.invokeAndWait(new Runnable() {
+
+			@Override
+			public void run() {
+				String logFile = subject.getMessage();
+				try {
+					parent.getResultDisplay().displayResult(logFile);
+				} catch (Exception e) {
+					parent.getLogger().log(e);
+					parent.reportError(e.getMessage());
+				}
+				subject.removeObserver();
+			}
+		});
 	}
 
 	/**
-	 * Panel used for grouping {@link AlgorithmSelection}, {@link GenotypeSelection} and {@link EntryFieldPanel} panels.
+	 * Panel used for grouping {@link AlgorithmSelection},
+	 * {@link GenotypeSelection} and {@link EntryFieldPanel} panels.
+	 * 
 	 * @author Domagoj Stanković
 	 * @version 1.0
 	 */
@@ -256,14 +298,16 @@ public class ParametersSelection extends JPanel implements IObserver {
 	}
 
 	/**
-	 * @return <code>true</code> if "Run" button was ever run before, <code>false</code> otherwise
+	 * @return <code>true</code> if "Run" button was ever run before,
+	 *         <code>false</code> otherwise
 	 */
 	public boolean wasRunBefore() {
 		return lastLogFilePath == null ? false : true;
 	}
 
 	/**
-	 * @return Path to the log file created during last experiment, <code>null</code> if selected experiment was never run before 
+	 * @return Path to the log file created during last experiment,
+	 *         <code>null</code> if selected experiment was never run before
 	 */
 	public String getLastLogFilePath() {
 		return lastLogFilePath;

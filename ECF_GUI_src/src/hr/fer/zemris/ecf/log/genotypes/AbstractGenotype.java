@@ -3,7 +3,7 @@ package hr.fer.zemris.ecf.log.genotypes;
 import hr.fer.zemris.ecf.log.Individual;
 import hr.fer.zemris.ecf.log.LogFile;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is a representation of one genotype's solution form one {@link Individual} from one {@link LogFile}.
@@ -43,7 +43,7 @@ public abstract class AbstractGenotype<T> {
 	 * This method is used to get the values represented how they need to be as the array list of T that is best for representing that genotype.
 	 * @return array list of values represented as they need to be for drawing.
 	 */
-	public abstract ArrayList<T> getValues();
+	public abstract List<T> getValues();
 	
 	@Override
 	public String toString() {

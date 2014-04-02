@@ -1,6 +1,7 @@
 package hr.fer.zemris.ecf.gui.layout;
 
-import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -19,12 +20,13 @@ public class DefinePanel extends JPanel {
 
 	public DefinePanel(String paramsPath, String logPath, int threads, JButton button) {
 		super();
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		params = new DefineField("Parameters path", paramsPath);
+//		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		setLayout(new FlowLayout(FlowLayout.CENTER));
+		params = new DefineField("Parameters path", paramsPath, true);
 		add(params);
-		log = new DefineField("Log path", logPath);
+		log = new DefineField("Log path", logPath, true);
 		add(log);
-		threadsCount = new DefineField("Number of threads", String.valueOf(threads));
+		threadsCount = new DefineField("Number of threads", String.valueOf(threads), false);
 		add(threadsCount);
 		add(button);
 	}

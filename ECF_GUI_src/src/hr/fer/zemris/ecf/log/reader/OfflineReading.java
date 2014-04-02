@@ -1,6 +1,5 @@
 package hr.fer.zemris.ecf.log.reader;
 
-import hr.fer.zemris.ecf.console.CmdTalk;
 import hr.fer.zemris.ecf.log.Generation;
 import hr.fer.zemris.ecf.log.Individual;
 import hr.fer.zemris.ecf.log.LogFile;
@@ -74,7 +73,7 @@ public class OfflineReading {
 			createHallOfFame(sc);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			sc.close();
-			String errPath = CmdTalk.ERROR_FILE_PATH;
+			String errPath = file + ".err";
 			File errFile = new File(errPath);
 			String message = "Error";
 			if (errFile.exists()) {

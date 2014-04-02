@@ -1,11 +1,6 @@
 package hr.fer.zemris.ecf.xmldom;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import hr.fer.zemris.ecf.param.AlgGenRegUser;
-import hr.fer.zemris.ecf.param.AlgGenRegInit;
-import hr.fer.zemris.ecf.param.Genotype;
 
 public class XmlReadTester {
 
@@ -27,11 +22,11 @@ public class XmlReadTester {
 
 	}
 
-	private static List<List<Genotype>> createGeotypesForTesting(List<Genotype> genotypes) {
-		List<List<Genotype>> genSomething = new ArrayList<>();
-		genSomething.add(genotypes);
-		genSomething.add(genotypes);
-		return genSomething;
-	}
+//	private static List<List<Genotype>> createGeotypesForTesting(List<Genotype> genotypes) {
+//		List<List<Genotype>> genSomething = new ArrayList<>();
+//		genSomething.add(genotypes);
+//		genSomething.add(genotypes);
+//		return genSomething;
+//	}
 
 }

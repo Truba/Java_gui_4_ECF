@@ -32,7 +32,9 @@ public class AlgGenRegUser {
 	 * Constructor it initializes genotypes outer list to new array list.
 	 */
 	public AlgGenRegUser() {
+		algorithm = new ArrayList<>();
 		genotypes = new ArrayList<>();
+		registry = new Registry();
 	}
 
 	/**

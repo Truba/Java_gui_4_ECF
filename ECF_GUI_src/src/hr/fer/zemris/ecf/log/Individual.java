@@ -29,6 +29,7 @@ public class Individual {
 	/**
 	 * Array list of AbstractGenotype that belongs to the individual. 
 	 */
+	@SuppressWarnings("rawtypes")
 	public List<AbstractGenotype> genotypes;
 	
 	/**
