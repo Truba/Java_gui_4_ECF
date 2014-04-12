@@ -1,8 +1,9 @@
 package hr.fer.zemris.ecf.gui;
 
 import hr.fer.zemris.ecf.gui.display.BrowsePanel;
-import hr.fer.zemris.ecf.gui.display.FrameDisplayer;
 import hr.fer.zemris.ecf.gui.display.ResultDisplay;
+import hr.fer.zemris.ecf.gui.display.ResultProgressFrame;
+import hr.fer.zemris.ecf.gui.display.ResultProgressFrameDisplayer;
 import hr.fer.zemris.ecf.gui.layout.EntryBlockSelection;
 import hr.fer.zemris.ecf.gui.layout.EntryFieldPanel;
 import hr.fer.zemris.ecf.gui.layout.EntryListPanel;
@@ -125,7 +126,8 @@ public class ECFLab extends JFrame {
 			tabbedPane = new JTabbedPane();
 			add(tabbedPane, BorderLayout.CENTER);
 
-			resultDisplay = new FrameDisplayer();
+//			resultDisplay = new FrameDisplayer();
+			resultDisplay = new ResultProgressFrameDisplayer();
 			
 			setVisible(true);
 			chooseECFExe();
@@ -285,6 +287,17 @@ public class ECFLab extends JFrame {
 		action.putValue(Action.SHORT_DESCRIPTION, "Save log file");
 		actions.put("SaveLog", action);
 
+		action = new AbstractAction("Results frame") {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ResultProgressFrame.getInstance().setVisible(true);
+			}
+		};
+		actions.put("ResultsFrame", action);
+		
 		action = new AbstractAction("Change ECF") {
 
 			private static final long serialVersionUID = 1L;
@@ -497,6 +510,7 @@ public class ECFLab extends JFrame {
 		JMenu logMenu = new JMenu("Log");
 		logMenu.add(actions.get("OpenLog"));
 		logMenu.add(actions.get("SaveLog"));
+		logMenu.add(actions.get("ResultsFrame"));
 
 		JMenu exeMenu = new JMenu("ECF");
 		exeMenu.add(actions.get("ChangeECFExe"));
@@ -529,11 +543,16 @@ public class ECFLab extends JFrame {
 			int ret = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit?", "Really exit?",
 					JOptionPane.YES_NO_OPTION);
 			if (ret == JOptionPane.YES_OPTION) {
-				dispose();
+				exitConfirmed();
 			}
 		} else {
-			dispose();
+			exitConfirmed();
 		}
+	}
+
+	private void exitConfirmed() {
+		ResultProgressFrame.disposeInstance();
+		dispose();
 	}
 
 	/**

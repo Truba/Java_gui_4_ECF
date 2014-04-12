@@ -253,21 +253,23 @@ public class ParametersSelection extends JPanel implements IObserver {
 	}
 
 	@Override
-	public synchronized void update(final ISubject subject) throws Exception {
-//		String logFile = subject.getMessage();
-//		parent.getResultDisplay().displayResult(logFile);
-//		subject.removeObserver();
+	public void update(final ISubject subject) throws Exception {
+		// String logFile = subject.getMessage();
+		// parent.getResultDisplay().displayResult(logFile);
+		// subject.removeObserver();
 
 		SwingUtilities.invokeAndWait(new Runnable() {
 
 			@Override
 			public void run() {
 				String logFile = subject.getMessage();
-				try {
-					parent.getResultDisplay().displayResult(logFile);
-				} catch (Exception e) {
-					parent.getLogger().log(e);
-					parent.reportError(e.getMessage());
+				synchronized (parent) {
+					try {
+						parent.getResultDisplay().displayResult(logFile);
+					} catch (Exception e) {
+						parent.getLogger().log(e);
+						parent.reportError(e.getMessage());
+					}
 				}
 				subject.removeObserver();
 			}
