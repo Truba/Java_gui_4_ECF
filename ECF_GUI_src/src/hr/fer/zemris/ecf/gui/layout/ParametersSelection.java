@@ -4,6 +4,7 @@ import hr.fer.zemris.ecf.console.IObserver;
 import hr.fer.zemris.ecf.console.ISubject;
 import hr.fer.zemris.ecf.console.Job;
 import hr.fer.zemris.ecf.gui.ECFLab;
+import hr.fer.zemris.ecf.gui.Utils;
 import hr.fer.zemris.ecf.gui.model.conf.ConfigurationKey;
 import hr.fer.zemris.ecf.param.AlgGenRegUser;
 import hr.fer.zemris.ecf.param.Algorithm;
@@ -16,6 +17,7 @@ import hr.fer.zemris.ecf.xmldom.XmlWriting;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,32 +104,44 @@ public class ParametersSelection extends JPanel implements IObserver {
 			int pn = definePanel.getThreadsCount();
 			boolean change = false;
 			int repeats = 1;
+			List<Entry> list = temp.registry.getEntryList();
+			Entry e = Utils.findEntry(list, "batch.repeats");
 			if (pn > 1) {
-				List<Entry> list = temp.registry.getEntryList();
-				for (Entry e : list) {
-					if (e.key.equals("batch.repeats")) {
-						repeats = Integer.parseInt(e.value);
-						if (repeats > 1) {
-							e.value = "1";
-							change = true;
+				if (e != null) {
+					repeats = Integer.parseInt(e.value);
+					if (repeats > 1) {
+						// N repeats, N threads -> separate repeats in N jobs (1 repeat per job)
+						e.value = "1";
+						change = true;
+					} else {
+						// 1 job (1 repeat), N threads -> change to 1 thread
+						pn = 1;
+					}
+				} else {
+					// 1 job, N threads -> change to 1 thread
+					pn = 1;
+				}
+			} else {
+				if (e != null) {
+					repeats = Integer.parseInt(e.value);
+					if (repeats > 1) {
+						Entry l = Utils.findEntry(list, "log.filename");
+						if (l != null) {
+							String value = l.value;
+							FileWriter fw = new FileWriter(log + Utils.LOG_EXT);
+							fw.write(repeats + "\n");
+							fw.write(value);
+							fw.close();
 						}
-						break;
 					}
 				}
-				pn = 1;
 			}
 			XmlWriting.write(file, temp);
 			final List<Job> jobs;
 			if (change) {
 				jobs = new ArrayList<>(repeats);
 				for (int i = 0; i < repeats; i++) {
-					String newLog;
-					int index = log.lastIndexOf(".");
-					if (index < 0) {
-						newLog = log + "_" + (i + 1);
-					} else {
-						newLog = log.substring(0, index) + "_" + (i + 1) + log.substring(index);
-					}
+					String newLog = Utils.addBeforeExtension(log, (i + 1), String.valueOf(repeats).length());
 					Job job = new Job(ecfPath, newLog, file);
 					job.setObserver(this);
 					jobs.add(job);
@@ -162,7 +176,7 @@ public class ParametersSelection extends JPanel implements IObserver {
 			parent.getLogger().log(e);
 		}
 	}
-
+	
 	/**
 	 * Collects all the selected parameters from the selected
 	 * {@link ParametersSelection} panel.

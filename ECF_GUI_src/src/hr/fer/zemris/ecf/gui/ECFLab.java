@@ -1,7 +1,8 @@
 package hr.fer.zemris.ecf.gui;
 
 import hr.fer.zemris.ecf.gui.display.BrowsePanel;
-import hr.fer.zemris.ecf.gui.display.ResultDisplay;
+import hr.fer.zemris.ecf.gui.display.FrameDisplayer;
+import hr.fer.zemris.ecf.gui.display.IResultDisplay;
 import hr.fer.zemris.ecf.gui.display.ResultProgressFrame;
 import hr.fer.zemris.ecf.gui.display.ResultProgressFrameDisplayer;
 import hr.fer.zemris.ecf.gui.layout.EntryBlockSelection;
@@ -96,7 +97,8 @@ public class ECFLab extends JFrame {
 	private String ecfPath;
 	private String parDumpPath;
 	private AlgGenRegInit parDump;
-	private ResultDisplay resultDisplay;
+	private IResultDisplay resultDisplay;
+	private IResultDisplay openResultDisplay;
 
 	/**
 	 * Creates a new main frame for ECF Lab.
@@ -118,7 +120,7 @@ public class ECFLab extends JFrame {
 			}
 
 			setLocation(300, 100);
-			setSize(900, 600);
+			setSize(1000, 600);
 			setLayout(new BorderLayout());
 
 			add(toolbar, BorderLayout.NORTH);
@@ -126,8 +128,8 @@ public class ECFLab extends JFrame {
 			tabbedPane = new JTabbedPane();
 			add(tabbedPane, BorderLayout.CENTER);
 
-//			resultDisplay = new FrameDisplayer();
-			resultDisplay = new ResultProgressFrameDisplayer();
+			openResultDisplay = new FrameDisplayer();
+			resultDisplay = new ResultProgressFrameDisplayer(logger);
 			
 			setVisible(true);
 			chooseECFExe();
@@ -360,7 +362,7 @@ public class ECFLab extends JFrame {
 
 		if (retVal == JOptionPane.OK_OPTION) {
 			try {
-				resultDisplay.displayResult(logPathPanel.getText());
+				openResultDisplay.displayResult(logPathPanel.getText());
 			} catch (Exception e) {
 				logger.log(e);
 				reportError(e.getMessage());
@@ -613,7 +615,7 @@ public class ECFLab extends JFrame {
 	/**
 	 * @return Object which main purpose is to display a result of experiment.
 	 */
-	public ResultDisplay getResultDisplay() {
+	public IResultDisplay getResultDisplay() {
 		return resultDisplay;
 	}
 

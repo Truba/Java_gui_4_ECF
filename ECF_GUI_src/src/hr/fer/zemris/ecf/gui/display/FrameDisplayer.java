@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class FrameDisplayer implements ResultDisplay {
+public class FrameDisplayer implements IResultDisplay {
 
 	@Override
 	public void displayResult(String logFile) throws Exception {

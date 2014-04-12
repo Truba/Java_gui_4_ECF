@@ -58,7 +58,9 @@ public class CmdTalk implements ITalk{
 		//		String command = job.logFilePath + " " + job.paramsPath;
 		String command = job.logFilePath +  " 2> " + errorFilePath + " " + job.paramsPath;
 		Process process;
-		System.out.println("cmd.exe /c \"" + path + "" + command + "\"");
+		synchronized (System.out) {
+			System.out.println("cmd.exe /c \"" + path + "" + command + "\"");
+		}
 		try {
 			process = new ProcessBuilder("cmd.exe", "/c", "\"" + path + "" + command + "\"").start();
 			process.waitFor();
@@ -66,6 +68,11 @@ public class CmdTalk implements ITalk{
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public ITalk copy() {
+		return new CmdTalk();
 	}
 
 	

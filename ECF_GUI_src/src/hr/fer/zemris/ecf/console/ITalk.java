@@ -18,5 +18,11 @@ public interface ITalk {
 	 * @param job class job with needed parameters for one of ECF's computation to start.
 	 */
 	public void write(Job job);
+	
+	/**
+	 * This method is used for multithreading, each thread should have it's own copy of this object.
+	 * @return Copy of the current {@link ITalk} object
+	 */
+	public ITalk copy();
 
 }

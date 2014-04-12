@@ -14,37 +14,44 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * This class is a manager for tasks and threads that are running those tasks. It's main use is to talk to GUI.
- * It can gather initial parameters, it can find out how many CPU cores current PC has, and of course it's main use startTasks meted.
- * It gets list of {@link Job} and number of threads to run them on.
+ * This class is a manager for tasks and threads that are running those tasks.
+ * It's main use is to talk to GUI. It can gather initial parameters, it can
+ * find out how many CPU cores current PC has, and of course it's main use
+ * startTasks meted. It gets list of {@link Job} and number of threads to run
+ * them on.
+ * 
  * @version 1.0
- *
+ * 
  */
 public class TaskMannager {
-	
+
 	private List<Future<Void>> results;
 	private ITalk console;
 	private int cpuCors;
-	
+
 	/**
-	 * Constructor, it automatically detects operating system, stores {@link ITalk} needed for that OS, and it get the number of CPU cores and stores it also.
+	 * Constructor, it automatically detects operating system, stores
+	 * {@link ITalk} needed for that OS, and it get the number of CPU cores and
+	 * stores it also.
 	 */
-	public TaskMannager(){
-		DetectOS os = new DetectOS(); 
-        console = os.getOS_console();
-        cpuCors = Runtime.getRuntime().availableProcessors();
+	public TaskMannager() {
+		DetectOS os = new DetectOS();
+		console = os.getOS_console();
+		cpuCors = Runtime.getRuntime().availableProcessors();
 	}
-	
+
 	/**
 	 * This is probably useless method.
+	 * 
 	 * @return list of future voids as the results of {@link Task}s well done.
 	 */
 	public List<Future<Void>> getResults() {
 		return results;
 	}
-	
+
 	/**
 	 * Getter for the number of CPU cores on current PC.
+	 * 
 	 * @return number of CPU cores on current PC
 	 */
 	public int getCpuCors() {
@@ -53,41 +60,49 @@ public class TaskMannager {
 
 	/**
 	 * This meted gets initial ECF parameters dumped by the ECF.
-	 * @param ecfPath path to the ECF
-	 * @param paramsPath path to where the parameters will be dumped
+	 * 
+	 * @param ecfPath
+	 *            path to the ECF
+	 * @param paramsPath
+	 *            path to where the parameters will be dumped
 	 * @return initial compilation of algorithms, genotypes, and registry.
 	 */
-	public AlgGenRegInit getInitialECFparams(String ecfPath, String paramsPath){
-		console.write(ecfPath,paramsPath);
-		return XmlReading.readInitial(paramsPath);		
+	public AlgGenRegInit getInitialECFparams(String ecfPath, String paramsPath) {
+		console.write(ecfPath, paramsPath);
+		return XmlReading.readInitial(paramsPath);
 	}
-	
+
 	/**
-	 * This method is used for running {@link Task}s.
-	 * It gets list of {@link Job} and number of threads to run them on.
-	 * @param taskDescriptions array list of jobs needed to do.
-	 * @param numOfThreads number of threads to run them on.
+	 * This method is used for running {@link Task}s. It gets list of
+	 * {@link Job} and number of threads to run them on.
+	 * 
+	 * @param taskDescriptions
+	 *            array list of jobs needed to do.
+	 * @param numOfThreads
+	 *            number of threads to run them on.
 	 * @return if all done with no problem, false if problem.
-	 * @throws Exception If problem occurs while running
+	 * @throws Exception
+	 *             If problem occurs while running
 	 */
-	public boolean startTasks(List<Job> taskDescriptions, int numOfThreads) throws Exception {		
-		
+	public boolean startTasks(List<Job> taskDescriptions, int numOfThreads) throws Exception {
+
 		ExecutorService service = Executors.newFixedThreadPool(numOfThreads);
 		List<Task> tasks = new ArrayList<>();
-		
-		for(int i=0; i<taskDescriptions.size(); i++){
-			tasks.add(new Task(taskDescriptions.get(i),console));
+
+		for (int i = 0; i < taskDescriptions.size(); i++) {
+			tasks.add(new Task(taskDescriptions.get(i), console));
+			// ako bude problema, treba provjeriti je li potrebno staviti console.copy()
 		}
 
 		results = null;
 		try {
 			results = service.invokeAll(tasks);
-		} catch (InterruptedException e) { 
+		} catch (InterruptedException e) {
 			System.err.println("Fatal error! Can't do parallelization");
 			service.shutdown();
 			return false;
 		}
-		for(Future<Void> res : results){
+		for (Future<Void> res : results) {
 			try {
 				res.get();
 			} catch (InterruptedException | ExecutionException e) {
@@ -98,6 +113,5 @@ public class TaskMannager {
 		service.shutdown();
 		return true;
 	}
-
 
 }

@@ -1,6 +1,6 @@
 package hr.fer.zemris.ecf.gui.display;
 
-public interface ResultDisplay {
+public interface IResultDisplay {
 
 	/**
 	 * Displays chart in a new frame. Reads results from the log file and then

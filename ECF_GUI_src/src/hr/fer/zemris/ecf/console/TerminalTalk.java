@@ -39,6 +39,11 @@ public class TerminalTalk implements ITalk {
 		
 	}
 
+	@Override
+	public ITalk copy() {
+		return new TerminalTalk();
+	}
+
 	
 
 }

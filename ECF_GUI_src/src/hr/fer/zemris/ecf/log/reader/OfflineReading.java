@@ -80,7 +80,6 @@ public class OfflineReading {
 				try {
 					byte[] bytes = Files.readAllBytes(Paths.get(errPath));
 					message = new String(bytes, StandardCharsets.UTF_8).trim();
-//					errFile.delete();
 					if (message.isEmpty()) {
 						throw e;
 					}
@@ -89,6 +88,7 @@ public class OfflineReading {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+				errFile.delete();
 				throw new Exception(message);
 			} else {
 				throw e;
