@@ -196,16 +196,23 @@ public class OfflineReading {
 			Node param = paramsList.item(i);			
 			if (param.getNodeType() == Node.ELEMENT_NODE) {
 				
-				if(param.getNodeName().equals("FitnessMax")){
-					ind.fitnessMax = Double.parseDouble(((Element) param).getAttribute("value").trim());
+				Element p = (Element) param;
+				String value = p.getAttribute("value").trim();
+				
+				if(p.getNodeName().equals("FitnessMax")){
+					ind.fitnessMax = Double.parseDouble(value);
 //					System.out.println("fit max " +ind.fitnessMax);
 					continue;
 				}
 				
+				String size = p.getAttribute("size").trim();
+				String name = p.getNodeName().trim();
 				InitialGenotype gen = new InitialGenotype();
-				gen.size = Integer.parseInt(((Element) param).getAttribute("size").trim());
-				gen.name = param.getNodeName();
-				gen.value = param.getTextContent();
+				if (!(size == null || size.isEmpty())) {
+					gen.size = Integer.parseInt(size);
+				}
+				gen.name = name;
+				gen.value = value.isEmpty() ? null : p.getTextContent();
 				ind.genotypes.add(GenotypeReader.getGenotype(gen));
 //				System.out.println("Name + size =" +gen.name +" "+gen.size);
 //				System.out.println("   Gen Value =" + gen.value);
