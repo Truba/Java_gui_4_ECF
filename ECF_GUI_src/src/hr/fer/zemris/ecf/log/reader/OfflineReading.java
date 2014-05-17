@@ -212,7 +212,7 @@ public class OfflineReading {
 					gen.size = Integer.parseInt(size);
 				}
 				gen.name = name;
-				gen.value = value.isEmpty() ? null : p.getTextContent();
+				gen.value = value.isEmpty() ? p.getTextContent() : value;
 				ind.genotypes.add(GenotypeReader.getGenotype(gen));
 //				System.out.println("Name + size =" +gen.name +" "+gen.size);
 //				System.out.println("   Gen Value =" + gen.value);
