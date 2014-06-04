@@ -16,6 +16,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+/**
+ * Block that displays all added entries, drop-down menu for selecting new entry
+ * and a button that adds new {@link Entry}.
+ * 
+ * @author Domagoj
+ * 
+ * @param <T>
+ */
 public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements IFieldListener {
 
 	private static final long serialVersionUID = 1L;
@@ -23,13 +31,13 @@ public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements
 	protected EntryDisplayList addedEntries;
 	protected DropDownPanel<T> dropDown;
 	protected JButton addButton;
-	
+
 	public EntryBlockSelection(EntryDisplayList addedEntries, DropDownPanel<T> dropDown) {
 		super();
 		this.addedEntries = addedEntries;
 		this.dropDown = dropDown;
 		addButton = new JButton(new AbstractAction() {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -43,13 +51,14 @@ public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements
 		addButton.setText("Add");
 		add(addButton, BorderLayout.SOUTH);
 	}
-	
+
 	public EntryBlockSelection(DropDownPanel<T> dropDown) {
 		this(new EntryDisplayList(new ArrayList<EntryFieldDisplay<?>>()), dropDown);
 	}
 
 	/**
-	 * @return Selected sort of {@link EntryBlock} that is chosen in the drop down menu
+	 * @return Selected sort of {@link EntryBlock} that is chosen in the drop
+	 *         down menu
 	 */
 	public T getSelectedItem() {
 		return dropDown.getSelectedItem();
@@ -61,10 +70,12 @@ public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements
 	public EntryListPanel getSelectedEntryList() {
 		return dropDown.getSelectedEntryList();
 	}
-	
+
 	/**
 	 * Shows specific card.
-	 * @param key Card key
+	 * 
+	 * @param key
+	 *            Card key
 	 */
 	public void show(String key) {
 		dropDown.show(key);
@@ -72,7 +83,9 @@ public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements
 
 	/**
 	 * Shows specific card.
-	 * @param index Index of card
+	 * 
+	 * @param index
+	 *            Index of card
 	 */
 	public void show(int index) {
 		dropDown.show(index);
@@ -84,13 +97,13 @@ public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements
 		JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
 		frame.repaint();
 	}
-	
+
 	public void add() {
 		addedEntries.add(new FrameDisplay<T>(this, getSelectedItem(), getSelectedEntryList().copy()));
 		JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
 		frame.repaint();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<EntryFieldDisplay<T>> getAddedEntries() {
 		Component[] components = addedEntries.getComponents();
@@ -100,5 +113,5 @@ public class EntryBlockSelection<T extends EntryBlock> extends JPanel implements
 		}
 		return list;
 	}
-	
+
 }

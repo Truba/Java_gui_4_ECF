@@ -1,5 +1,10 @@
 package hr.fer.zemris.ecf.gui.display;
 
+/**
+ * Object that can display result.
+ * @author Domagoj
+ *
+ */
 public interface IResultDisplay {
 
 	/**

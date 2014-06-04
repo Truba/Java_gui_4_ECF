@@ -8,13 +8,20 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
+/**
+ * Frame that displays list of all results that have been generated. This frame
+ * is singleton.
+ * 
+ * @author Domagoj
+ * 
+ */
 public class ResultProgressFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	private static ResultProgressFrame instance;
 	private JPanel pan = null;
-	
+
 	private ResultProgressFrame() {
 		super();
 		setTitle("Results");
@@ -25,30 +32,30 @@ public class ResultProgressFrame extends JFrame {
 		pan.setLayout(new BoxLayout(pan, BoxLayout.Y_AXIS));
 		getContentPane().add(new JScrollPane(pan));
 	}
-	
+
 	public static ResultProgressFrame getInstance() {
 		if (instance == null) {
 			instance = new ResultProgressFrame();
 		}
 		return instance;
 	}
-	
+
 	public static void disposeInstance() {
 		if (instance != null) {
 			instance.dispose();
 		}
 	}
-	
+
 	@Override
 	public Component add(Component comp) {
 		return pan.add(comp);
 	}
-	
+
 	@Override
 	public void remove(Component comp) {
 		pan.remove(comp);
 		getContentPane().validate();
 		getContentPane().repaint();
 	}
-	
+
 }

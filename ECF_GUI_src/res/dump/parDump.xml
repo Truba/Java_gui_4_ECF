@@ -152,6 +152,9 @@
 		<Entry key="batch.singlemilestone" desc="use only one milestone file for all the batch runs (1) or one for each run (0) (default: 0)">0</Entry>
 		<Entry key="batch.statsfile" desc="output batch end of run stats in a single file (default: none)"></Entry>
 		<Entry key="beta" desc="">0.25</Entry>
+		<Entry key="coco.enableoutput" desc="">0</Entry>
+		<Entry key="coco.folder" desc=""></Entry>
+		<Entry key="coco.function" desc="">1</Entry>
 		<Entry key="crossover.genotypes" desc="if there are multiple genotypes, which to cross? &apos;random&apos;: a random pair, &apos;all&apos;: all pairs (default: random)">random</Entry>
 		<Entry key="crossover.protected" desc="indexes of genotypes (separated by spaces) that are excluded (protected) from crossover (default: none)"></Entry>
 		<Entry key="crx.sbx.ni" desc="">1</Entry>

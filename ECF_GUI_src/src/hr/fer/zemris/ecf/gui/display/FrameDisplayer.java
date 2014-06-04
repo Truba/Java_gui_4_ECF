@@ -14,6 +14,12 @@ import javax.swing.JFrame;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Frame that displays result in a form of chart.
+ * 
+ * @author Domagoj
+ *
+ */
 public class FrameDisplayer implements IResultDisplay {
 
 	@Override

@@ -13,10 +13,19 @@ import hr.fer.zemris.ecf.gui.layout.EntryListPanel;
 import hr.fer.zemris.ecf.gui.layout.IFieldListener;
 import hr.fer.zemris.ecf.param.EntryBlock;
 
+/**
+ * Panel for displaying added entry and button for removing that entry. This
+ * object displays entry in a new {@link JFrame}.
+ * 
+ * @author Domagoj
+ * 
+ * @param <T>
+ *            {@link EntryBlock} instance
+ */
 public class FrameDisplay<T extends EntryBlock> extends EntryFieldDisplay<T> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public FrameDisplay(IFieldListener listener, T block, EntryListPanel blockDisplay) {
 		super(listener, block, blockDisplay);
 	}
@@ -34,7 +43,7 @@ public class FrameDisplay<T extends EntryBlock> extends EntryFieldDisplay<T> {
 				frame.setLocation(200, 300);
 				frame.add(blockDisplay, BorderLayout.CENTER);
 				JButton button = new JButton(new AbstractAction() {
-					
+
 					private static final long serialVersionUID = 1L;
 
 					@Override

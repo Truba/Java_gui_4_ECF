@@ -9,6 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * A panel that shows name of the log file and buttons for opening results and
+ * removing the panel.
+ * 
+ * @author Domagoj
+ * 
+ */
 public class OpenResultPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -23,5 +30,5 @@ public class OpenResultPanel extends JPanel {
 		add(butPanel, BorderLayout.EAST);
 		add(new JLabel(logFile), BorderLayout.CENTER);
 	}
-	
+
 }

@@ -5,6 +5,12 @@ import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+/**
+ * A panel that shows a list of {@link EntryFieldDisplay} panels.
+ * 
+ * @author Domagoj
+ * 
+ */
 public class EntryDisplayList extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -16,5 +22,5 @@ public class EntryDisplayList extends JPanel {
 			add(efd);
 		}
 	}
-	
+
 }

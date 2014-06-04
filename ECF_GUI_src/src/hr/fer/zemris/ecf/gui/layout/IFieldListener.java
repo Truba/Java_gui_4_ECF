@@ -2,6 +2,11 @@ package hr.fer.zemris.ecf.gui.layout;
 
 import hr.fer.zemris.ecf.param.EntryBlock;
 
+/**
+ * Object that executes an action when something happens with the {@link EntryFieldDisplay}.
+ * @author Domagoj
+ *
+ */
 public interface IFieldListener {
 
 	/**

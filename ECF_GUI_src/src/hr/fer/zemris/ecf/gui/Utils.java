@@ -4,6 +4,11 @@ import hr.fer.zemris.ecf.param.Entry;
 
 import java.util.List;
 
+/**
+ * Collection of static methods that are often used.
+ * @author Domagoj
+ *
+ */
 public class Utils {
 
 	public static final String LOG_EXT = ".logext";

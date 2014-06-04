@@ -11,11 +11,18 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+/**
+ * Object that handles incoming requests for result display. Method
+ * displayResult is usually invoked when ECF Lab has generated a new log file.
+ * 
+ * @author Domagoj
+ * 
+ */
 public class ResultProgressFrameDisplayer implements IResultDisplay {
 
 	private ResultProgressFrame frame = null;
 	private ILog logger = null;
-	
+
 	public ResultProgressFrameDisplayer(ILog logger) {
 		super();
 		this.logger = logger;
@@ -42,7 +49,7 @@ public class ResultProgressFrameDisplayer implements IResultDisplay {
 		}
 		frame.setVisible(true);
 	}
-	
+
 	private void addComp(final String logFile) {
 		JButton openButton = new JButton(new AbstractAction() {
 
