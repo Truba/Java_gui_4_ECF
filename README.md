@@ -7,16 +7,17 @@ CRO: Glavin zadatak ovog projekta je pojednostaviti korištenje ECF-a i napravit
 
 Choose ECF executable file that represents optimization problem.
 
+[![Choose ECF executable file](https://img.youtube.com/vi/LiEPm6zqjYk/0.jpg)](https://www.youtube.com/watch?v=LiEPm6zqjYk)
 [linkname](https://www.youtube.com/watch?v=LiEPm6zqjYk&list=UUs1QqFAKnhwprebmUBD_w9Q)
 
 
 
 Configuration file contains vital information for the ECF engine. It describes algorithms and genotypes with associated parameters which will be used for evolutionary computation. With ECF Lab it is easy to read, update and save configuration files.
 
-[linkname](https://www.youtube.com/watch?v=nK2oaa_m8aY&index=2&list=UUs1QqFAKnhwprebmUBD_w9Q)
+[![Manipulate configuration file](https://img.youtube.com/vi/nK2oaa_m8aY/0.jpg)](https://www.youtube.com/watch?v=nK2oaa_m8aY)
 
 
 
 Run multiple experiments parallel and view results in a interactive environment.
 
-[linkname](https://www.youtube.com/watch?v=kTcIjLp88yE&list=UUs1QqFAKnhwprebmUBD_w9Q)
+[![Run experiments](https://img.youtube.com/vi/kTcIjLp88yE/0.jpg)](https://www.youtube.com/watch?v=kTcIjLp88yE)
