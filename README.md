@@ -21,3 +21,6 @@ Configuration file contains vital information for the ECF engine. It describes a
 Run multiple experiments parallel and view results in a interactive environment. (CLICK TO SEE VIDEO)
 
 [![Run experiments](https://img.youtube.com/vi/kTcIjLp88yE/0.jpg)](https://www.youtube.com/watch?v=kTcIjLp88yE)
+
+
+More info: http://gp.zemris.fer.hr/ecf/
