@@ -23,4 +23,4 @@ Run multiple experiments parallel and view results in a interactive environment.
 [![Run experiments](https://img.youtube.com/vi/kTcIjLp88yE/0.jpg)](https://www.youtube.com/watch?v=kTcIjLp88yE)
 
 
-More info: http://gp.zemris.fer.hr/ecf/
+More info about ECF project: http://gp.zemris.fer.hr/ecf/
