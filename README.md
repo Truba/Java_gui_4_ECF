@@ -5,19 +5,18 @@ ENG: Main task of this project is to simplify the use of the ECF and to create v
 CRO: Glavin zadatak ovog projekta je pojednostaviti korištenje ECF-a i napraviti grafički prikaz rješenja dobivenih iz ECF-a. To ce biti napravljeno tako da će se napraviti grafičko korisničko sučelje u Javi koje neće implementirati ECF nego će ga pozivati i prikazivati rješenja dana ECF-om.
 
 
-Choose ECF executable file that represents optimization problem.
+Choose ECF executable file that represents optimization problem. (CLICK TO SEE VIDEO)
 
 [![Choose ECF executable file](https://img.youtube.com/vi/LiEPm6zqjYk/0.jpg)](https://www.youtube.com/watch?v=LiEPm6zqjYk)
-[linkname](https://www.youtube.com/watch?v=LiEPm6zqjYk&list=UUs1QqFAKnhwprebmUBD_w9Q)
 
 
 
-Configuration file contains vital information for the ECF engine. It describes algorithms and genotypes with associated parameters which will be used for evolutionary computation. With ECF Lab it is easy to read, update and save configuration files.
+Configuration file contains vital information for the ECF engine. It describes algorithms and genotypes with associated parameters which will be used for evolutionary computation. With ECF Lab it is easy to read, update and save configuration files. (CLICK TO SEE VIDEO)
 
 [![Manipulate configuration file](https://img.youtube.com/vi/nK2oaa_m8aY/0.jpg)](https://www.youtube.com/watch?v=nK2oaa_m8aY)
 
 
 
-Run multiple experiments parallel and view results in a interactive environment.
+Run multiple experiments parallel and view results in a interactive environment. (CLICK TO SEE VIDEO)
 
 [![Run experiments](https://img.youtube.com/vi/kTcIjLp88yE/0.jpg)](https://www.youtube.com/watch?v=kTcIjLp88yE)
