@@ -4,6 +4,7 @@ ENG: Main task of this project is to simplify the use of the ECF and to create v
 
 CRO: Glavin zadatak ovog projekta je pojednostaviti korištenje ECF-a i napraviti grafički prikaz rješenja dobivenih iz ECF-a. To ce biti napravljeno tako da će se napraviti grafičko korisničko sučelje u Javi koje neće implementirati ECF nego će ga pozivati i prikazivati rješenja dana ECF-om.
 
+-------------------------------------------------------
 
 Choose ECF executable file that represents optimization problem. (CLICK TO SEE VIDEO)
 
