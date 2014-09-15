@@ -1,10 +1,14 @@
-Java_gui_4_ECF
+ECF Lab
 ==============
-ENG: Main task of this project is to simplify the use of the ECF and to create visual representation of genotypes solutions produced by ECF. It is done in a way that graphic user interface is created in Java, and it's not implementing ECF, infect it is connecting to it's standard implementation in C++ and communicating with it.
 
-CRO: Glavin zadatak ovog projekta je pojednostaviti korištenje ECF-a i napraviti grafički prikaz rješenja dobivenih iz ECF-a. To ce biti napravljeno tako da će se napraviti grafičko korisničko sučelje u Javi koje neće implementirati ECF nego će ga pozivati i prikazivati rješenja dana ECF-om.
+This project was started at the Faculty of Electrical Engineering and Computing in Zagreb for the purpose of Software Design Project course and later for the BSc Thesis. It's main purpose is to simplify the use of the Evolutionary Computation Framework (ECF). The task was to make portable desktop application which should run ECF that is written in C++. For that purpose, we decided to use Swing as the part of the Java platform.
+Before ECF Lab, user had to manually write configuration files and run experiments from the console. Results were in form of plain text files with no graphical representation. A lot of mistakes were made during execution of the experiments, so the need for such an application was clear. ECF Lab supports parallel execution of numerous experiments and it provides nice visualisation of computed results. This app is supposed to be version independent, so when new algorithms, genotypes and parameters are added, app should work as well as before.
+
+More info about ECF project: http://gp.zemris.fer.hr/ecf/
 
 -------------------------------------------------------
+
+Video demos
 
 Choose ECF executable file that represents optimization problem. (CLICK TO SEE VIDEO)
 
@@ -22,5 +26,3 @@ Run multiple experiments parallel and view results in a interactive environment.
 
 [![Run experiments](https://img.youtube.com/vi/kTcIjLp88yE/0.jpg)](https://www.youtube.com/watch?v=kTcIjLp88yE)
 
-
-More info about ECF project: http://gp.zemris.fer.hr/ecf/
